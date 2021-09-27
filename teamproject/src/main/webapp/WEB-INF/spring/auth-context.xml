@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!--  service 객체 등록 및 mapper 객체 의존성 주입 -->
+	
+	<!-- <bean id="authService" 
+		  class="com.webproject.population.service.AuthServiceImpl">
+		<property name="authMapper" ref="authMapper" />
+	</bean> -->
+	
+	<bean id="authService" class="com.webproject.population.service.AuthServiceImpl">
+		<!-- <property name="boardDao" ref="jdbcTemplateBoardDao" /> -->
+		<property name="authMapper" ref="authMapper" />
+	</bean>
+
+	<mybatis-spring:scan base-package="com.webproject.population.mapper"/>
+
+</beans>

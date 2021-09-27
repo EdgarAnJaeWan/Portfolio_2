@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+   namespace="com.webproject.population.mapper.AuthMapper">
+
+   <!-- 여기에 SQL 문을 작성하세요 -->
+   <insert id="insertMember" parameterType="MemberVO">
+      INSERT INTO member (memberId, passwd, email)
+      VALUES (#{ memberId }, #{ passwd }, #{ email })
+   </insert>
+   
+   <select id="selectMemberIdAndPasswd" parameterType="hashmap" resultType="MemberVO">
+      SELECT memberid, email, usertype, regdate 
+      FROM member 
+      WHERE active = true AND memberid = #{ memberId } AND passwd = #{ passwd }
+   </select>
+
+</mapper>

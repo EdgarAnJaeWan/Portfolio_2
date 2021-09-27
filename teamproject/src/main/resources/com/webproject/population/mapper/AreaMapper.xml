@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  
+<mapper namespace="com.webproject.population.mapper.AreaMapper">
+
+ <!--     <select id="selectArea" resultType="areaVO">
+   	select * from team3_population limit 12
+   		 </select> -->
+    
+    <select id="selectArea" parameterType="hashmap" resultType="areaVO">
+        select * from team3_population
+        <where>
+        	<if test="sido !=null">
+        	sido = #{sido}
+        	</if>
+        	<if test="year !=null">
+        	and year = #{year}
+        	</if>
+        	<if test="month !=null">
+        	and month = #{month}
+        	</if>
+        </where>
+        
+        <!-- 
+        <choose>
+	        <when test="sido !=null">
+	        	sido = #{sido}
+	        </when>
+	        <when test="year !=null">
+	        	year = #{year}
+	        </when>
+	        <when test="month !=null">
+	        	month = #{month}
+	        </when>
+        </choose>
+        -->
+    </select>
+
+</mapper>
+
+

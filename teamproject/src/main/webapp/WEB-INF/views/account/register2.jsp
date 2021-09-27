@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Focus Admin: Widget</title>
+
+    <!-- ================= Favicon ================== -->
+    <!-- Standard -->
+    <link rel="shortcut icon" href="http://placehold.it/64.png/000/fff">
+    <!-- Retina iPad Touch Icon-->
+    <link rel="apple-touch-icon" sizes="144x144" href="http://placehold.it/144.png/000/fff">
+    <!-- Retina iPhone Touch Icon-->
+    <link rel="apple-touch-icon" sizes="114x114" href="http://placehold.it/114.png/000/fff">
+    <!-- Standard iPad Touch Icon-->
+    <link rel="apple-touch-icon" sizes="72x72" href="http://placehold.it/72.png/000/fff">
+    <!-- Standard iPhone Touch Icon-->
+    <link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
+
+    <!-- Styles -->
+    <link href="/population/resources/assets/css/lib/font-awesome.min.css" rel="stylesheet">
+    <link href="/population/resources/assets/css/lib/themify-icons.css" rel="stylesheet">
+    <link href="/population/resources/assets/css/lib/bootstrap.min.css" rel="stylesheet">
+    <link href="/population/resources/assets/css/lib/helper.css" rel="stylesheet">
+    <link href="/population/resources/assets/css/style.css" rel="stylesheet">
+</head>
+
+<body class="bg-primary">
+
+    <div class="unix-login">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="login-content">
+                        <div class="login-logo">
+                            <a><span>회원가입</span></a>
+                        </div>
+                        <div class="login-form">
+                            <h4>Register to Administration</h4>
+                            <form>
+                                <div class="form-group">
+                                    <label>User Name</label>
+                                    <input type="email" class="form-control" placeholder="User Name">
+                                </div>
+                                <div class="form-group">
+                                    <label>Email address</label>
+                                    <input type="email" class="form-control" placeholder="Email">
+                                </div>
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input type="password" class="form-control" placeholder="Password">
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+										<input type="checkbox"> Agree the terms and policy 
+									</label>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Register</button>
+                                
+                                <div class="register-link m-t-15 text-center">
+                                    <p>Already have account ? <a href="#"> Sign in</a></p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+	$(function() {
+		
+		$('#cancel').on('click', function(event) {
+			location.href = "/webproject01/home.action";
+		});
+		
+		$('#register').on('click', function(event) {
+			
+			/* 정규표현식 사용하면 더 편함, or 자바스크립트 정규표현식
+			var memberId = $('#memberId').val();
+			if (memberId.length < 6 || memberId.length > 12) {
+				alert('아이디 형식 오류 (6 ~ 12개의 영문자 또는 숫자)')
+				return;
+			}*/
+			
+			// 문자열의 형식을 분석, 검증하는 도구 -> 정규 표현식 (regular expression)
+			var re = /^[A-Za-z0-9]{6,12}$/;
+			var memberId = $('#memberId').val();
+			if ( !re.test(memberId) ) {
+				alert( '아이디 형식 오류 (6 ~ 12개의 영문자 또는 숫자)' )
+				return;
+			}
+			
+			re = /[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]$/i;
+			var email = $('#email').val();
+			if ( !re.test(email) ) {
+				alert( '이메일 형식 오류' )
+				return;
+			}
+			
+			$('#registerform').submit(); // form을 서버로 전송
+			
+		});
+	});
+	</script>
+
+</body>
+
+</html>
