@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	
@@ -29,20 +35,24 @@
 		<property name="dataSource" ref="hikariDataSource" />
 	</bean>
 	
-	<!-- SqlSessionFactoryBean.getObject() -> SqlSessionFactory 객체를 만드는 설정 3.-->
+	
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="hikariDataSource" />
 		<property name="configLocation" value="classpath:mybatis-config.xml" />
 	</bean>
 	
-	<!-- 생성자 파라미터 sqlSessionFactory를 사용해서 SqlSession을 만들고 SqlSession을 멤버로 갖는 SqlSessionTemplate 객체 생성하는 설정 -->
-	<!-- 	
 	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg ref="sqlSessionFactory" />
-	</bean>	
-	 -->
+	</bean>
+	
+	<context:component-scan base-package="com.webproject.population.dao"></context:component-scan>
+	<context:component-scan base-package="com.webproject.population.service"></context:component-scan>
+	
 	<import resource="household-context.xml" />
 	<import resource="auth-context.xml"/>
 	<import resource="board-context.xml"/>
+	
+	
+	
 		
 </beans>

@@ -18,7 +18,7 @@
                     <li><a class="sidebar-sub-toggle"><i class="ti-home"></i> 행정구역별  <span
                                 class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
-                            <li><a href="chart-flot.html"><i class="ti-layout-grid4-alt"></i> 통계표</a></li>
+                            <li><a href="/population/area.action"><i class="ti-layout-grid4-alt"></i> 통계표</a></li>
                             <li><a href="chart-morris.html"><i class="ti-panel"></i> 그래프</a></li>
                         </ul>
                     </li>            

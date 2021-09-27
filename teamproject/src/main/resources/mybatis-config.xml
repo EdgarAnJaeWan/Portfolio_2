@@ -5,23 +5,18 @@
 
 <configuration>
 
-
-	<!-- 
-	     ~Mapper.xml에서 사용할 타입이름을 미리 등록하는 설정
-	     BoardVO가 나오면 com.demoweb.vo.BoardVO로 처리하라는 의미
-	-->
 	<typeAliases>
 		<typeAlias type="com.webproject.population.vo.HouseholdVO" alias="HouseholdVO" />
 		<typeAlias type="com.webproject.population.vo.MemberVO" alias="MemberVO"/>
 		<typeAlias type="com.webproject.population.vo.BoardVO" alias="BoardVO"/>
+		<typeAlias type="com.webproject.population.vo.areaVO" alias="areaVO"/>
 	</typeAliases>
 	
 	<mappers>
 		<mapper resource="com/webproject/population/mapper/HouseholdMapper.xml"/>
 		<mapper resource="com/webproject/population/mapper/AuthMapper.xml" />
 		<mapper resource="com/webproject/population/mapper/BoardMapper.xml" />
+		<mapper resource="com/webproject/population/mapper/AreaMapper.xml" />
 	</mappers>
-
-
 	
 </configuration>

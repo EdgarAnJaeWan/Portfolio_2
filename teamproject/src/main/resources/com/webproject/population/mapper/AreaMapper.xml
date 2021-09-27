@@ -24,21 +24,14 @@
         	and month = #{month}
         	</if>
         </where>
-        
-        <!-- 
-        <choose>
-	        <when test="sido !=null">
-	        	sido = #{sido}
-	        </when>
-	        <when test="year !=null">
-	        	year = #{year}
-	        </when>
-	        <when test="month !=null">
-	        	month = #{month}
-	        </when>
-        </choose>
-        -->
     </select>
+    
+    <!-- <select id="fuck" resultType="areaVO">
+    	select sum(population_male)+sum(population_female)
+    	from team3_population
+    </select> -->
+    
+    
 
 </mapper>
 
