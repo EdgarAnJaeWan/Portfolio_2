@@ -8,11 +8,13 @@ import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.webproject.population.service.AuthService;
+import com.webproject.population.vo.BoardVO;
 import com.webproject.population.vo.MemberVO;
 
 // Login
@@ -50,6 +52,7 @@ public class AccountController {
 	public String login(String memberId, String passwd, HttpSession session) {
 		
 		MemberVO member = authService.findMemberByIdAndPasswd(memberId, passwd);
+		System.out.println(member.getMemberId() + "/" + member.getEmail());
 		
 		//Mapper 구현 및 Service에서 호출하는 구문의 구현이 완성되면 아래의 주석을 풀고 임시 코드를 제거해 주세요
 		
@@ -61,9 +64,6 @@ public class AccountController {
 			return "redirect:/account/login";
 		}
 		
-		/*
-		 * // 임시코드 return "redirect:/home";
-		 */
 	}
 	
 	@GetMapping(path = { "/logout" })
@@ -73,4 +73,22 @@ public class AccountController {
 		
 		return "redirect:/home";
 	}
+	
+	// loginuser로 회원 정보 보여주기
+	//@GetMapping(path = { "/mypage" })
+	//public String selectMemberInfo(MemberVO member) {
+	//	
+	//	return "account/mypage";
+	//}
+	
+	//@GetMapping(path = { "/mypage" })
+	//public String mypage(String memberId, String email, String userType, String regDate) {
+	//	  
+	//MemberVO mypageInfo = authService.selectMemberInfo();
+	//
+	//return "acoount/mypage";	  
+	//}
+		
+		
+	 
 }

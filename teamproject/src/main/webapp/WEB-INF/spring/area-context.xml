@@ -6,7 +6,7 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<bean id="AreaService" class="com.webproject.population.service.AreaServiceImpl">
-		<property name="AreaMapper" ref="AreaMapper" />
+		<property name="AreaMapper" ref="areaMapper" />
 	</bean>
 
 	<mybatis-spring:scan base-package="com.webproject.population.mapper"/>

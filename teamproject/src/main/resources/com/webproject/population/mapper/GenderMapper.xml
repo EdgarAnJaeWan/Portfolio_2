@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.webproject.population.mapper.GenderMapper">
+	
+	<!-- id명은 GenderDao 클래스의 method 명과 똑같이 하기 -->
+	<select id="selectGender" resultType="GenderVO" parameterType="hashmap">
+		select sido, gugun, year, month, population_male, population_female 
+		from team3_population
+		<where>
+			<if test="sido != null">sido = #{sido}</if>
+			<if test="gugun != null">and gugun = #{gugun}</if>
+			<if test="year != null">and year = #{year}</if>
+			<if test="month != null">and month = #{month}</if>
+			<if test="population_male != null">and population_male = #{population_male}</if>
+			<if test="population_female != null">and population_female = #{population_female}</if>
+		</where>
+	</select>
+</mapper>

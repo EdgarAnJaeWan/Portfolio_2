@@ -36,41 +36,42 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid" style="width:86%; float:right">
 
-               <!-- Page Heading -->
-               <h1 class="h3 mb-2 text-gray-800">게시판</h1>
-               <br>
+					<!-- Page Heading -->
+					<h1 class="h3 mb-2 text-gray-800">게시판</h1>
+					<br>
 
-               <div class="card shadow mb-4">
-                  <div class="card-header py-3">
-                     <span class="m-0 font-weight-bold text-primary">글 수정</span>
-                  </div>
-                  <div class="card-body">
-                     <form id="update-form" role="form" action="update" method="post">
-                        <input type="hidden" name="boardNo" value="${ board.boardNo }">
-                        <!-- <input type="hidden" name="pageNo" value="${ param.pageNo }"> -->
-                        
-                        <div class="form-group">
-                           <label>제목</label> 
-                           <input class="form-control" id='title' name='title' value='${ board.title }'>
-                        </div>
+					<div class="card shadow mb-4">
+						<div class="card-header py-3">
+							<span class="m-0 font-weight-bold text-primary">글 수정</span>
+						</div>
+						<div class="card-body">
+							<form id="update-form" role="form" action="update" method="post">
+								<input type="hidden" name="boardNo" value="${ board.boardNo }">
+								<!-- <input type="hidden" name="pageNo" value="${ param.pageNo }"> -->
+								
+								<div class="form-group">
+									<label>제목</label> 
+									<input class="form-control" id='title' name='title' value='${ board.title }'>
+								</div>
 
-                        <div class="form-group">
-                           <label>내용</label>
-                           <textarea class="form-control" rows="3" id='content' name='content'>${ board.content }</textarea>
-                        </div>
+								<div class="form-group">
+									<label>내용</label>
+									<textarea class="form-control" rows="3" id='content' name='content'>${ board.content }</textarea>
+								</div>
 
-                        <div class="form-group">
-                           <label>작성자</label> 
-                           <input class="form-control" id='writer' name='writer' value='${ board.writer }'>
-                        </div>
+								<div class="form-group">
+									<label>작성자</label> 
+									<input class="form-control" id='writer' name='writer' value='${ board.writer }'>
+									<%-- <a class="form-control" id='writer' name='writer' value='${ board.writer }'> ${loginuser.memberId }</a> --%>
+								</div>
 
-                        <button id="update-button" type="button" class="btn btn-success">수정</button>
-                        <button type="reset" class="btn btn-success">다시쓰기</button>
-                        <button id="cancel-button" type="button" class="btn btn-success">취소</button>
-                        <button id="tolist-button" type="button" class="btn btn-success">목록</button>
-                     </form>
-                  </div>
-               </div>
+								<button id="update-button" type="button" class="btn btn-success">수정</button>
+								<button type="reset" class="btn btn-success">다시쓰기</button>
+								<button id="cancel-button" type="button" class="btn btn-success">취소</button>
+								<button id="tolist-button" type="button" class="btn btn-success">목록</button>
+							</form>
+						</div>
+					</div>
 
                 </div>
                 <!-- /.container-fluid -->
@@ -115,20 +116,20 @@
 
     <script type="text/javascript">
     $(function() {
-       $('#update-button').on('click', function(event) {
-          
-          // 필요한 경우 입력 데이터 유효성 검사 수행
-          
-          // <form id="update-form" ...> ... </form> 요소를 서버로 전송
-          $('#update-form').submit();
-          
-       });
-      $('#cancel-button').on('click', function(event) {
-          location.href = "detail?boardNo=${ board.boardNo }";
-      });
-      $('#tolist-button').on('click', function(event) {
-         location.href = "list";
-      });
+    	$('#update-button').on('click', function(event) {
+    		
+    		// 필요한 경우 입력 데이터 유효성 검사 수행
+    		
+    		// <form id="update-form" ...> ... </form> 요소를 서버로 전송
+    		$('#update-form').submit();
+    		
+    	});
+		$('#cancel-button').on('click', function(event) {
+		    location.href = "detail?boardNo=${ board.boardNo }";
+		});
+		$('#tolist-button').on('click', function(event) {
+			location.href = "list";
+		});
     });
     </script>
 

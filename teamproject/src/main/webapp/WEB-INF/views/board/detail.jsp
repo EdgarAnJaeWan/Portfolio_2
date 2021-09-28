@@ -37,59 +37,59 @@
                 <div class="container-fluid" style="width:86%; float:right">
 
                    <!-- Page Heading -->
-               <h1 class="h3 mb-2 text-gray-800">게시판</h1>
-               <br>
+					<h1 class="h3 mb-2 text-gray-800">게시판</h1>
+					<br>
 
-               <div class="card shadow mb-4">
-                  <div class="card-header py-3">
-                     <span class="m-0 font-weight-bold text-primary">글 상세 보기</span>
-                  </div>
-                  <div class="card-body">
+					<div class="card shadow mb-4">
+						<div class="card-header py-3">
+							<span class="m-0 font-weight-bold text-primary">글 상세 보기</span>
+						</div>
+						<div class="card-body">
 
-                     <div class="form-group">
-                        <label>글번호</label> 
-                        <input class="form-control" id='boardNo' name='boardNo' value="${ board.boardNo }">
-                     </div>
+							<div class="form-group">
+								<label>글번호</label> 
+								<input class="form-control" id='boardNo' name='boardNo' value="${ board.boardNo }">
+							</div>
 
-                     <div class="form-group">
-                        <label>제목</label> 
-                        <input class="form-control" id='title' name='title' value="${ board.title }">
-                     </div>
+							<div class="form-group">
+								<label>제목</label> 
+								<input class="form-control" id='title' name='title' value="${ board.title }">
+							</div>
 
-                     <div class="form-group">
-                        <label>내용</label>
-                        <textarea class="form-control" rows="`3" 
-                           id='content' name='content'>${ board.content }</textarea>
-                     </div>
+							<div class="form-group">
+								<label>내용</label>
+								<textarea class="form-control" rows="`3" 
+									id='content' name='content'>${ board.content }</textarea>
+							</div>
 
-                     <div class="form-group">
-                        <label>작성자</label> 
-                        <input class="form-control" id='writer'   name='writer' value="${ board.writer }">
-                     </div>
+							<div class="form-group">
+								<label>작성자</label> 
+								<input class="form-control" id='writer'	name='writer' value="${ board.writer }">
+							</div>
 
-                     <div class="form-group">
-                        <label>작성일자</label> 
-                        <fmt:formatDate var="formattedRegDate" value="${ board.regDate }" pattern="yyyy-MM-dd HH:mm:ss" />
-                        <input class="form-control" id='regDate' value="${ formattedRegDate }">
-                     </div>
+							<div class="form-group">
+								<label>작성일자</label> 
+								<fmt:formatDate var="formattedRegDate" value="${ board.regDate }" pattern="yyyy-MM-dd HH:mm:ss" />
+								<input class="form-control" id='regDate' value="${ formattedRegDate }">
+							</div>
 
-                     <div class="form-group">
-                        <label>조회수</label> 
-                        <input class="form-control" id='readCount' value="${ board.readCount }">
-                     </div>
+							<div class="form-group">
+								<label>조회수</label> 
+								<input class="form-control" id='readCount' value="${ board.readCount }">
+							</div>
 
-                     <a id="edit-button" type="button" class="btn btn-success" style="color:white">수정</a>
-                     <a id="delete-button" type="button" class="btn btn-success" style="color:white">삭제</a>
-                     <button id="tolist-button" type="button" class="btn btn-success">목록</button>
+							<a id="edit-button" type="button" class="btn btn-success" style="color:white">수정</a>
+							<a id="delete-button" type="button" class="btn btn-success" style="color:white">삭제</a>
+							<button id="tolist-button" type="button" class="btn btn-success">목록</button>
 
-                  </div>
-               </div>
+						</div>
+					</div>
 
-               <br>
-               <br>
-               <br>
-               <br>
-               <br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
 
                 </div>
                 <!-- /.container-fluid -->
@@ -132,28 +132,28 @@
     
     <jsp:include page="/WEB-INF/views/modules/common-js.jsp" />
 
-   <script type="text/javascript">
-   $(function() {
-      $(".form-group input, .form-group textarea").attr('readonly', true);
-      
-      $('#edit-button').on('click', function(event){
-         location.href = "edit?boardNo=${ board.boardNo }";
-      });
-      
-      $('#delete-button').on('click', function(event){
-         var yes = confirm('${ board.boardNo }번 게시글을 삭제하겠습니까?');
-         if (yes) {
-         location.href = "delete?boardNo=${ board.boardNo }";
-         }
-      });
-      
-      $('#tolist-button').on('click', function(event){
-         location.href = "list";
-      });
-      
-      
-   });
-   </script>
+	<script type="text/javascript">
+	$(function() {
+		$(".form-group input, .form-group textarea").attr('readonly', true);
+		
+		$('#edit-button').on('click', function(event){
+			location.href = "edit?boardNo=${ board.boardNo }";
+		});
+		
+		$('#delete-button').on('click', function(event){
+			var yes = confirm('${ board.boardNo }번 게시글을 삭제하겠습니까?');
+			if (yes) {
+			location.href = "delete?boardNo=${ board.boardNo }";
+			}
+		});
+		
+		$('#tolist-button').on('click', function(event){
+			location.href = "list";
+		});
+		
+		
+	});
+	</script>
 
 </body>
 

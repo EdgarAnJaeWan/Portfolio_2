@@ -298,7 +298,16 @@
 										<p class="pHeader">조회기간</p>
 									</div>
 								</dt>
+								<dd class="td_period">
+									<div>
+										<input class="i_radio" type="radio" value="month" id="searchMonth" name="searchYearMonth" checked>
+											<label for="period_select1">월간</label>
+										<input class="i_radio" type="radio" value="year" id="searchYear" name="searchYearMonth">
+											<label for="period_select2">연간</label>
+									</div>
+								</dd>
 								<div class="row">
+
 									<dd class="td1_2">
 										<select class="form-control" name="searchYearStart"
 											id="searchYearStart">
@@ -336,6 +345,59 @@
 									<dd class="td1_2">
 										<select class="form-control" name="searchMonthStart"
 											id="searchMonthStart">
+											<option value="12">12월</option>
+											<option value="11">11월</option>
+											<option value="10">10월</option>
+											<option value="09">09월</option>
+											<option value="08" selected="">08월</option>
+											<option value="07">07월</option>
+											<option value="06">06월</option>
+											<option value="05">05월</option>
+											<option value="04">04월</option>
+											<option value="03">03월</option>
+											<option value="02">02월</option>
+											<option value="01">01월</option>
+										</select>
+									</dd>
+									<span class="dash" style="font-size: large">&nbsp; ~
+										&nbsp;</span>
+									<dd class="td1_2">
+										<select class="form-control" name="searchYearStop"
+											id="searchYearStop">
+
+											<option value="2021" selected="">2021년</option>
+
+											<option value="2020">2020년</option>
+
+											<option value="2019">2019년</option>
+
+											<option value="2018">2018년</option>
+
+											<option value="2017">2017년</option>
+
+											<option value="2016">2016년</option>
+
+											<option value="2015">2015년</option>
+
+											<option value="2014">2014년</option>
+
+											<option value="2013">2013년</option>
+
+											<option value="2012">2012년</option>
+
+											<option value="2011">2011년</option>
+
+											<option value="2010">2010년</option>
+
+											<option value="2009">2009년</option>
+
+											<option value="2008">2008년</option>
+
+										</select>
+									</dd>
+									<dd class="td1_2">
+										<select class="form-control" name="searchMonthStop"
+											id="searchMonthStop">
 											<option value="12">12월</option>
 											<option value="11">11월</option>
 											<option value="10">10월</option>
@@ -747,4 +809,19 @@
 				<!-- //table -->
 			</div>
 			<!-- /# column -->
+			
+		</div>
+		
+		</div>
+		
+		<jsp:include page="/WEB-INF/views/modules/common-js.jsp" />
+		<script type="text/javascript">
+		$(function() {
+			$("#searchMonth, #searchYear").on('click', function(event) {
+				$('#searchMonthStart, #searchMonthStop').attr('disabled', !$('#searchMonth').prop('checked'));
+			});
+		});
+		</script>
+		
+		</body>
 </html>
