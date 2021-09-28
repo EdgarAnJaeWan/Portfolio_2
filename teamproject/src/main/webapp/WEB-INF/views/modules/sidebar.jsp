@@ -56,21 +56,7 @@
                    	   			<li><a href="/population/account/logout.action"><i class="ti-close"></i>로그아웃</a></li>
                    	   		</c:otherwise>
                      		</c:choose>
-=======
-	
-	
-					<c:choose>
-						<c:when test="${ empty loginuser }">
-							<li><a href="/population/account/login.action"><i class="ti-user"></i>로그인</a></li>
-							<li><a href="/population/account/register"><i
-									class="ti-user"></i>회원가입</a></li>
-						</c:when>
-						<c:otherwise>
-							<li><a href="/population/account/logout.action"><i class="ti-user"></i>로그아웃</a></li>
-						</c:otherwise>
-					</c:choose>
-	
-				  <li><a href="../documentation/index.html"><i class="ti-file"></i> 관리자 페이지</a></li>
+
                   <!-- <li><a href="/population/account/logout.action">로그아웃</a></li> -->
 >>>>>>> branch 'main' of https://github.com/shared-repository/project-population.git
                 </ul>
