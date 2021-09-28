@@ -44,7 +44,7 @@
                     <li><a href="/population/board/list"><i class="ti-view-list-alt"></i> 게시판 </a></li>                                       
                     
                     <li class="label">메뉴얼</li>
-
+	
 	
 					<c:choose>
 						<c:when test="${ empty loginuser }">
