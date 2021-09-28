@@ -68,75 +68,10 @@
 
 			<div class="card">
 				<div class="card-title">
-					<h3>행정구역별 데이터 조회</h3>
+					<h3>행정구역별 그래프</h3>
 				</div>
-				<div class="card-body">
-					<div class="table-responsive">
-						<table class="table">
-							<!-- <thead>
-								<tr>
-									<th>시도</th>
-									<th>년도</th>
-									<th>월</th>
-									<th>총인구수<th>
-									
-								</tr>
-
-							</thead> -->
-							<tbody>
-
-								<%-- <tr>
-									<th rowspan="1" colspan="1">
-										<select id="sido" class="form-control">
-											<option value="11" ${ sido == "11" ? "selected" : "" }>서울특별시</option>
-											<option value="26" ${ sido == "26" ? "selected" : "" }>부산광역시</option>
-											<option value="27" ${ sido == "27" ? "selected" : "" }>대구광역시</option>
-											<option value="28" ${ sido == "28" ? "selected" : "" }>인천광역시</option>
-											<option value="29" ${ sido == "29" ? "selected" : "" }>광주광역시</option>
-											<option value="30" ${ sido == "30" ? "selected" : "" }>대전광역시</option>
-											<option value="31" ${ sido == "31" ? "selected" : "" }>울산광역시</option>
-											<option value="36" ${ sido == "36" ? "selected" : "" }>세종특별자치시</option>
-											<option value="41" ${ sido == "41" ? "selected" : "" }>경기도</option>
-											<option value="42" ${ sido == "42" ? "selected" : "" }>강원도</option>
-											<option value="43" ${ sido == "43" ? "selected" : "" }>충청북도</option>
-											<option value="44" ${ sido == "44" ? "selected" : "" }>충청남도</option>
-											<option value="45" ${ sido == "45" ? "selected" : "" }>전라북도</option>
-											<option value="46" ${ sido == "46" ? "selected" : "" }>전라남도</option>
-											<option value="47" ${ sido == "47" ? "selected" : "" }>경상북도</option>
-											<option value="48" ${ sido == "48" ? "selected" : "" }>경상남도</option>
-											<option value="50" ${ sido == "50" ? "selected" : "" }>제주특별자치도</option>
-										</select>
-									</th>
-									
-									<th rowspan="1" colspan="1">
-										<select id="year"
-											class="form-control">
-	
-												<c:forEach var="i" begin="2012" end="2021">
-													<option value="${ i }"
-														${ i eq requestScope.year ? "selected" : "" }>${ i }</option>
-												</c:forEach>
-	
-										</select>
-									</th>
-
-									<th rowspan="1" colspan="1">
-										<select id="month"
-											class="form-control">
-												<c:forEach var="i" begin="1" end="12">
-													<option value="${ i }"
-														${ i eq requestScope.month ? "selected" : "" }>${ i }</option>
-												</c:forEach>
-										</select>
-									</th>
-								</tr> --%>
-
-<div class="card">
-
-				<div class="card-title pr"></div>
 				
-
-					<div class="tbl_form_box">
+				<div class="tbl_form_box">
 						<div class="dl_group">
 							<dl>
 								<dt>
@@ -175,13 +110,12 @@
 						</div>
 
 					</div>
-
-							<div class="dl_group">
+					
+					<div class="dl_group">
 								<input type="hidden">
 								<dl>
 									<dt>
-										<label>연월조회</label> <br>
-										<label>(2011년부터 2021년 8월까지 조회가능합니다.)</label>
+										<p class="pHeader">연월조회</p>
 										
 									</dt>
 								</dl>
@@ -209,44 +143,90 @@
 										</c:forEach>
 									</select>
 								</dd>
-								
-																
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<div>
+								<button>조회</button>
 								</div>
 								
+								</div>
 							</div>
-						</dl>
-					</div>
-				</fieldset>
-			</div>
-			
-							<div>
-								<tr>
-									<th>시도</th>
-									<th>년도</th>
-									<th>월</th>
-									<th style="text-align: right;">총인구수<th>
-									
-								</tr>
-							</div>
+							
+				
+					<canvas id="areagraph" width="800" height="400"></canvas>
+						<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+						<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+						<script type="text/javascript">
+            var context = document
+                .getElementById('areagraph')
+                .getContext('2d');
 
-								<c:forEach items="${areaList}" var="area">
-									<tr>
-										<td>${area.region}</td>
-										<td>${area.year}년</td>
-										<td>${area.month}월</td>
-										<td>${area.population_male+area.population_female}명</td>
-									</tr>
-								</c:forEach>
-
-							</tbody>
-						</table>
-					</div>
+            
+            
+            var sido = ['서울특별시', '부산광역시', '대구광역시', '인천광역시', '광주광역시', '대전광역시', '울산광역시', '세종특별자치시', '경기도', '강원도', '충청북도', '충청남도', '전라북도', '전라남도', '경상북도', '경상남도', '제주특별자치도'];
+            
+            var myChart = new Chart(context, {
+                type: 'bar', // 차트의 형태
+                data: { // 차트에 들어갈 데이터
+                    labels: sido,
+                    datasets: [
+                        { //데이터
+                            label: '전국', //차트 제목
+                            
+                            data: [
+                            	977, 343, 246, 292, 150, 153, 116, 28, 1341, 156, 158, 206, 187, 190, 270, 344, 69
+                            	
+                            	//x축 label에 대응되는 데이터 값
+                            ],
+                            backgroundColor: [
+                                //색상
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(129, 215, 66, 0.2)',
+                                'rgba(130, 36, 227, 0.2)',
+                                
+                            ],
+                            borderColor: [
+                                //경계선 색상
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 1 //경계선 굵기
+                        }
+                    ]
+                },
+                options: {
+                		responsive: true,
+                		
+                    scales: {
+                        yAxes: [
+                            {
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }
+                        ]
+                    }
+                }
+            });
+        </script>
+					
+					
+						
+						
+					
 				</div>
 			</div>
 
 			
 		</div>
-	</div>
+	
 
 	<!-- jquery vendor -->
 	<script src="/population/resources/assets/js/lib/jquery.min.js"></script>
@@ -290,50 +270,7 @@
 	
 	<script src="/population/resources/assets/js/dashboard2.js"></script>
 
-	<script type="text/javascript">
-	$(function(){
-		$('#search').on('click', function(event) {
-			
-			
-		});
-
-		$('#sido').on('change', function(event) {
-			/* var sidoCode = $(this).val();
-			var sidoName = $(this).find("option:selected").text();
-			
-			location.href = "area.action?sido=" + sidoCode; */
-
-			doRequest();
-		});
-		
-		$('#year').on('change', function(event) {
-			/* var yearCode = $(this).val();
-			var yearName = $(this).find("option:selected").text();
-			
-			location.href = "area.action?year=" + yearCode;
-			*/
-
-			doRequest();
-		});
-
-		$('#month').on('change', function(event) {
-			/* var monthCode = $(this).val();
-			var monthName = $(this).find("option:selected").text();
-			
-			location.href = "area.action?month=" + monthCode; */
-			
-			doRequest();
-		});
-		
-		function doRequest() {
-			var sidoCode = $('#sido').val();
-			var yearCode = $('#year').val();
-			var monthCode = $('#month').val();
-			
-			location.href = "area.action?month=" + monthCode + "&year=" + yearCode + "&sido=" + sidoCode;			
-		}
-	});
-	</script>	
+	
 	
 	
 </body>

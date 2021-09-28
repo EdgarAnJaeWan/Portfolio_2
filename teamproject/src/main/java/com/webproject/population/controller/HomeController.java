@@ -16,12 +16,12 @@ public class HomeController {
       return "home";
    }
    
-   @GetMapping(path = { "/logout.action" })
-   public String logout(HttpSession session) {
-      
-      session.removeAttribute("loginuser");
-      
-      return "redirect:/home.action"; 
-   }
+//   @GetMapping(path = { "/logout.action" })
+//   public String logout(HttpSession session) {
+//      
+//      session.removeAttribute("loginuser");
+//      
+//      return "redirect:/home.action"; 
+//   }
    
 }
