@@ -2,7 +2,7 @@
 <html lang="ko">
 
 <head>
-   <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+	<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,7 +15,7 @@
 
 </head>
 
-   <jsp:include page="/WEB-INF/views/modules/common-css1.jsp" />
+	<jsp:include page="/WEB-INF/views/modules/common-css1.jsp" />
 
 <body id="page-top">
 
@@ -46,21 +46,21 @@
                                 </div>
                                 <div class="card-body">
                                     <form id="board-write-form" action="write" method="post">
-                                       <div class="form-group">
-                                          <label>제목</label>
-                                          <input type="text" class="form-control" name="title">
-                                       </div>
-                                       <div class="form-group">
-                                          <label>작성자</label>
-                                          <input type="text" class="form-control" name="writer">
-                                       </div>
-                                       <div class="form-group">
-                                          <label>내용</label>
-                                          <textarea class="form-control" name="content" rows="5"></textarea>
-                                       </div>
-                                       <button id="write-button" class="btn btn-primary btn-sm">쓰기</button>
-                                       <button id="tolist-button" class="btn btn-primary btn-sm">목록</button>
-                                       
+                                    	<div class="form-group">
+                                    		<label>제목</label>
+                                    		<input type="text" class="form-control" name="title">
+                                    	</div>
+                                    	<div class="form-group">
+                                    		<label>작성자</label>
+                                    		<input type="text" class="form-control" name="writer" value="${ loginuser.memberId}">
+                                    	</div>
+                                    	<div class="form-group">
+                                    		<label>내용</label>
+                                    		<textarea class="form-control" name="content" rows="5"></textarea>
+                                    	</div>
+                                    	<button id="write-button" class="btn btn-primary btn-sm">쓰기</button>
+                                    	<button id="tolist-button" class="btn btn-primary btn-sm">목록</button>
+                                    	
                                     </form>
                                 </div>
 
@@ -105,28 +105,28 @@
     
     <jsp:include page="/WEB-INF/views/modules/common-js.jsp" />
 
-     <script type="text/javascript">
-     $(function() { // jQuery의 main 함수 역할 ( 시작점 )
-        $('#write-button').on('click', function(event) {
-           event.prventDefault();    // 이벤트를 발생시킨 객체의 기본 동장 ( 다른페이지로 이동 등 )
-           event.stopPropagation(); // 상위 객체로 이벤트 전달 차단
-           
-           // 입력 데이터의 유효성 검사 등 처리
-           
-           $('#board-wirte-form').submit(); // form을 서버로 전송
-           
-        });
-     
-          $('#tolist-button').on('click', function(event) {
-             event.prventDefault();    // 이벤트를 발생시킨 객체의 기본 동장 ( 다른페이지로 이동 등 )
-             event.stopPropagation(); // 상위 객체로 이벤트 전달 차단
-                
-             location.href = "list";
-                
-          });
-          
-     });
-     </script>
+  	<script type="text/javascript">
+  	$(function() { // jQuery의 main 함수 역할 ( 시작점 )
+  		$('#write-button').on('click', function(event) {
+  			event.prventDefault();	 // 이벤트를 발생시킨 객체의 기본 동장 ( 다른페이지로 이동 등 )
+  			event.stopPropagation(); // 상위 객체로 이벤트 전달 차단
+  			
+  			// 입력 데이터의 유효성 검사 등 처리
+  			
+  			$('#board-wirte-form').submit(); // form을 서버로 전송
+  			
+  		});
+  	
+  	  	$('#tolist-button').on('click', function(event) {
+  	  		event.prventDefault();	 // 이벤트를 발생시킨 객체의 기본 동장 ( 다른페이지로 이동 등 )
+  	  		event.stopPropagation(); // 상위 객체로 이벤트 전달 차단
+  	  			
+  	  		location.href = "list";
+  	  			
+  	  	});
+  	  	
+  	});
+  	</script>
 
 </body>
 

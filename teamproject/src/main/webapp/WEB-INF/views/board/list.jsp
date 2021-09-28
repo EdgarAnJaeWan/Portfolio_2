@@ -38,7 +38,7 @@
     <jsp:include page="/WEB-INF/views/modules/sidebar.jsp" />
     <!-- end of sidebar -->
 
-   <!-- topbar -->
+	<!-- topbar -->
     <jsp:include page="/WEB-INF/views/modules/topbar.jsp" />
     <!-- end of topbar -->
 
@@ -75,6 +75,15 @@
                          <div class="card-header py-3">
                              <span class="m-0 font-weight-bold text-primary">글 목록</span>
                              <a href="write" class="btn btn-primary btn-sm" style="float:right">글 쓰기</a>
+                             <%-- interceptor 미적용 구문
+                             <c:choose>
+			            <c:when test = "${ empty loginuser }">
+			               <a href="/population/account/login.action" class="btn btn-primary btn-sm" style="float:right">글 쓰기</a>
+			            </c:when>
+			            <c:otherwise>
+			                <a href="write" class="btn btn-primary btn-sm" style="float:right">글 쓰기</a>
+			            </c:otherwise>
+			            </c:choose> --%>
                              <div style="clear:both" />
                          </div>
                                 <div class="card-body">
@@ -91,24 +100,24 @@
                                             </thead>
                                             <tbody>
                                                 <c:forEach var="board" items="${ boards }">
-                                              <tr>
-                                                  <td>${ board.boardNo }</td>
-                                                  <td>
-                                                     <c:choose>
-                                                        <c:when test="${ not board.deleted }" >
-                                                        <a href="detail?boardNo=${ board.boardNo }">${ board.title }</a>
-                                                        </c:when>
-                                                        <c:otherwise>
-                                                        <span style="color:lightgray">${ board.title } [삭제된 글]</span>
-                                                        </c:otherwise>
-                                                     </c:choose>
-                                                     
-                                                  </td>
-                                                  <td>${ board.writer }</td>
-                                                  <td>${ board.regDate }</td>
-                                                  <td>${ board.readCount }</td>
-                                              </tr>
-                                             </c:forEach>
+		                                        <tr>
+		                                            <td>${ board.boardNo }</td>
+		                                            <td>
+		                                            	<c:choose>
+		                                            		<c:when test="${ not board.deleted }" >
+		                                            		<a href="detail?boardNo=${ board.boardNo }">${ board.title }</a>
+		                                            		</c:when>
+		                                            		<c:otherwise>
+		                                            		<span style="color:lightgray">${ board.title } [삭제된 글]</span>
+		                                            		</c:otherwise>
+		                                            	</c:choose>
+		                                            	
+		                                            </td>
+		                                            <td>${ board.writer }</td>
+		                                            <td>${ board.regDate }</td>
+		                                            <td>${ board.readCount }</td>
+		                                        </tr>
+                                    			</c:forEach>
                                     </tbody>
                                 </table>
                              </div>
@@ -122,7 +131,7 @@
             </div>
         </div>
 
-      <a class="scroll-to-top rounded" href="#page-top">
+		<a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
 
