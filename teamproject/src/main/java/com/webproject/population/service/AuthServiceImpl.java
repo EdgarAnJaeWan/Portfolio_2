@@ -19,7 +19,7 @@ public class AuthServiceImpl implements AuthService {
    public void registerMember(MemberVO member) {
       
       /*
-       * // //passwd 암호화 (회원가입시) // String hashedPasswd =
+       * // //passwd �븫�샇�솕 (�쉶�썝媛��엯�떆) // String hashedPasswd =
        * Util.getHashedString(member.getPasswd(), "SHA-256"); //
        * member.setPasswd(hashedPasswd);
        */
@@ -36,7 +36,7 @@ public class AuthServiceImpl implements AuthService {
       params.put("passwd", passwd);
       
       MemberVO member = authMapper.selectMemberIdAndPasswd(params);
-      //member = authMapper.아이디와패스워드로사용자를조회하는메서드(memberId, passwd); --> 이 메서드를 만들고 호출해야 합니다.
+      //member = authMapper.�븘�씠�뵒���뙣�뒪�썙�뱶濡쒖궗�슜�옄瑜쇱“�쉶�븯�뒗硫붿꽌�뱶(memberId, passwd); --> �씠 硫붿꽌�뱶瑜� 留뚮뱾怨� �샇異쒗빐�빞 �빀�땲�떎.
       
       return member;
    }
