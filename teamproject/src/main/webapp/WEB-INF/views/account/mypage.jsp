@@ -73,7 +73,7 @@
                                             </thead>
                                             <tbody>
                                             <br>
-                                            	<tr>
+                                            	<!-- <tr>
 		                                            	<td>아이디(ID)</td>
 		                                            	<td>${ memberInfo.memberId }</td>
 		                                            </tr>
@@ -88,8 +88,8 @@
 		                                            <tr>
 		                                            	<td>회원 등록일</td>
 		                                            	<td>${ memberInfo.regDate }</td>
-		                                            </tr>
-                                                 <!-- loginuser 정보를 활용하여 마이페이지 정보 보여주기
+		                                            </tr>  -->
+                                                 <!-- loginuser 정보를 활용하여 마이페이지 정보 보여주기 --> 
 		                                            <tr>
 		                                            	<td>아이디(ID)</td>
 		                                            	<td>${ loginuser.memberId }</td>
@@ -105,7 +105,7 @@
 		                                            <tr>
 		                                            	<td>회원 등록일</td>
 		                                            	<td>${ loginuser.regDate }</td>
-		                                            </tr> --> 
+		                                            </tr>
 		                                        
                                     </tbody>
                                 </table>

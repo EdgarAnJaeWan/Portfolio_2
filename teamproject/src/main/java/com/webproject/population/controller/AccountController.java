@@ -74,12 +74,12 @@ public class AccountController {
 		return "redirect:/home";
 	}
 	
-	// loginuser로 회원 정보 보여주기
-	//@GetMapping(path = { "/mypage" })
-	//public String selectMemberInfo(MemberVO member) {
-	//	
-	//	return "account/mypage";
-	//}
+	//loginuser로 회원 정보 보여주기
+	@GetMapping(path = { "/mypage" })
+	public String selectMemberInfo(MemberVO member) {
+		
+		return "account/mypage";
+	}
 	
 	//@GetMapping(path = { "/mypage" })
 	//public String mypage(String memberId, String email, String userType, String regDate) {
