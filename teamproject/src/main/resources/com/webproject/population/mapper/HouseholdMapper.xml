@@ -7,7 +7,7 @@
 <mapper namespace="com.webproject.population.mapper.HouseholdMapper">
 
 	<select id="selectAll" resultType="HouseholdVO">
-	SELECT SIDO, GUGUN, YEAR, MONTH FROM TEAM3_POPULATION;	
+	SELECT SIDO, GUGUN, YEAR, MONTH, HOUSEHOLD FROM TEAM3_POPULATION;	
 	</select>
 
 </mapper>
