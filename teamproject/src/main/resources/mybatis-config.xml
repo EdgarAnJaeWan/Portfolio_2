@@ -10,6 +10,7 @@
 		<typeAlias type="com.webproject.population.vo.MemberVO" alias="MemberVO"/>
 		<typeAlias type="com.webproject.population.vo.BoardVO" alias="BoardVO"/>
 		<typeAlias type="com.webproject.population.vo.areaVO" alias="areaVO"/>
+		<typeAlias type="com.webproject.population.vo.GenderVO" alias="GenderVO"/>
 	</typeAliases>
 	
 	<mappers>
@@ -17,6 +18,7 @@
 		<mapper resource="com/webproject/population/mapper/AuthMapper.xml" />
 		<mapper resource="com/webproject/population/mapper/BoardMapper.xml" />
 		<mapper resource="com/webproject/population/mapper/AreaMapper.xml" />
+		<mapper resource="com/webproject/population/mapper/GenderMapper.xml" />
 	</mappers>
 	
 </configuration>

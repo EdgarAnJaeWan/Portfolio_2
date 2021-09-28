@@ -300,7 +300,7 @@
 								</dt>
 								<dd class="td_period">
 									<div>
-										<input class="i_radio" type="radio" value="month" id="searchMonth" name="searchYearMonth" checked="">
+										<input class="i_radio" type="radio" value="month" id="searchMonth" name="searchYearMonth" checked>
 											<label for="period_select1">월간</label>
 										<input class="i_radio" type="radio" value="year" id="searchYear" name="searchYearMonth">
 											<label for="period_select2">연간</label>
@@ -362,8 +362,8 @@
 									<span class="dash" style="font-size: large">&nbsp; ~
 										&nbsp;</span>
 									<dd class="td1_2">
-										<select class="form-control" name="searchYearStart"
-											id="searchYearStart">
+										<select class="form-control" name="searchYearStop"
+											id="searchYearStop">
 
 											<option value="2021" selected="">2021년</option>
 
@@ -396,8 +396,8 @@
 										</select>
 									</dd>
 									<dd class="td1_2">
-										<select class="form-control" name="searchMonthStart"
-											id="searchMonthStart">
+										<select class="form-control" name="searchMonthStop"
+											id="searchMonthStop">
 											<option value="12">12월</option>
 											<option value="11">11월</option>
 											<option value="10">10월</option>
@@ -809,4 +809,19 @@
 				<!-- //table -->
 			</div>
 			<!-- /# column -->
+			
+		</div>
+		
+		</div>
+		
+		<jsp:include page="/WEB-INF/views/modules/common-js.jsp" />
+		<script type="text/javascript">
+		$(function() {
+			$("#searchMonth, #searchYear").on('click', function(event) {
+				$('#searchMonthStart, #searchMonthStop').attr('disabled', !$('#searchMonth').prop('checked'));
+			});
+		});
+		</script>
+		
+		</body>
 </html>

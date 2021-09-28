@@ -52,7 +52,6 @@
 	<import resource="auth-context.xml"/>
 	<import resource="board-context.xml"/>
 	
+
 	
-	
-		
 </beans>
