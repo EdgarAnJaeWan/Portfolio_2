@@ -19,10 +19,10 @@
 		WHERE active = true AND memberid = #{ memberId } AND passwd = #{ passwd }
 	</select>
 	
-	<!-- <select id="selectMemberInfo" parameterType="String" resultType="MemberVO">
+	<select id="selectMemberInfo" parameterType="String" resultType="MemberVO">
 		SELECT memberid, email, usertype, regdate 
 		FROM member 
 		WHERE active = true AND memberid = #{ memberId }
-	</select>  -->
+	</select>
  
 </mapper>

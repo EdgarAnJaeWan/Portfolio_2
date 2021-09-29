@@ -75,19 +75,30 @@ public class AccountController {
 	}
 	
 	//loginuser로 회원 정보 보여주기
-	@GetMapping(path = { "/mypage" })
-	public String selectMemberInfo(MemberVO member) {
-		
-		return "account/mypage";
-	}
-	
 	//@GetMapping(path = { "/mypage" })
-	//public String mypage(String memberId, String email, String userType, String regDate) {
-	//	  
-	//MemberVO mypageInfo = authService.selectMemberInfo();
-	//
-	//return "acoount/mypage";	  
+	//public String selectMemberInfo(MemberVO member) {
+	//	
+	//	return "account/mypage";
 	//}
+	
+	//	@GetMapping(path = { "/mypage" })
+	//	public String mypage(String memberId, HttpSession session) {
+	//		  
+	//	MemberVO mypageInfo = authService.selectMemberInfo(memberId);
+	//	session.setAttribute("mypageuser", mypageInfo);
+	//	
+	//	return "account/mypage";	  
+	//	}
+	
+	@GetMapping(path = { "/mypage" })
+	public String mypage(HttpSession session, Model model) {
+		  
+		MemberVO loggedInUser = (MemberVO)session.getAttribute("loginuser");
+		MemberVO mypageInfo = authService.selectMemberInfo(loggedInUser.getMemberId());
+		System.out.println(mypageInfo);
+		
+		return "account/mypage";	  
+	}
 		
 		
 	 

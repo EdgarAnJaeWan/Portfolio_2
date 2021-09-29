@@ -60,37 +60,36 @@
                 <section id="main-content">
                     
                    <div class="card">
-                         <p><div class="card-header py-3">
+                         <div class="card-header py-3">
                              <span class="m-0 font-weight-bold text-primary">내 정보</span>
-                             <a href="write" class="btn btn-primary btn-sm" style="float:right">정보 변경</a>
-                             <div style="clear:both" />
-                         </div></p>
+                         </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
                                         <table class="table table-bordered">
                                             <thead>
-                                                
+                                                <td>아이디(ID)</td>
+                                                <td>이메일</td>
+                                                <td>회원 등급</td>
+                                                <td>회원 등록일</td>
                                             </thead>
                                             <tbody>
-                                            <br>
-                                            	<!-- <tr>
-		                                            	<td>아이디(ID)</td>
-		                                            	<td>${ memberInfo.memberId }</td>
-		                                            </tr>
-		                                            <tr>
-		                                            	<td>이메일</td>
-		                                            	<td>${ memberInfo.email }</td>
-		                                            </tr>
-		                                            <tr>
-		                                            	<td>회원 등급</td>
-		                                            	<td>${ memberInfo.userType }</td>
-		                                            </tr>
-		                                            <tr>
-		                                            	<td>회원 등록일</td>
-		                                            	<td>${ memberInfo.regDate }</td>
-		                                            </tr>  -->
-                                                 <!-- loginuser 정보를 활용하여 마이페이지 정보 보여주기 --> 
-		                                            <tr>
+                                    			<div>
+                                    			<tr>
+		                                            <td>${ member.memberId }</td>
+		                                            <td>${ member.email }</td>
+		                                            <td>${ member.userType }</td>
+		                                            <td>${ member.regDate }</td>
+		                                        </tr>
+		                                        </div>
+		                                        
+												<div style="text-align:right">
+													<a id="edit-button" type="button" class="btn btn-success" style="color:white;" >수정</a>
+													&nbsp
+													<a id="delete-button" type="button" class="btn btn-success" style="color:white;" >회원탈퇴</a>
+												</div>
+                                            
+                                                 <%-- loginuser 정보를 활용하여 마이페이지 정보 보여주기 --> 
+		                                            <!-- <tr>
 		                                            	<td>아이디(ID)</td>
 		                                            	<td>${ loginuser.memberId }</td>
 		                                            </tr>
@@ -105,7 +104,7 @@
 		                                            <tr>
 		                                            	<td>회원 등록일</td>
 		                                            	<td>${ loginuser.regDate }</td>
-		                                            </tr>
+		                                            </tr>--%>
 		                                        
                                     </tbody>
                                 </table>
@@ -119,32 +118,26 @@
                 </section>
             </div>
         </div>
-
-		<a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
     
     <jsp:include page="/WEB-INF/views/modules/common-js1.jsp" />
+
+	<script type="text/javascript">
+	/* $(function() {
+		$(".form-group input").attr('readonly', true);
+		
+		$('#edit-button').on('click', function(event){
+			location.href = "edit?memberId=${ member.memberId }";
+		});
+		
+		$('#delete-button').on('click', function(event){
+			var yes = confirm('${ member.memberId }님 회원을 탈퇴하시겠습니까?');
+			if (yes) {
+			location.href = "delete?memberId=${ member.memberId }";
+			}
+		});
+		
+	}); */
+	</script>
 
     <!-- Page level plugins -->
     <script src="/population/resources/vendor/chart.js/Chart.min.js"></script>

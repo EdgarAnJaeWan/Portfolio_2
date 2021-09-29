@@ -19,6 +19,6 @@ public interface AuthMapper {
 
    MemberVO selectMemberIdAndPasswd(HashMap<String, Object> params);
    
-   //MemberVO selectMemberInfo(String string);
+   MemberVO selectMemberInfo(String memberId);
    
 }

@@ -43,13 +43,11 @@ public class AuthServiceImpl implements AuthService {
 	}
 
 
-	//@Override
-	//public MemberVO selectMemberInfo() {
-	//	
-	//	MemberVO selectMemberInfo = authMapper.selectMemberInfo();
-	//	
-	//	return selectMemberInfo;
-	//}
+	@Override
+	public MemberVO selectMemberInfo(String memberId) {
+		MemberVO member = authMapper.selectMemberInfo(memberId);
+		return member;
+	}
 
 
 }
