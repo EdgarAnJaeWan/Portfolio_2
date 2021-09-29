@@ -95,6 +95,8 @@ public class AccountController {
 		  
 		MemberVO loggedInUser = (MemberVO)session.getAttribute("loginuser");
 		MemberVO mypageInfo = authService.selectMemberInfo(loggedInUser.getMemberId());
+		
+		model.addAttribute("member", mypageInfo); // 이 코드를 제거한 것 같습니다.
 		System.out.println(mypageInfo);
 		
 		return "account/mypage";	  
