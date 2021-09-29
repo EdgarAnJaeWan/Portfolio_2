@@ -21,4 +21,6 @@ public interface AuthMapper {
    
    MemberVO selectMemberInfo(String memberId);
    
+   void updateMember(MemberVO member);
+   
 }

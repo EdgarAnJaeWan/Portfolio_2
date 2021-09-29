@@ -99,9 +99,17 @@ public class AccountController {
 		model.addAttribute("member", mypageInfo); // 이 코드를 제거한 것 같습니다.
 		System.out.println(mypageInfo);
 		
-		return "account/mypage";	  
+		return "account/mypage";
+	
 	}
+	
+	@PostMapping(path = { "/update" })
+	public String update(MemberVO member) {
 		
+		authService.updateMember(member);
+		
+		return "redirect:mypage";
+	}
 		
 	 
 }

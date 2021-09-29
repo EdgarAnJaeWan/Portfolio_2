@@ -65,29 +65,30 @@
                          </div>
                          <div class="card-body">
                              <div class="table-responsive">
-                                 <table class="table table-bordered">
-                                 	<thead>
-                                 		<tr>
-	                                        <td>아이디(ID)</td>
-	                                        <td>이메일</td>
-	                                        <td>회원 등급</td>
-	                                        <td>회원 등록일</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-	                             	 	<tr>
-	                                       <td>${ member.memberId }</td>
-	                                       <td>${ member.email }</td>
-	                                       <td>${ member.userType }</td>
-	                                       <td>${ member.regDate }</td>
-	                                    </tr>
-	                                    <tr>
-		                                    <td colspan="4">
-		                                    	<a id="edit-button" type="button" class="btn btn-success" style="color:white;" >수정</a>
-												&nbsp;
-												<a id="delete-button" type="button" class="btn btn-success" style="color:white;" >회원탈퇴</a>
-		                                    </td>
-	                                    </tr>
+                                 	<div class="edit-form" role="form">
+			                            <h4>회원기본정보</h4>
+			                            <form id="edit-form" action="update" method="post">
+			                                <div class="form-group1">
+			                                    <label>아이디 (ID)</label>
+			                                    <input type="text" id="memberId" name="memberId" class="form-control" value="${ member.memberId }">
+			                                </div>
+			                                <div class="form-group2">
+			                                    <label>이메일</label>
+			                                    <input type="text" id="email" name="email" class="form-control" value="${ member.email }">
+			                                </div>
+			                                <div class="form-group1">
+			                                    <label>회원 등급</label>
+			                                    <input type="text" id="userType" name="userType" class="form-control" value="${ member.userType }">
+			                                </div>
+			                                <div class="form-group1">
+			                                    <label>회원 등록일</label>
+			                                    <input type="text" id="regDate" name="regDate" class="form-control"value="${ member.regDate }">
+			                                </div>
+			                         
+			                                <button id="edit-button" class="btn btn-primary btn-flat m-b-30 m-t-30">수정</button>
+			                                <button id="delete" class="btn btn-primary btn-flat m-b-30 m-t-30">회원 탈퇴</button>
+			                            </form>
+			                        </div>
                                    
                                      
                                           <%-- loginuser 정보를 활용하여 마이페이지 정보 보여주기 --> 
@@ -108,8 +109,6 @@
                                        	<td>${ loginuser.regDate }</td>
                                        </tr>--%>
                                     
-                                    </tbody>
-                                </table>
                              </div>
                           </div>
                        </div>
@@ -124,21 +123,19 @@
     <jsp:include page="/WEB-INF/views/modules/common-js1.jsp" />
 
 	<script type="text/javascript">
-	/* $(function() {
-		$(".form-group input").attr('readonly', true);
-		
-		$('#edit-button').on('click', function(event){
-			location.href = "edit?memberId=${ member.memberId }";
+		$(".form-group1 input").attr('readonly', true);
+	
+		$('#edit-button').on('click', function(event) {
+			$('#edit-form').submit();
+			location.href = "mypage?memberId=${ member.memberId }";
 		});
-		
-		$('#delete-button').on('click', function(event){
+		/* $(delete-button).on('click', function(event) {
 			var yes = confirm('${ member.memberId }님 회원을 탈퇴하시겠습니까?');
 			if (yes) {
-			location.href = "delete?memberId=${ member.memberId }";
+				??????
 			}
-		});
-		
-	}); */
+		}); */
+	
 	</script>
 
     <!-- Page level plugins -->
