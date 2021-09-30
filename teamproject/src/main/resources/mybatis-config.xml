@@ -19,6 +19,7 @@
 		<mapper resource="com/webproject/population/mapper/BoardMapper.xml" />
 		<mapper resource="com/webproject/population/mapper/AreaMapper.xml" />
 		<mapper resource="com/webproject/population/mapper/GenderMapper.xml" />
+		<mapper resource="com/webproject/population/mapper/AdminMapper.xml"/>
 	</mappers>
 	
 </configuration>

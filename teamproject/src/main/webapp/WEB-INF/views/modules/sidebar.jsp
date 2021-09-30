@@ -45,7 +45,7 @@
                     
                     <li class="label">메뉴얼</li>
 
-                    <li><a href="../documentation/index.html"><i class="ti-file"></i> 관리자 페이지</a></li>
+                    <li><a href="/population/admin/adminpage.action"><i class="ti-file"></i> 관리자 페이지</a></li>
                     	<c:choose>
 		            		<c:when test = "${ empty loginuser }">
 			                    <li><a href="/population/account/login.action"><i class="ti-user"></i>로그인</a></li>
