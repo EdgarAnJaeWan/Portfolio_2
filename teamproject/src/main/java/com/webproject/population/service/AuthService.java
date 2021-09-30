@@ -12,4 +12,6 @@ public interface AuthService {
 	
 	void updateMember(MemberVO member);
 
+	void deleteMember(String memberId);
+
 }

@@ -111,6 +111,16 @@ public class AccountController {
 		
 		return "redirect:mypage";
 	}
+	
+	@GetMapping(path = { "/delete" })
+	public String delete(String memberId, HttpSession session) {
+		
+		authService.deleteMember(memberId);
+		
+		session.removeAttribute("loginuser"); // 로그아웃
+		
+		return "redirect:/home";
+	}
 		
 	 
 }

@@ -53,5 +53,11 @@ public class AuthServiceImpl implements AuthService {
 		authMapper.updateMember(member);
 	}
 
+	@Override
+	public void deleteMember(String memberId) {
+		authMapper.updateMemberDeleted(memberId);
+		
+	}
+
 
 }

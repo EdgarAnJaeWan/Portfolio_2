@@ -86,7 +86,7 @@
 			                                </div>
 			                         
 			                                <button id="edit-button" class="btn btn-primary btn-flat m-b-30 m-t-30">수정</button>
-			                                <button id="delete" class="btn btn-primary btn-flat m-b-30 m-t-30">회원 탈퇴</button>
+			                                <button id="delete-button" class="btn btn-primary btn-flat m-b-30 m-t-30">회원 탈퇴</button>
 			                            </form>
 			                        </div>
                                    
@@ -126,15 +126,24 @@
 		$(".form-group1 input").attr('readonly', true);
 	
 		$('#edit-button').on('click', function(event) {
+			var yes = confirm('수정하시겠습니까?');
+    		if (yes) {
 			$('#edit-form').submit();
 			location.href = "mypage?memberId=${ member.memberId }";
+			}
 		});
-		/* $(delete-button).on('click', function(event) {
+		
+		$('#delete-button').on('click', function(event) {
+			
+			//새로고침 효과 차단
+			event.preventDefault();
+			event.stopPropagation();
+			
 			var yes = confirm('${ member.memberId }님 회원을 탈퇴하시겠습니까?');
 			if (yes) {
-				??????
+				location.href = "delete?memberId=${ member.memberId }";
 			}
-		}); */
+		});
 	
 	</script>
 
