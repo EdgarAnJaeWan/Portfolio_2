@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class GenderVO {
-
+	private String region;
 	private String sido;
 	private String gugun;
 	private int year;

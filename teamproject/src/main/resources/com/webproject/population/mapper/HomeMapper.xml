@@ -12,9 +12,9 @@
       
      select 
      	region, 
-     	sum(household) household, 
-     	sum(population_male) population_male,
-     	sum(population_female) population_female
+     	sum(household)/12 household, 
+     	sum(population_male)/12 population_male,
+     	sum(population_female)/12 population_female
      from team3_population
      group by region
         

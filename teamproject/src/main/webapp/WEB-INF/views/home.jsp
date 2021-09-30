@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" pageEncoding="utf-8"
 	contentType="text/html; charset=utf-8"%>
 
@@ -119,12 +120,12 @@
             <div class="col-lg-3">
               <div class="card p-0">
                 <div class="stat-widget-three">
-                  <div class="stat-icon bg-danger">
+                  <div style="cursor: pointer;" onclick=location.href="board/list" class="stat-icon bg-danger">
                     <i class="ti-map"></i>
                   </div>
                   <div class="stat-content">
                    <div class="stat-digit">^-^</div>
-                    <div class="stat-text">인구 지도</div>
+                    <div class="stat-text">게시판</div>
                     
                   </div>
                 </div>
@@ -203,32 +204,32 @@
                 
                 
                 <div class="card">
-					
-					<table border="1" style="text-align: center;">
-					
-					<tr>
+				
+					<table id="bootstrap-data-table-export" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="bootstrap-data-table-export_info">
+                            <thead>
+								<tr role="row">
 									<th>행정구역</th>
 									<th>세대수</th>
 									<th>남자 인구수</th>
 									<th>여자 인구수</th>
-									<th style="text-align: right;">총 인구수</th>
-					</tr>
-										
-					<tbody>
-					<c:forEach items="${homeList}" var="home">
+									<th>총 인구수</th>
+								</tr>
+							</thead>
+                                            <tbody>
+                                            <c:forEach items="${homeList}" var="home">
 					<tr>
 					
 						<td>${ home.region }</td>
-						<td>${ home.household }세대</td>
-						<td>${ home.population_male }명</td>
-						<td>${ home.population_female }명</td>
-						<td>${ home.population_male + home.population_female }명</td>
+						<td><fmt:formatNumber value="${home.household}"/>세대</td>
+						<td><fmt:formatNumber value="${home.population_male}"/>명</td>
+						<td><fmt:formatNumber value="${home.population_female}"/>명</td>
+						<td><fmt:formatNumber value="${home.population_male + home.population_female}"/>명</td>
 					
 					
 					</tr>
 					</c:forEach>
-					</tbody>
-					</table>
+                                            </tbody>
+                                        </table>
 					
 				</div>
                 
