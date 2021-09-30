@@ -137,7 +137,7 @@
                     <h4>대한민국 인구변화 추이</h4>            
                   </div>
                   
-                  <div >
+                  <div>
 
 						<canvas id="myChart" width="800" height="400"></canvas>
 						<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
@@ -198,10 +198,42 @@
                 }
             });
         </script>
-
 				</div>
-					
                 </div>
+                
+                
+                <div class="card">
+					
+					<table>
+					<thead>
+								<tr>
+									<th>행정구역</th>
+									<th>세대수</th>
+									<th>남자 인구수</th>
+									<th>여자 인구수<th>
+									<th>총 인구수<th>
+									
+								</tr>
+					</thead>
+					
+					<tbody>
+					<c:forEach items="${homeList}" var="home">
+					<tr>
+					
+						<td>${ home.region }</td>
+						<td>${ home.household }</td>
+						<td>${ home.population_male }</td>
+						<td>${ home.population_female }</td>
+						<td style="text-align: right;">${ home.population_male + home.population_female }</td>
+					
+					
+					</tr>
+					</c:forEach>
+					</tbody>
+					</table>
+					
+				</div>
+                
     
 			</div>
 		</div>
