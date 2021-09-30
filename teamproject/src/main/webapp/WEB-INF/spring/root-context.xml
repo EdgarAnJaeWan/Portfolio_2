@@ -51,7 +51,7 @@
 	<import resource="household-context.xml" />
 	<import resource="auth-context.xml"/>
 	<import resource="board-context.xml"/>
-	
+	<import resource="admin-context.xml"/>
 	
 
 	

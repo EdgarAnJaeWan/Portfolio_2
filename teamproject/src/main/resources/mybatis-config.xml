@@ -20,11 +20,8 @@
 		<mapper resource="com/webproject/population/mapper/BoardMapper.xml" />
 		<mapper resource="com/webproject/population/mapper/AreaMapper.xml" />
 		<mapper resource="com/webproject/population/mapper/GenderMapper.xml" />
-<<<<<<< HEAD
 		<mapper resource="com/webproject/population/mapper/AdminMapper.xml"/>
-=======
 		<mapper resource="com/webproject/population/mapper/HomeMapper.xml" />
->>>>>>> branch 'main' of https://github.com/shared-repository/project-population.git
 	</mappers>
 	
 </configuration>
