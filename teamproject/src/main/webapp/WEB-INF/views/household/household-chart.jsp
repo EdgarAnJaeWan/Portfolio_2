@@ -1107,8 +1107,8 @@
 									<th>시도</th>
 									<th>년도</th>
 									<th>월</th>
-									<th style="text-align: right;">총세대수
-									<th>
+									<th style="text-align: right;">총세대수</th>
+									<th style="text-align: right;">세대당 인구(총인구/세대수)</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -1118,7 +1118,9 @@
 										<td>${households.region}</td>
 										<td>${households.year}년</td>
 										<td>${households.month}월</td>
-										<td>${households.household}가구</td>
+										<td style="text-align: right;">${households.household}</td>										
+										<td style="text-align: right;">${ ((((households.population_male+households.population_female)/households.household)*1000)
+										          - ((((households.population_male+households.population_female)/households.household)*1000)%1)) * (1/1000)   }</td>
 									</tr>
 								</c:forEach>
 

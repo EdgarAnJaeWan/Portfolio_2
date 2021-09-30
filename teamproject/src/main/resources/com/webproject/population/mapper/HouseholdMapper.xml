@@ -21,6 +21,12 @@
         	<if test="household !=null">
         	and household = #{household}
         	</if>
+        	<if test="population_male !=null">
+        	and population_male = #{population_male}
+        	</if>
+        	<if test="population_female !=null">
+        	and population_female = #{population_female}
+        	</if>
         </where>
     </select>
 
