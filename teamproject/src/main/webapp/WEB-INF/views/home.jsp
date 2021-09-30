@@ -204,27 +204,25 @@
                 
                 <div class="card">
 					
-					<table>
-					<thead>
-								<tr>
+					<table border="1" style="text-align: center;">
+					
+					<tr>
 									<th>행정구역</th>
 									<th>세대수</th>
 									<th>남자 인구수</th>
-									<th>여자 인구수<th>
-									<th>총 인구수<th>
-									
-								</tr>
-					</thead>
-					
+									<th>여자 인구수</th>
+									<th style="text-align: right;">총 인구수</th>
+					</tr>
+										
 					<tbody>
 					<c:forEach items="${homeList}" var="home">
 					<tr>
 					
 						<td>${ home.region }</td>
-						<td>${ home.household }</td>
-						<td>${ home.population_male }</td>
-						<td>${ home.population_female }</td>
-						<td style="text-align: right;">${ home.population_male + home.population_female }</td>
+						<td>${ home.household }세대</td>
+						<td>${ home.population_male }명</td>
+						<td>${ home.population_female }명</td>
+						<td>${ home.population_male + home.population_female }명</td>
 					
 					
 					</tr>
