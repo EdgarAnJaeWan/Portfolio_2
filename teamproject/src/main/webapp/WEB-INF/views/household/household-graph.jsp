@@ -66,37 +66,37 @@
 	<div class="content-wrap">
 		<div class="main">
 			<div class="container-fluid">
-			<form method="post" action="search">
-				<div class="row">
-					<div class="col-lg-8 p-r-0 title-margin-right">
-						<div class="page-header">
-							<div class="page-title">
-								<h1>
-									3팀
-									<h3>세대별 인구수 조회</h3>
-								</h1>
+				<form method="post" action="search">
+					<div class="row">
+						<div class="col-lg-8 p-r-0 title-margin-right">
+							<div class="page-header">
+								<div class="page-title">
+									<h1>
+										3팀
+										<h3>세대별 인구수 조회</h3>
+									</h1>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
 
-				<!-- /# column -->
-				<div class="col-lg-8">
-					<div class="card">
+					<!-- /# column -->
+					<div class="col-lg-8">
+						<div class="card">
 
-						<div class="card-title pr"></div>
-						<fieldset>
+							<div class="card-title pr"></div>
+							<fieldset>
 
-							<div class="tbl_form_box">
-								<div class="dl_group">
-									<dl>
-										<dt>
+								<div class="tbl_form_box">
+									<div class="dl_group">
+										<dl>
+											<dt>
 
-											<!-- 행정구역 tooltip mobile -->
-											<div class="row">
-												<div class="popover-layer">
-													<p class="pHeader">행정구역</p>
-													<!-- 	                                                        <p class="pContent">
+												<!-- 행정구역 tooltip mobile -->
+												<div class="row">
+													<div class="popover-layer">
+														<p class="pHeader">행정구역</p>
+														<!-- 	                                                        <p class="pContent">
  	                                                            <span>
 																		조회결과는 선택한 행정구역의 산하 행정구역들이 조회됩니다. <br>
 																		(예를들어, 서울특별시 선택시 종로구, 중구, 용산구등 해당 구 자료가 조회됩니다)
@@ -107,10 +107,10 @@
 																	</span>			
 																	<span>경기도 파주시 장단출장소 인구는 경기도 파주시 군내면 인구를 의미합니다.</span> 
 	                                                        </p> -->
+													</div>
 												</div>
-											</div>
-										</dt>
-<!-- 										<div class="row">
+											</dt>
+											<!-- 										<div class="row">
 											<dd class="td3">
 												<select class="form-control" onchange="categoryChange(this)">
 													<option>시도</option>
@@ -330,8 +330,8 @@
 												</script>
 											</dd>
 										</div> -->
-										
-										<div class="row">
+
+											<div class="row">
 												<dd class="td3">
 													<select class="form-control"
 														onchange="categoryChange(this)" name="sido">
@@ -356,241 +356,592 @@
 													</select>
 												</dd>
 
-												<dd class="td3">
+<!-- 												<dd class="td3">
 													<select class="form-control" id="good" name="gugun">
 														<option>시·군·구</option>
 													</select>
 
 													<script type="text/javascript">
-													function categoryChange(e) {
-														var good_11 = [ ["시·군·구",-1],
-																["종로구",110], ["중구",140],
-																["용산구",170], ["성동구",120],
-																["광진구",215], ["동대문구",230],
-																["중랑구",260], ["성북구",290],
-																["강북구",305], ["도봉구",320],
-																["노원구",350], ["은평구",380],
-																["서대문구",410], ["마포구",440],
-																["양천구",470], ["강서구",500],
-																["구로구",530], ["금천구",545],
-																["영등포구",560], ["동작구",590],
-																["관악구",620], ["서초구",650],
-																["강남구",680], ["송파구",710],
-																["강동구",740] ];
-														var good_26 = [ ["시·군·구",-1],
-																["중구",110], ["서구",140],
-																["동구",170], ["영도구",200],
-																["부산진구",230], ["동래구",260],
-																["남구",290], ["북구",320],
-																["해운대구",350], ["사하구",380],
-																["금정구",410], ["강서구",440],
-																["연제구",470], ["수영구",500],
-																["사상구",530], ["기장군",710] ];
-														var good_27 = [ ["시·군·구",-1],
-																["중구",110], ["동구",140],
-																["서구",170], ["남구",200],
-																["북구",230], ["수성구",260],
-																["달서구",290], ["달성군",710] ];
-														var good_28 = [ ["시·군·구",-1],
-																["중구",110], ["동구",140],
-																["미추홀구",170], ["연수구",185],
-																["남동구",200], ["부평구",237],
-																["계양구",245], ["서구",260],
-																["강화군",710], ["옹진군",720] ];
-														var good_29 = [ ["시·군·구",-1],
-																["동구",110], ["서구",140],
-																["남구",170], ["북구",200],
-																["광산구",200] ];
-														var good_30 = [ ["시·군·구",-1],
-																["동구",110], ["중구",140],
-																["서구",170], ["유성구",200],
-																["대덕구",230] ];
-														var good_31 = [ ["시·군·구",-1],
-																["중구",110], ["남구",140],
-																["동구",170], ["북구",200],
-																["울주군",710] ];
-														var good_36 = [ ["시·군·구",-1],
-																["세종특별자치시",110] ];
-														var good_41 = [ ["시·군·구",-1],
-																["수원시",110], ["성남시",130],
-																["의정부시",150], ["안양시",170],
-																["부천시",190], ["광명시",210],
-																["평택시",220], ["동두천시",250],
-																["안산시",270], ["고양시",280],
-																["과천시",290], ["구리시",310],
-																["남양주시",360], ["오산시",370],
-																["시흥시",390], ["군포시",410],
-																["의왕시",430], ["하남시",450],
-																["용인시",460], ["파주시",480],
-																["이천시",500], ["안성시",550],
-																["김포시",570], ["화성시",590],
-																["광주시",610], ["양주시",630],
-																["포천시",650], ["여주시",670],
-																["연천군",800], ["가평군",820],
-																["양평군",830]];
-														var good_42 = [ ["시·군·구",-1],
-																["춘천시",110], ["원주시",130],
-																["강릉시",150], ["동해시",170],
-																["태백시",190], ["속초시",210],
-																["삼척시",230], ["홍천군",720],
-																["횡성군",730], ["영월군",750],
-																["평창군",760], ["정선군",770],
-																["철원군",780], ["화천군",790],
-																["양구군",800], ["인제군",810],
-																["고성군",820], ["양양군",830] ];
-														var good_43 = [ ["시·군·구",-1],
-																["청주시",110], ["충주시",130],
-																["제천시",150], ["보은군",720],
-																["옥천군",730], ["영동군",740],
-																["증평군",745], ["진천군",750],
-																["괴산군",760], ["음성군",770],
-																["단양군",780] ];
-														var good_44 = [ ["시·군·구",-1],
-																["천안시",130], ["공주시",150],
-																["보령시",180], ["아산시",200],
-																["서산시",210], ["논산시",230],
-																["계룡시",250], ["당진시",270],
-																["금산군",710], ["부여군",760],
-																["서천군",770], ["청양군",790],
-																["홍성군",800], ["예산군",810],
-																["태안군",825] ];
-														var good_45 = [ ["시·군·구",-1],
-																["전주시",110], ["군산시",130],
-																["익산시",140], ["정읍시",180],
-																["남원시",190], ["김제시",210],
-																["완주군",710], ["진안군",720],
-																["무주군",730], ["장수군",740],
-																["임실군",750], ["순창군",770],
-																["고창군",790], ["부안군",800] ];
-														var good_46 = [ ["시·군·구",-1],
-																["목포시",110], ["여수시",130],
-																["순천시",150], ["나주시",170],
-																["광양시",230], ["담양군",710],
-																["곡성군",720], ["구례군",730],
-																["고흥군",770], ["보성군",780],
-																["화순군",790], ["장흥군",800],
-																["강진군",810], ["해남군",820],
-																["영암군",830], ["무안군",840],
-																["함평군",860], ["영광군",870],
-																["장성군",880], ["완도군",890],
-																["진도군",900], ["신안군",910] ];
-														var good_47 = [ ["시·군·구",-1],
-																["포항시",110], ["경주시",130],
-																["김천시",150], ["안동시",170],
-																["구미시",190], ["영주시",210],
-																["영천시",230], ["상주시",250],
-																["문경시",280], ["경산시",290],
-																["군위군",720], ["의성군",730],
-																["청송군",750], ["영양군",760],
-																["영덕군",770], ["청도군",820],
-																["고령군",830], ["성주군",840],
-																["칠곡군",850], ["예천군",900],
-																["봉화군",920], ["울진군",930],
-																["울릉군",940] ];
-														var good_48 = [ ["시·군·구",-1],
-																["창원시",120], ["진주시",170],
-																["통영시",220], ["사천시",240],
-																["김해시",250], ["밀양시",270],
-																["거제시",310], ["양산시",330],
-																["의령군",720], ["함안군",730],
-																["창녕군",740], ["고성군",820],
-																["남해군",840], ["하동군",850],
-																["산청군",860], ["함양군",870],
-																["거창군",880], ["합천군",890] ];
-														var good_50 = [ ["시·군·구",-1],
-																["제주시",110], ["서귀포시",130] ];
+														function categoryChange(
+																e) {
+															var good_11 = [
+																	[ "시·군·구",
+																			-1 ],
+																	[ "종로구",
+																			110 ],
+																	[ "중구", 140 ],
+																	[ "용산구",
+																			170 ],
+																	[ "성동구",
+																			120 ],
+																	[ "광진구",
+																			215 ],
+																	[ "동대문구",
+																			230 ],
+																	[ "중랑구",
+																			260 ],
+																	[ "성북구",
+																			290 ],
+																	[ "강북구",
+																			305 ],
+																	[ "도봉구",
+																			320 ],
+																	[ "노원구",
+																			350 ],
+																	[ "은평구",
+																			380 ],
+																	[ "서대문구",
+																			410 ],
+																	[ "마포구",
+																			440 ],
+																	[ "양천구",
+																			470 ],
+																	[ "강서구",
+																			500 ],
+																	[ "구로구",
+																			530 ],
+																	[ "금천구",
+																			545 ],
+																	[ "영등포구",
+																			560 ],
+																	[ "동작구",
+																			590 ],
+																	[ "관악구",
+																			620 ],
+																	[ "서초구",
+																			650 ],
+																	[ "강남구",
+																			680 ],
+																	[ "송파구",
+																			710 ],
+																	[ "강동구",
+																			740 ] ];
+															var good_26 = [
+																	[ "시·군·구",
+																			-1 ],
+																	[ "중구", 110 ],
+																	[ "서구", 140 ],
+																	[ "동구", 170 ],
+																	[ "영도구",
+																			200 ],
+																	[ "부산진구",
+																			230 ],
+																	[ "동래구",
+																			260 ],
+																	[ "남구", 290 ],
+																	[ "북구", 320 ],
+																	[ "해운대구",
+																			350 ],
+																	[ "사하구",
+																			380 ],
+																	[ "금정구",
+																			410 ],
+																	[ "강서구",
+																			440 ],
+																	[ "연제구",
+																			470 ],
+																	[ "수영구",
+																			500 ],
+																	[ "사상구",
+																			530 ],
+																	[ "기장군",
+																			710 ] ];
+															var good_27 = [
+																	[ "시·군·구",
+																			-1 ],
+																	[ "중구", 110 ],
+																	[ "동구", 140 ],
+																	[ "서구", 170 ],
+																	[ "남구", 200 ],
+																	[ "북구", 230 ],
+																	[ "수성구",
+																			260 ],
+																	[ "달서구",
+																			290 ],
+																	[ "달성군",
+																			710 ] ];
+															var good_28 = [
+																	[ "시·군·구",
+																			-1 ],
+																	[ "중구", 110 ],
+																	[ "동구", 140 ],
+																	[ "미추홀구",
+																			170 ],
+																	[ "연수구",
+																			185 ],
+																	[ "남동구",
+																			200 ],
+																	[ "부평구",
+																			237 ],
+																	[ "계양구",
+																			245 ],
+																	[ "서구", 260 ],
+																	[ "강화군",
+																			710 ],
+																	[ "옹진군",
+																			720 ] ];
+															var good_29 = [
+																	[ "시·군·구",
+																			-1 ],
+																	[ "동구", 110 ],
+																	[ "서구", 140 ],
+																	[ "남구", 170 ],
+																	[ "북구", 200 ],
+																	[ "광산구",
+																			200 ] ];
+															var good_30 = [
+																	[ "시·군·구",
+																			-1 ],
+																	[ "동구", 110 ],
+																	[ "중구", 140 ],
+																	[ "서구", 170 ],
+																	[ "유성구",
+																			200 ],
+																	[ "대덕구",
+																			230 ] ];
+															var good_31 = [
+																	[ "시·군·구",
+																			-1 ],
+																	[ "중구", 110 ],
+																	[ "남구", 140 ],
+																	[ "동구", 170 ],
+																	[ "북구", 200 ],
+																	[ "울주군",
+																			710 ] ];
+															var good_36 = [
+																	[ "시·군·구",
+																			-1 ],
+																	[
+																			"세종특별자치시",
+																			110 ] ];
+															var good_41 = [
+																	[ "시·군·구",
+																			-1 ],
+																	[ "수원시",
+																			110 ],
+																	[ "성남시",
+																			130 ],
+																	[ "의정부시",
+																			150 ],
+																	[ "안양시",
+																			170 ],
+																	[ "부천시",
+																			190 ],
+																	[ "광명시",
+																			210 ],
+																	[ "평택시",
+																			220 ],
+																	[ "동두천시",
+																			250 ],
+																	[ "안산시",
+																			270 ],
+																	[ "고양시",
+																			280 ],
+																	[ "과천시",
+																			290 ],
+																	[ "구리시",
+																			310 ],
+																	[ "남양주시",
+																			360 ],
+																	[ "오산시",
+																			370 ],
+																	[ "시흥시",
+																			390 ],
+																	[ "군포시",
+																			410 ],
+																	[ "의왕시",
+																			430 ],
+																	[ "하남시",
+																			450 ],
+																	[ "용인시",
+																			460 ],
+																	[ "파주시",
+																			480 ],
+																	[ "이천시",
+																			500 ],
+																	[ "안성시",
+																			550 ],
+																	[ "김포시",
+																			570 ],
+																	[ "화성시",
+																			590 ],
+																	[ "광주시",
+																			610 ],
+																	[ "양주시",
+																			630 ],
+																	[ "포천시",
+																			650 ],
+																	[ "여주시",
+																			670 ],
+																	[ "연천군",
+																			800 ],
+																	[ "가평군",
+																			820 ],
+																	[ "양평군",
+																			830 ] ];
+															var good_42 = [
+																	[ "시·군·구",
+																			-1 ],
+																	[ "춘천시",
+																			110 ],
+																	[ "원주시",
+																			130 ],
+																	[ "강릉시",
+																			150 ],
+																	[ "동해시",
+																			170 ],
+																	[ "태백시",
+																			190 ],
+																	[ "속초시",
+																			210 ],
+																	[ "삼척시",
+																			230 ],
+																	[ "홍천군",
+																			720 ],
+																	[ "횡성군",
+																			730 ],
+																	[ "영월군",
+																			750 ],
+																	[ "평창군",
+																			760 ],
+																	[ "정선군",
+																			770 ],
+																	[ "철원군",
+																			780 ],
+																	[ "화천군",
+																			790 ],
+																	[ "양구군",
+																			800 ],
+																	[ "인제군",
+																			810 ],
+																	[ "고성군",
+																			820 ],
+																	[ "양양군",
+																			830 ] ];
+															var good_43 = [
+																	[ "시·군·구",
+																			-1 ],
+																	[ "청주시",
+																			110 ],
+																	[ "충주시",
+																			130 ],
+																	[ "제천시",
+																			150 ],
+																	[ "보은군",
+																			720 ],
+																	[ "옥천군",
+																			730 ],
+																	[ "영동군",
+																			740 ],
+																	[ "증평군",
+																			745 ],
+																	[ "진천군",
+																			750 ],
+																	[ "괴산군",
+																			760 ],
+																	[ "음성군",
+																			770 ],
+																	[ "단양군",
+																			780 ] ];
+															var good_44 = [
+																	[ "시·군·구",
+																			-1 ],
+																	[ "천안시",
+																			130 ],
+																	[ "공주시",
+																			150 ],
+																	[ "보령시",
+																			180 ],
+																	[ "아산시",
+																			200 ],
+																	[ "서산시",
+																			210 ],
+																	[ "논산시",
+																			230 ],
+																	[ "계룡시",
+																			250 ],
+																	[ "당진시",
+																			270 ],
+																	[ "금산군",
+																			710 ],
+																	[ "부여군",
+																			760 ],
+																	[ "서천군",
+																			770 ],
+																	[ "청양군",
+																			790 ],
+																	[ "홍성군",
+																			800 ],
+																	[ "예산군",
+																			810 ],
+																	[ "태안군",
+																			825 ] ];
+															var good_45 = [
+																	[ "시·군·구",
+																			-1 ],
+																	[ "전주시",
+																			110 ],
+																	[ "군산시",
+																			130 ],
+																	[ "익산시",
+																			140 ],
+																	[ "정읍시",
+																			180 ],
+																	[ "남원시",
+																			190 ],
+																	[ "김제시",
+																			210 ],
+																	[ "완주군",
+																			710 ],
+																	[ "진안군",
+																			720 ],
+																	[ "무주군",
+																			730 ],
+																	[ "장수군",
+																			740 ],
+																	[ "임실군",
+																			750 ],
+																	[ "순창군",
+																			770 ],
+																	[ "고창군",
+																			790 ],
+																	[ "부안군",
+																			800 ] ];
+															var good_46 = [
+																	[ "시·군·구",
+																			-1 ],
+																	[ "목포시",
+																			110 ],
+																	[ "여수시",
+																			130 ],
+																	[ "순천시",
+																			150 ],
+																	[ "나주시",
+																			170 ],
+																	[ "광양시",
+																			230 ],
+																	[ "담양군",
+																			710 ],
+																	[ "곡성군",
+																			720 ],
+																	[ "구례군",
+																			730 ],
+																	[ "고흥군",
+																			770 ],
+																	[ "보성군",
+																			780 ],
+																	[ "화순군",
+																			790 ],
+																	[ "장흥군",
+																			800 ],
+																	[ "강진군",
+																			810 ],
+																	[ "해남군",
+																			820 ],
+																	[ "영암군",
+																			830 ],
+																	[ "무안군",
+																			840 ],
+																	[ "함평군",
+																			860 ],
+																	[ "영광군",
+																			870 ],
+																	[ "장성군",
+																			880 ],
+																	[ "완도군",
+																			890 ],
+																	[ "진도군",
+																			900 ],
+																	[ "신안군",
+																			910 ] ];
+															var good_47 = [
+																	[ "시·군·구",
+																			-1 ],
+																	[ "포항시",
+																			110 ],
+																	[ "경주시",
+																			130 ],
+																	[ "김천시",
+																			150 ],
+																	[ "안동시",
+																			170 ],
+																	[ "구미시",
+																			190 ],
+																	[ "영주시",
+																			210 ],
+																	[ "영천시",
+																			230 ],
+																	[ "상주시",
+																			250 ],
+																	[ "문경시",
+																			280 ],
+																	[ "경산시",
+																			290 ],
+																	[ "군위군",
+																			720 ],
+																	[ "의성군",
+																			730 ],
+																	[ "청송군",
+																			750 ],
+																	[ "영양군",
+																			760 ],
+																	[ "영덕군",
+																			770 ],
+																	[ "청도군",
+																			820 ],
+																	[ "고령군",
+																			830 ],
+																	[ "성주군",
+																			840 ],
+																	[ "칠곡군",
+																			850 ],
+																	[ "예천군",
+																			900 ],
+																	[ "봉화군",
+																			920 ],
+																	[ "울진군",
+																			930 ],
+																	[ "울릉군",
+																			940 ] ];
+															var good_48 = [
+																	[ "시·군·구",
+																			-1 ],
+																	[ "창원시",
+																			120 ],
+																	[ "진주시",
+																			170 ],
+																	[ "통영시",
+																			220 ],
+																	[ "사천시",
+																			240 ],
+																	[ "김해시",
+																			250 ],
+																	[ "밀양시",
+																			270 ],
+																	[ "거제시",
+																			310 ],
+																	[ "양산시",
+																			330 ],
+																	[ "의령군",
+																			720 ],
+																	[ "함안군",
+																			730 ],
+																	[ "창녕군",
+																			740 ],
+																	[ "고성군",
+																			820 ],
+																	[ "남해군",
+																			840 ],
+																	[ "하동군",
+																			850 ],
+																	[ "산청군",
+																			860 ],
+																	[ "함양군",
+																			870 ],
+																	[ "거창군",
+																			880 ],
+																	[ "합천군",
+																			890 ] ];
+															var good_50 = [
+																	[ "시·군·구",
+																			-1 ],
+																	[ "제주시",
+																			110 ],
+																	[ "서귀포시",
+																			130 ] ];
 
-														var target = document
-																.getElementById("good");
+															var target = document
+																	.getElementById("good");
 
-														if (e.value == "11")
-															var d = good_11;
-														else if (e.value == "26")
-															var d = good_26;
-														else if (e.value == "27")
-															var d = good_27;
-														else if (e.value == "28")
-															var d = good_28;
-														else if (e.value == "29")
-															var d = good_29;
-														else if (e.value == "30")
-															var d = good_30;
-														else if (e.value == "31")
-															var d = good_31;
-														else if (e.value == "36")
-															var d = good_36;
-														else if (e.value == "41")
-															var d = good_41;
-														else if (e.value == "42")
-															var d = good_42;
-														else if (e.value == "43")
-															var d = good_43;
-														else if (e.value == "44")
-															var d = good_44;
-														else if (e.value == "45")
-															var d = good_45;
-														else if (e.value == "46")
-															var d = good_46;
-														else if (e.value == "47")
-															var d = good_47;														
-														else if (e.value == "48")
-															var d = good_48;
-														else if (e.value == "50")
-															var d = good_50;
+															if (e.value == "11")
+																var d = good_11;
+															else if (e.value == "26")
+																var d = good_26;
+															else if (e.value == "27")
+																var d = good_27;
+															else if (e.value == "28")
+																var d = good_28;
+															else if (e.value == "29")
+																var d = good_29;
+															else if (e.value == "30")
+																var d = good_30;
+															else if (e.value == "31")
+																var d = good_31;
+															else if (e.value == "36")
+																var d = good_36;
+															else if (e.value == "41")
+																var d = good_41;
+															else if (e.value == "42")
+																var d = good_42;
+															else if (e.value == "43")
+																var d = good_43;
+															else if (e.value == "44")
+																var d = good_44;
+															else if (e.value == "45")
+																var d = good_45;
+															else if (e.value == "46")
+																var d = good_46;
+															else if (e.value == "47")
+																var d = good_47;
+															else if (e.value == "48")
+																var d = good_48;
+															else if (e.value == "50")
+																var d = good_50;
 
-														target.options.length = 0;
+															target.options.length = 0;
 
-														for (x in d) {
-															var opt = document
-																	 .createElement("option");
-															opt.value = d[x][1];		// 이 부분 수정
-															opt.innerHTML = d[x][0];	// 이 부분 수정
-															target
-															        .appendChild(opt);
+															for (x in d) {
+																var opt = document
+																		.createElement("option");
+																opt.value = d[x][1]; // 이 부분 수정
+																opt.innerHTML = d[x][0]; // 이 부분 수정
+																target
+																		.appendChild(opt);
+															}
 														}
-													}
-												</script>
-												</dd>
+													</script>
+												</dd> -->
 											</div>
-										
-									</dl>
-								</div>
+
+										</dl>
+									</div>
 
 
-								<dl>
+									<dl>
 
-									<!-- 등록구분 tooltip PC -->
-									<dd class="td_popover">
-										<div class="popoverWrap">
-											<!-- <span><span class="hide">등록구분</span></span> -->
-											<div class="popoverBox pop2">
-												<!-- <div class="pHeader">
+										<!-- 등록구분 tooltip PC -->
+										<dd class="td_popover">
+											<div class="popoverWrap">
+												<!-- <span><span class="hide">등록구분</span></span> -->
+												<div class="popoverBox pop2">
+													<!-- <div class="pHeader">
 																등록구분
 																
 															</div> -->
-												<div class="pContent tbl">
-													<table>
-														<colgroup>
-															<col style="width: 66px;">
-															<col style="">
-														</colgroup>
-													</table>
+													<div class="pContent tbl">
+														<table>
+															<colgroup>
+																<col style="width: 66px;">
+																<col style="">
+															</colgroup>
+														</table>
+													</div>
 												</div>
 											</div>
-										</div>
-									</dd>
-								</dl>
-							</div>
+										</dd>
+									</dl>
+								</div>
 
-							<div class="dl_group">
+								<div class="dl_group">
 
 
-								<input type="hidden" value="2021" id="nowYear" name="nowYear">
-								<dl>
-									<dt>
-										<label for="year1">조회 연/월</label>
-										<!-- 조회기간 tooltip mobile -->
-										<!-- 														<span class="popover-btn"><span class="hide">조회기간</span></span>
+									<input type="hidden" value="2021" id="nowYear" name="nowYear">
+									<dl>
+										<dt>
+											<label>연월조회</label> <br> <label>(2011년부터 2021년
+														8월까지 조회가능합니다.)</label>
+											<!-- 조회기간 tooltip mobile -->
+											<!-- 														<span class="popover-btn"><span class="hide">조회기간</span></span>
 	                                                    <div class="popover-layer">
 	                                                        <p class="pHeader">조회기간</p>
 	                                                        <p class="pContent">
@@ -606,9 +957,9 @@
 	                                                        </p>
 	                                                        <p class="pFooter"><span>닫기</span></p>
 	                                                    </div> -->
-									</dt>
-								</dl>	
-<!-- 									<dd class="td_period">
+										</dt>
+									</dl>
+									<!-- 									<dd class="td_period">
 										<div class="row">
 											<div>
 												<input class="i_radio" type="radio" value="month"
@@ -622,95 +973,41 @@
 											</div>
 										</div>
 									</dd> -->
-									
+
 									<dl>
 										<div class="row">
 											<dd class="td1_2">
-												<select class="form-control" name="searchYearStart"
-													id="searchYearStart">
+												<select class="form-control" name="year" id="year">
+													<c:forEach var="i" begin="2012" end="2021">
 
-													<option value="2021" selected="">2021년</option>
-													<option value="2020">2020년</option>
-													<option value="2019">2019년</option>
-													<option value="2018">2018년</option>
-													<option value="2017">2017년</option>
-													<option value="2016">2016년</option>
-													<option value="2015">2015년</option>
-													<option value="2014">2014년</option>
-													<option value="2013">2013년</option>
-													<option value="2012">2012년</option>
-													<option value="2011">2011년</option>
-													<option value="2010">2010년</option>
-													<option value="2009">2009년</option>
-													<option value="2008">2008년</option>
+														<option value="${ i }"
+															${ i eq requestScope.year ? "selected" : "" }>${ i }
+														</option>
+													</c:forEach>
 												</select>
 											</dd>
-											<dd class="td1_2">
-												<select class="form-control" name="searchMonthStart"
-													id="searchMonthStart">
-													<option value="12">12월</option>
-													<option value="11">11월</option>
-													<option value="10">10월</option>
-													<option value="09">09월</option>
-													<option value="08" selected="">08월</option>
-													<option value="07">07월</option>
-													<option value="06">06월</option>
-													<option value="05">05월</option>
-													<option value="04">04월</option>
-													<option value="03">03월</option>
-													<option value="02">02월</option>
-													<option value="01">01월</option>
-												</select>
-											</dd>
-											<h3 class="dash">~</h3>
-											<dd class="td1_2">
-												<select class="form-control" name="searchYearEnd"
-													id="searchYearEnd">
 
-													<option value="2021" selected="">2021년</option>
-													<option value="2020">2020년</option>
-													<option value="2019">2019년</option>
-													<option value="2018">2018년</option>
-													<option value="2017">2017년</option>
-													<option value="2016">2016년</option>
-													<option value="2015">2015년</option>
-													<option value="2014">2014년</option>
-													<option value="2013">2013년</option>
-													<option value="2012">2012년</option>
-													<option value="2011">2011년</option>
-													<option value="2010">2010년</option>
-													<option value="2009">2009년</option>
-													<option value="2008">2008년</option>
-												</select>
-											</dd>
 											<dd class="td1_2">
-												<select class="form-control" name="searchMonthEnd"
-													id="searchMonthEnd">
-													<option value="12">12월</option>
-													<option value="11">11월</option>
-													<option value="10">10월</option>
-													<option value="09">09월</option>
-													<option value="08" selected="">08월</option>
-													<option value="07">07월</option>
-													<option value="06">06월</option>
-													<option value="05">05월</option>
-													<option value="04">04월</option>
-													<option value="03">03월</option>
-													<option value="02">02월</option>
-													<option value="01">01월</option>
+												<select class="form-control" name="month" id="month">
+													<c:forEach var="i" begin="1" end="12">
+
+														<option value="${ i }"
+															${ i eq requestScope.month ? "selected" : "" }>${ i }
+														</option>
+													</c:forEach>
 												</select>
 											</dd>
 										</div>
 									</dl>
-									
-							</div>
+
+								</div>
 
 
 
 
 
-							<div class="dl_group">
-								<!-- <dl class="label_txt">
+								<div class="dl_group">
+									<!-- <dl class="label_txt">
 									<dt>구분</dt>
 									<div class="row">
 										<dd>
@@ -730,7 +1027,7 @@
 										</dd>
 									</div>
 								</dl> -->
-								<!-- <dl>
+									<!-- <dl>
 									<dt>
 										<label for="range">정렬순서</label>
 									</dt>
@@ -752,20 +1049,23 @@
 										</dd>
 									</div>
 								</dl> -->
-							</div>
+								</div>
+						</div>
+						</fieldset>
+						<div class="btn_box">
+							<a id="search-link" href="#" class="btn btn-primary btn-sm"
+								style="float: right">검색</a>
+						</div>
 					</div>
-					</fieldset>
-					<div class="btn_box">
-						<input type="submit" value="검색" class="btn_search"
-							onclick="return goSearch();">
-						<!-- <input type="reset"
-							value="초기화" class="btn_reset" onclick="return goReset();"> -->
-					</div>
-
-				</div>
 			</div>
 			</form>
 		</div>
+
+		<br>
+		<br>
+		<br>
+		<br>
+
 
 		<!-- /# column -->
 
@@ -986,6 +1286,15 @@
 
 
 		<!-- jquery vendor -->
+		<script src="/population/resources/assets/js/lib/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				$("#search-link").on('click', function(event) {
+					$('#search-household-form').submit();
+				});
+			});
+		</script>
+
 		<script src="/population/resources/assets/js/lib/jquery.min.js"></script>
 		<script
 			src="/population/resources/assets/js/lib/jquery.nanoscroller.min.js"></script>

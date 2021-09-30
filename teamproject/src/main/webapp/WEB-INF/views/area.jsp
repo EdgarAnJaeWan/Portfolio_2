@@ -219,7 +219,7 @@
 				</fieldset>
 			</div>
 			
-							<div>
+							
 								<tr>
 									<th>시도</th>
 									<th>년도</th>
@@ -227,7 +227,7 @@
 									<th style="text-align: right;">총인구수<th>
 									
 								</tr>
-							</div>
+							
 
 								<c:forEach items="${areaList}" var="area">
 									<tr>
