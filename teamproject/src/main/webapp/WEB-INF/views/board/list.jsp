@@ -156,7 +156,6 @@
     </div>
     
     <jsp:include page="/WEB-INF/views/modules/common-js1.jsp" />
-
     <!-- Page level plugins -->
     <script src="/population/resources/vendor/chart.js/Chart.min.js"></script>
 

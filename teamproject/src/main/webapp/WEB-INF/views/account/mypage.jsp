@@ -60,55 +60,55 @@
                 <section id="main-content">
                     
                    <div class="card">
-                         <p><div class="card-header py-3">
+                         <div class="card-header py-3">
                              <span class="m-0 font-weight-bold text-primary">내 정보</span>
-                             <a href="write" class="btn btn-primary btn-sm" style="float:right">정보 변경</a>
-                             <div style="clear:both" />
-                         </div></p>
-                                <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered">
-                                            <thead>
-                                                
-                                            </thead>
-                                            <tbody>
-                                            <br>
-                                            	<!-- <tr>
-		                                            	<td>아이디(ID)</td>
-		                                            	<td>${ memberInfo.memberId }</td>
-		                                            </tr>
-		                                            <tr>
-		                                            	<td>이메일</td>
-		                                            	<td>${ memberInfo.email }</td>
-		                                            </tr>
-		                                            <tr>
-		                                            	<td>회원 등급</td>
-		                                            	<td>${ memberInfo.userType }</td>
-		                                            </tr>
-		                                            <tr>
-		                                            	<td>회원 등록일</td>
-		                                            	<td>${ memberInfo.regDate }</td>
-		                                            </tr>  -->
-                                                 <!-- loginuser 정보를 활용하여 마이페이지 정보 보여주기 --> 
-		                                            <tr>
-		                                            	<td>아이디(ID)</td>
-		                                            	<td>${ loginuser.memberId }</td>
-		                                            </tr>
-		                                            <tr>
-		                                            	<td>이메일</td>
-		                                            	<td>${ loginuser.email }</td>
-		                                            </tr>
-		                                            <tr>
-		                                            	<td>회원 등급</td>
-		                                            	<td>${ loginuser.userType }</td>
-		                                            </tr>
-		                                            <tr>
-		                                            	<td>회원 등록일</td>
-		                                            	<td>${ loginuser.regDate }</td>
-		                                            </tr>
-		                                        
-                                    </tbody>
-                                </table>
+                         </div>
+                         <div class="card-body">
+                             <div class="table-responsive">
+                                 	<div class="edit-form" role="form">
+			                            <h4>회원기본정보</h4>
+			                            <form id="edit-form" action="update" method="post">
+			                                <div class="form-group1">
+			                                    <label>아이디 (ID)</label>
+			                                    <input type="text" id="memberId" name="memberId" class="form-control" value="${ member.memberId }">
+			                                </div>
+			                                <div class="form-group2">
+			                                    <label>이메일</label>
+			                                    <input type="text" id="email" name="email" class="form-control" value="${ member.email }">
+			                                </div>
+			                                <div class="form-group1">
+			                                    <label>회원 등급</label>
+			                                    <input type="text" id="userType" name="userType" class="form-control" value="${ member.userType }">
+			                                </div>
+			                                <div class="form-group1">
+			                                    <label>회원 등록일</label>
+			                                    <input type="text" id="regDate" name="regDate" class="form-control"value="${ member.regDate }">
+			                                </div>
+			                         
+			                                <button id="edit-button" class="btn btn-primary btn-flat m-b-30 m-t-30">수정</button>
+			                                <button id="delete" class="btn btn-primary btn-flat m-b-30 m-t-30">회원 탈퇴</button>
+			                            </form>
+			                        </div>
+                                   
+                                     
+                                          <%-- loginuser 정보를 활용하여 마이페이지 정보 보여주기 --> 
+                                       <!-- <tr>
+                                       	<td>아이디(ID)</td>
+                                       	<td>${ loginuser.memberId }</td>
+                                       </tr>
+                                       <tr>
+                                       	<td>이메일</td>
+                                       	<td>${ loginuser.email }</td>
+                                       </tr>
+                                       <tr>
+                                       	<td>회원 등급</td>
+                                       	<td>${ loginuser.userType }</td>
+                                       </tr>
+                                       <tr>
+                                       	<td>회원 등록일</td>
+                                       	<td>${ loginuser.regDate }</td>
+                                       </tr>--%>
+                                    
                              </div>
                           </div>
                        </div>
@@ -119,32 +119,24 @@
                 </section>
             </div>
         </div>
-
-		<a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
     
     <jsp:include page="/WEB-INF/views/modules/common-js1.jsp" />
+
+	<script type="text/javascript">
+		$(".form-group1 input").attr('readonly', true);
+	
+		$('#edit-button').on('click', function(event) {
+			$('#edit-form').submit();
+			location.href = "mypage?memberId=${ member.memberId }";
+		});
+		/* $(delete-button).on('click', function(event) {
+			var yes = confirm('${ member.memberId }님 회원을 탈퇴하시겠습니까?');
+			if (yes) {
+				??????
+			}
+		}); */
+	
+	</script>
 
     <!-- Page level plugins -->
     <script src="/population/resources/vendor/chart.js/Chart.min.js"></script>

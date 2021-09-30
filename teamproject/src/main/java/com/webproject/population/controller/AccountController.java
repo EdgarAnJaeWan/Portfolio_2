@@ -1,3 +1,4 @@
+
 package com.webproject.population.controller;
 
 import java.util.List;
@@ -75,20 +76,41 @@ public class AccountController {
 	}
 	
 	//loginuser로 회원 정보 보여주기
+	//@GetMapping(path = { "/mypage" })
+	//public String selectMemberInfo(MemberVO member) {
+	//	
+	//	return "account/mypage";
+	//}
+	
+	//	@GetMapping(path = { "/mypage" })
+	//	public String mypage(String memberId, HttpSession session) {
+	//		  
+	//	MemberVO mypageInfo = authService.selectMemberInfo(memberId);
+	//	session.setAttribute("mypageuser", mypageInfo);
+	//	
+	//	return "account/mypage";	  
+	//	}
+	
 	@GetMapping(path = { "/mypage" })
-	public String selectMemberInfo(MemberVO member) {
+	public String mypage(HttpSession session, Model model) {
+		  
+		MemberVO loggedInUser = (MemberVO)session.getAttribute("loginuser");
+		MemberVO mypageInfo = authService.selectMemberInfo(loggedInUser.getMemberId());
+		
+		model.addAttribute("member", mypageInfo); // 이 코드를 제거한 것 같습니다.
+		System.out.println(mypageInfo);
 		
 		return "account/mypage";
+	
 	}
 	
-	//@GetMapping(path = { "/mypage" })
-	//public String mypage(String memberId, String email, String userType, String regDate) {
-	//	  
-	//MemberVO mypageInfo = authService.selectMemberInfo();
-	//
-	//return "acoount/mypage";	  
-	//}
+	@PostMapping(path = { "/update" })
+	public String update(MemberVO member) {
 		
+		authService.updateMember(member);
+		
+		return "redirect:mypage";
+	}
 		
 	 
 }

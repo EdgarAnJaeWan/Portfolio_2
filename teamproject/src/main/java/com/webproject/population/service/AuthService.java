@@ -8,6 +8,8 @@ public interface AuthService {
 
 	MemberVO findMemberByIdAndPasswd(String memberId, String passwd);
 
-	//MemberVO selectMemberInfo();
+	MemberVO selectMemberInfo(String memberId);
+	
+	void updateMember(MemberVO member);
 
 }

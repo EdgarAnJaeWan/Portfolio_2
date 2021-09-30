@@ -66,7 +66,7 @@
 								</div>
 
 								<button id="update-button" type="button" class="btn btn-success">수정</button>
-								<button type="reset" class="btn btn-success">다시쓰기</button>
+								<button id="reset-button" type="reset" class="btn btn-success">다시쓰기</button>
 								<button id="cancel-button" type="button" class="btn btn-success">취소</button>
 								<button id="tolist-button" type="button" class="btn btn-success">목록</button>
 							</form>
@@ -124,6 +124,15 @@
     		$('#update-form').submit();
     		
     	});
+    	$("#reset-button").click(function (event) {
+    		/* event.preventDefault();
+    		event.stopPropagation();
+    		
+    		$("#title").val("");
+    		$("#content").val(""); */
+    		$('#update-formvent').reset();
+    	});
+    	
 		$('#cancel-button').on('click', function(event) {
 		    location.href = "detail?boardNo=${ board.boardNo }";
 		});
