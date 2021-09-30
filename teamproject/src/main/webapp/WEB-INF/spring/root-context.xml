@@ -47,11 +47,9 @@
 	
 	<context:component-scan base-package="com.webproject.population.dao"></context:component-scan>
 	<context:component-scan base-package="com.webproject.population.service"></context:component-scan>
-	
-	<import resource="household-context.xml" />
+
 	<import resource="auth-context.xml"/>
 	<import resource="board-context.xml"/>
-	
-
-	
+	<import resource="household-context.xml" />
+		
 </beans>
