@@ -360,7 +360,7 @@
 													</select>
 												</dd>
 
-												<dd class="td3">
+<!-- 												<dd class="td3">
 													<select class="form-control" id="good" name="gugun">
 														<option>시·군·구</option>
 													</select>
@@ -904,7 +904,7 @@
 															}
 														}
 													</script>
-												</dd>
+												</dd> -->
 											</div>
 
 

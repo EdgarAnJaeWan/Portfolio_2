@@ -356,7 +356,7 @@
 													</select>
 												</dd>
 
-												<dd class="td3">
+<!-- 												<dd class="td3">
 													<select class="form-control" id="good" name="gugun">
 														<option>시·군·구</option>
 													</select>
@@ -900,7 +900,7 @@
 															}
 														}
 													</script>
-												</dd>
+												</dd> -->
 											</div>
 
 										</dl>
@@ -938,7 +938,8 @@
 									<input type="hidden" value="2021" id="nowYear" name="nowYear">
 									<dl>
 										<dt>
-											<label for="year1">조회 연/월</label>
+											<label>연월조회</label> <br> <label>(2011년부터 2021년
+														8월까지 조회가능합니다.)</label>
 											<!-- 조회기간 tooltip mobile -->
 											<!-- 														<span class="popover-btn"><span class="hide">조회기간</span></span>
 	                                                    <div class="popover-layer">
