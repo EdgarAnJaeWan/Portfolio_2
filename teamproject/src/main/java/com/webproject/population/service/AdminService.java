@@ -13,8 +13,6 @@ public interface AdminService {
 
 	MemberVO findMemberByMemberId(String memberId);
 
-	void updatemember(MemberVO member);
-
-	void deletemember(String memberId);
+	void deleteMember(String memberId);
 
 }

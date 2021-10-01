@@ -53,29 +53,15 @@ public class AdminController {
 	@PostMapping(path = { "/update" })
 	public String update(MemberVO member) {
 		
-		adminService.updatemember(member);
+		adminService.updateMember(member);
 		
 		return "redirect:adminpage?memberId=" + member.getMemberId();
-	}
-	
-	@GetMapping(path = {"/admindetail" })
-	public String adminedit(String memberId, Model model) {
-		
-		MemberVO member = adminService.findMemberByMemberId(memberId);
-		
-		if(member == null) {
-			return "redirect:adminpage";
-		}
-		
-		model.addAttribute("member", member);
-		
-		return "admin/adminedit";
 	}
 	
 	@GetMapping(path = { "/delete" })
 	public String delete(String memberId) {
 		
-		adminService.deletemember(memberId);
+		adminService.deleteMember(memberId);
 		
 		return "redirect:adminpage";
 	}

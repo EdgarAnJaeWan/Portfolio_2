@@ -45,7 +45,7 @@
                      <span class="m-0 font-weight-bold text-primary">회원정보 수정</span>
                   </div>
                   <div class="card-body">
-                      	
+                      <form id="update-form" action="update" method="post">	
                         
                         <div class="form-group">
                            <label>아이디</label> 
@@ -71,6 +71,12 @@
                            <label>등록 일자</label> 
                            <input class="form-control" id='regDate' name='regDate' value='${ member.regDate }' readonly="readonly">
                         </div>
+                        
+                        <div class="form-group">
+                           <label>탈퇴 여부</label> 
+                           <br>
+                           <input type="checkbox" id='active' name='active' ${ member.active ? "checked" : "" }>활성 사용자 여부
+                           </div>
 
                         <button id="update-button" type="button" class="btn btn-success">수정</button>
                         <button id="tolist-button" type="button" class="btn btn-success">목록</button>
