@@ -23,15 +23,15 @@
 	VALUES (#{ memberId }, #{passWd}, #{email}, #{userType}, #{regDate}, #{active})
 	</insert>
 
-	<update id="updateMembers" parameterType="MemberVO">
+	<update id="updateMember" parameterType="MemberVO">
 	UPDATE MEMBER
-	SET EMAIL = #{ email }, PASSWD = #{ passWd }
+	SET EMAIL = #{ email }, PASSWD = #{ passwd }, active = #{ active }
 	WHERE MEMBERID = #{ memberId }
 	</update>
 	
-	<update id="updateMemberDeleted" parameterType="int">
+	<update id="updateMemberDeleted" parameterType="string">
 	UPDATE MEMBER
-	SET DELETED = true
+	SET ACTIVE = false
 	WHERE MEMBERID = #{ memberId }
 	</update>
 

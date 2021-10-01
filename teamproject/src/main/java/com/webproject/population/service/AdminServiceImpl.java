@@ -21,6 +21,8 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public void updateMember(MemberVO member) {
+	
+		adminMapper.updateMember(member);
 		
 	}
 
@@ -31,17 +33,12 @@ public class AdminServiceImpl implements AdminService {
 		
 	}
 
-	@Override
-	public void updatemember(MemberVO member) {
-		
-		
-	}
 
 	
 	@Override
-	public void deletemember(String memberId) {
+	public void deleteMember(String memberId) {
 		
-		
+		adminMapper.updateMemberDeleted(memberId);
 	}
 
 	
