@@ -60,7 +60,8 @@ public class AccountController {
 		if (member != null) {
 			session.setAttribute("loginuser", member);
 			
-			return "redirect:/home";
+			return "redirect:/";
+			//return "redirect:/home";
 		} else {
 			return "redirect:/account/login";
 		}
@@ -72,7 +73,7 @@ public class AccountController {
 		
 		session.removeAttribute("loginuser");
 		
-		return "redirect:/home";
+		return "redirect:/";
 	}
 	
 	//loginuser로 회원 정보 보여주기
@@ -119,7 +120,7 @@ public class AccountController {
 		
 		session.removeAttribute("loginuser"); // 로그아웃
 		
-		return "redirect:/home";
+		return "redirect:/";
 	}
 		
 	 
