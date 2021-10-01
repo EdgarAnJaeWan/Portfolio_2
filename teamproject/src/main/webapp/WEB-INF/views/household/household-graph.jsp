@@ -66,7 +66,7 @@
 	<div class="content-wrap">
 		<div class="main">
 			<div class="container-fluid">
-				<form method="post" action="search">
+				<form id="search-household-form" method="post" action="search-graph">
 					<div class="row">
 						<div class="col-lg-8 p-r-0 title-margin-right">
 							<div class="page-header">
@@ -336,27 +336,27 @@
 													<select class="form-control"
 														onchange="categoryChange(this)" name="sido">
 														<option>시도</option>
-														<option value="11">서울특별시</option>
-														<option value="26">부산광역시</option>
-														<option value="27">대구광역시</option>
-														<option value="28">인천광역시</option>
-														<option value="29">광주광역시</option>
-														<option value="30">대전광역시</option>
-														<option value="31">울산광역시</option>
-														<option value="36">세종특별자치시</option>
-														<option value="41">경기도</option>
-														<option value="42">강원도</option>
-														<option value="43">충청북도</option>
-														<option value="44">충청남도</option>
-														<option value="45">전라북도</option>
-														<option value="46">전라남도</option>
-														<option value="47">경상북도</option>
-														<option value="48">경상남도</option>
-														<option value="50">제주특별자치도</option>
+														<option value="11" ${ sido == "11" ? "selected" : "" }>서울특별시</option>
+														<option value="26" ${ sido == "26" ? "selected" : "" }>부산광역시</option>
+														<option value="27" ${ sido == "27" ? "selected" : "" }>대구광역시</option>
+														<option value="28" ${ sido == "28" ? "selected" : "" }>인천광역시</option>
+														<option value="29" ${ sido == "29" ? "selected" : "" }>광주광역시</option>
+														<option value="30" ${ sido == "30" ? "selected" : "" }>대전광역시</option>
+														<option value="31" ${ sido == "31" ? "selected" : "" }>울산광역시</option>
+														<option value="36" ${ sido == "36" ? "selected" : "" }>세종특별자치시</option>
+														<option value="41" ${ sido == "41" ? "selected" : "" }>경기도</option>
+														<option value="42" ${ sido == "42" ? "selected" : "" }>강원도</option>
+														<option value="43" ${ sido == "43" ? "selected" : "" }>충청북도</option>
+														<option value="44" ${ sido == "44" ? "selected" : "" }>충청남도</option>
+														<option value="45" ${ sido == "45" ? "selected" : "" }>전라북도</option>
+														<option value="46" ${ sido == "46" ? "selected" : "" }>전라남도</option>
+														<option value="47" ${ sido == "47" ? "selected" : "" }>경상북도</option>
+														<option value="48" ${ sido == "48" ? "selected" : "" }>경상남도</option>
+														<option value="50" ${ sido == "50" ? "selected" : "" }>제주특별자치도</option>
 													</select>
 												</dd>
 
-<!-- 												<dd class="td3">
+												<!-- 												<dd class="td3">
 													<select class="form-control" id="good" name="gugun">
 														<option>시·군·구</option>
 													</select>
@@ -939,7 +939,7 @@
 									<dl>
 										<dt>
 											<label>연월조회</label> <br> <label>(2011년부터 2021년
-														8월까지 조회가능합니다.)</label>
+												8월까지 조회가능합니다.)</label>
 											<!-- 조회기간 tooltip mobile -->
 											<!-- 														<span class="popover-btn"><span class="hide">조회기간</span></span>
 	                                                    <div class="popover-layer">
@@ -1061,10 +1061,7 @@
 			</form>
 		</div>
 
-		<br>
-		<br>
-		<br>
-		<br>
+		<br> <br> <br> <br>
 
 
 		<!-- /# column -->
@@ -1084,258 +1081,166 @@
 				</div>
 
 
+				<canvas id="areagraph" width="800" height="400"></canvas>
 
-
-				<div class="col-lg-6 col-sm-12 col-md-6">
-					<div class="card">
-						<div class="card-header">
-							<h4 class="card-title">Bar Chart</h4>
-						</div>
-						<div class="card-body">
-							<div id="morris_bar" class="morris_chart_height"
-								style="position: relative; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-								<svg height="240" version="1.1" width="533.5"
-									xmlns="http://www.w3.org/2000/svg"
-									xmlns:xlink="http://www.w3.org/1999/xlink"
-									style="overflow: hidden; position: relative;">
-									<desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.2.0</desc>
-									<defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs>
-									<text x="33.421875" y="199" text-anchor="end"
-										font-family="sans-serif" font-size="12px" stroke="none"
-										fill="#888888"
-										style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;"
-										font-weight="normal">
-									<tspan dy="4"
-										style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">0</tspan></text>
-									<path fill="none" stroke="#000000" d="M45.921875,199H508.5"
-										stroke-opacity="0" stroke-width="0.5"
-										style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path>
-									<text x="33.421875" y="155.5" text-anchor="end"
-										font-family="sans-serif" font-size="12px" stroke="none"
-										fill="#888888"
-										style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;"
-										font-weight="normal">
-									<tspan dy="4"
-										style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">25</tspan></text>
-									<path fill="none" stroke="#000000" d="M45.921875,155.5H508.5"
-										stroke-opacity="0" stroke-width="0.5"
-										style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path>
-									<text x="33.421875" y="112" text-anchor="end"
-										font-family="sans-serif" font-size="12px" stroke="none"
-										fill="#888888"
-										style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;"
-										font-weight="normal">
-									<tspan dy="4"
-										style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">50</tspan></text>
-									<path fill="none" stroke="#000000" d="M45.921875,112H508.5"
-										stroke-opacity="0" stroke-width="0.5"
-										style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path>
-									<text x="33.421875" y="68.5" text-anchor="end"
-										font-family="sans-serif" font-size="12px" stroke="none"
-										fill="#888888"
-										style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;"
-										font-weight="normal">
-									<tspan dy="4"
-										style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">75</tspan></text>
-									<path fill="none" stroke="#000000" d="M45.921875,68.5H508.5"
-										stroke-opacity="0" stroke-width="0.5"
-										style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path>
-									<text x="33.421875" y="25" text-anchor="end"
-										font-family="sans-serif" font-size="12px" stroke="none"
-										fill="#888888"
-										style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;"
-										font-weight="normal">
-									<tspan dy="4"
-										style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">100</tspan></text>
-									<path fill="none" stroke="#000000" d="M45.921875,25H508.5"
-										stroke-opacity="0" stroke-width="0.5"
-										style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path>
-									<text x="475.45870535714283" y="211.5" text-anchor="middle"
-										font-family="sans-serif" font-size="12px" stroke="none"
-										fill="#888888"
-										style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;"
-										font-weight="normal" transform="matrix(1,0,0,1,0,8)">
-									<tspan dy="4"
-										style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2012</tspan></text>
-									<text x="343.2935267857143" y="211.5" text-anchor="middle"
-										font-family="sans-serif" font-size="12px" stroke="none"
-										fill="#888888"
-										style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;"
-										font-weight="normal" transform="matrix(1,0,0,1,0,8)">
-									<tspan dy="4"
-										style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2010</tspan></text>
-									<text x="211.12834821428572" y="211.5" text-anchor="middle"
-										font-family="sans-serif" font-size="12px" stroke="none"
-										fill="#888888"
-										style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;"
-										font-weight="normal" transform="matrix(1,0,0,1,0,8)">
-									<tspan dy="4"
-										style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2008</tspan></text>
-									<text x="78.96316964285714" y="211.5" text-anchor="middle"
-										font-family="sans-serif" font-size="12px" stroke="none"
-										fill="#888888"
-										style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;"
-										font-weight="normal" transform="matrix(1,0,0,1,0,8)">
-									<tspan dy="4"
-										style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2006</tspan></text>
-									<rect x="70.70284598214286" y="25" width="3.506882440476191"
-										height="174" rx="0" ry="0" fill="#f25521" stroke="none"
-										fill-opacity="1"
-										style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect>
-									<rect x="77.20972842261905" y="42.400000000000006"
-										width="3.506882440476191" height="156.6" rx="0" ry="0"
-										fill="#f9c70a" stroke="none" fill-opacity="1"
-										style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect>
-									<rect x="83.71661086309524" y="94.6" width="3.506882440476191"
-										height="104.4" rx="0" ry="0" fill="#f21780" stroke="none"
-										fill-opacity="1"
-										style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect>
-									<rect x="136.78543526785717" y="68.5" width="3.506882440476191"
-										height="130.5" rx="0" ry="0" fill="#f25521" stroke="none"
-										fill-opacity="1"
-										style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect>
-									<rect x="143.29231770833337" y="85.9" width="3.506882440476191"
-										height="113.1" rx="0" ry="0" fill="#f9c70a" stroke="none"
-										fill-opacity="1"
-										style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect>
-									<rect x="149.79920014880955" y="129.4"
-										width="3.506882440476191" height="69.6" rx="0" ry="0"
-										fill="#f21780" stroke="none" fill-opacity="1"
-										style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect>
-									<rect x="202.86802455357144" y="112" width="3.506882440476191"
-										height="87" rx="0" ry="0" fill="#f25521" stroke="none"
-										fill-opacity="1"
-										style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect>
-									<rect x="209.37490699404765" y="129.4"
-										width="3.506882440476191" height="69.6" rx="0" ry="0"
-										fill="#f9c70a" stroke="none" fill-opacity="1"
-										style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect>
-									<rect x="215.88178943452382" y="146.8"
-										width="3.506882440476191" height="52.19999999999999" rx="0"
-										ry="0" fill="#f21780" stroke="none" fill-opacity="1"
-										style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect>
-									<rect x="268.9506138392858" y="68.5" width="3.506882440476191"
-										height="130.5" rx="0" ry="0" fill="#f25521" stroke="none"
-										fill-opacity="1"
-										style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect>
-									<rect x="275.457496279762" y="85.9" width="3.506882440476191"
-										height="113.1" rx="0" ry="0" fill="#f9c70a" stroke="none"
-										fill-opacity="1"
-										style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect>
-									<rect x="281.9643787202382" y="129.4" width="3.506882440476191"
-										height="69.6" rx="0" ry="0" fill="#f21780" stroke="none"
-										fill-opacity="1"
-										style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect>
-									<rect x="335.033203125" y="112" width="3.506882440476191"
-										height="87" rx="0" ry="0" fill="#f25521" stroke="none"
-										fill-opacity="1"
-										style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect>
-									<rect x="341.5400855654762" y="129.4" width="3.506882440476191"
-										height="69.6" rx="0" ry="0" fill="#f9c70a" stroke="none"
-										fill-opacity="1"
-										style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect>
-									<rect x="348.0469680059524" y="146.8" width="3.506882440476191"
-										height="52.19999999999999" rx="0" ry="0" fill="#f21780"
-										stroke="none" fill-opacity="1"
-										style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect>
-									<rect x="401.11579241071433" y="68.5" width="3.506882440476191"
-										height="130.5" rx="0" ry="0" fill="#f25521" stroke="none"
-										fill-opacity="1"
-										style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect>
-									<rect x="407.62267485119054" y="85.9" width="3.506882440476191"
-										height="113.1" rx="0" ry="0" fill="#f9c70a" stroke="none"
-										fill-opacity="1"
-										style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect>
-									<rect x="414.12955729166674" y="129.4"
-										width="3.506882440476191" height="69.6" rx="0" ry="0"
-										fill="#f21780" stroke="none" fill-opacity="1"
-										style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect>
-									<rect x="467.19838169642867" y="25" width="3.506882440476191"
-										height="174" rx="0" ry="0" fill="#f25521" stroke="none"
-										fill-opacity="1"
-										style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect>
-									<rect x="473.7052641369049" y="42.400000000000006"
-										width="3.506882440476191" height="156.6" rx="0" ry="0"
-										fill="#f9c70a" stroke="none" fill-opacity="1"
-										style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect>
-									<rect x="480.2121465773811" y="129.4" width="3.506882440476191"
-										height="69.6" rx="0" ry="0" fill="#f21780" stroke="none"
-										fill-opacity="1"
-										style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect></svg>
-								<div class="morris-hover morris-default-style"
-									style="left: 430.67px; top: 66px; display: none;">
-									<div class="morris-hover-row-label">2012</div>
-									<div class="morris-hover-point" style="color: #f25521">
-										A: 100</div>
-									<div class="morris-hover-point" style="color: #f9c70a">
-										B: 90</div>
-									<div class="morris-hover-point" style="color: #f21780">
-										C: 40</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
 			</div>
 		</div>
+	</div>
 
 
 
 
-		<!-- /# column -->
+
+	<!-- /# column -->
 
 
-		<!-- jquery vendor -->
-		<script src="/population/resources/assets/js/lib/jquery.min.js"></script>
-		<script type="text/javascript">
-			$(function() {
-				$("#search-link").on('click', function(event) {
-					$('#search-household-form').submit();
+	<script src="/population/resources/assets/js/lib/jquery.min.js"></script>
+	<script
+		src="/population/resources/assets/js/lib/jquery.nanoscroller.min.js"></script>
+	<!-- nano scroller -->
+	<script src="/population/resources/assets/js/lib/menubar/sidebar.js"></script>
+	<script src="/population/resources/assets/js/lib/preloader/pace.min.js"></script>
+	<!-- sidebar -->
+
+	<script src="/population/resources/assets/js/lib/bootstrap.min.js"></script>
+	<script src="/population/resources/assets/js/scripts.js"></script>
+	<!-- bootstrap -->
+
+	<script
+		src="/population/resources/assets/js/lib/calendar-2/moment.latest.min.js"></script>
+	<script
+		src="/population/resources/assets/js/lib/calendar-2/pignose.calendar.min.js"></script>
+	<script
+		src="/population/resources/assets/js/lib/calendar-2/pignose.init.js"></script>
+
+
+	<script
+		src="/population/resources/assets/js/lib/weather/jquery.simpleWeather.min.js"></script>
+	<script
+		src="/population/resources/assets/js/lib/weather/weather-init.js"></script>
+	<script
+		src="/population/resources/assets/js/lib/circle-progress/circle-progress.min.js"></script>
+	<script
+		src="/population/resources/assets/js/lib/circle-progress/circle-progress-init.js"></script>
+	<script
+		src="/population/resources/assets/js/lib/chartist/chartist.min.js"></script>
+	<script
+		src="/population/resources/assets/js/lib/sparklinechart/jquery.sparkline.min.js"></script>
+	<script
+		src="/population/resources/assets/js/lib/sparklinechart/sparkline.init.js"></script>
+	<script
+		src="/population/resources/assets/js/lib/owl-carousel/owl.carousel.min.js"></script>
+	<script
+		src="/population/resources/assets/js/lib/owl-carousel/owl.carousel-init.js"></script>
+	<!-- scripit init-->
+	<script src="/population/resources/assets/js/dashboard2.js"></script>
+	
+	<script src="/population/resources/assets/js/lib/chart-js/Chart.bundle.js"></script>
+    <script src="/population/resources/assets/js/lib/chart-js/chartjs-init.js"></script>
+	
+				<script type="text/javascript">
+				
+				$(function() {
+					$("#search-link").on('click', function(event) {
+						$('#search-household-form').submit();
+					});
+				
+				var context = $('#areagraph')
+					
+					var region = [];					
+					var householdCount = [];
+					
+					<c:forEach var="household" items="${ householdsList }">
+						region.push('${ household.region }');	
+						householdCount.push(${ household.household });
+					</c:forEach>
+					
+					var myChart = new Chart(context, {
+						type : 'bar', // 차트의 형태
+						data : { // 차트에 들어갈 데이터
+							labels : region,
+							datasets : [ { //데이터
+								label : '시구군 세대별 인구수', //차트 제목
+
+								data : householdCount,
+								backgroundColor : [
+								//색상
+										'rgba(255, 99, 132, 0.2)',
+										'rgba(54, 162, 235, 0.2)',
+										'rgba(255, 206, 86, 0.2)',
+										'rgba(75, 192, 192, 0.2)',
+										'rgba(153, 102, 255, 0.2)',
+										'rgba(129, 215, 66, 0.2)',
+										'rgba(255, 99, 132, 0.2)',
+										'rgba(54, 162, 235, 0.2)',
+										'rgba(255, 206, 86, 0.2)',
+										'rgba(75, 192, 192, 0.2)',
+										'rgba(153, 102, 255, 0.2)',
+										'rgba(129, 215, 66, 0.2)',
+										'rgba(255, 99, 132, 0.2)',
+										'rgba(54, 162, 235, 0.2)',
+										'rgba(255, 206, 86, 0.2)',
+										'rgba(75, 192, 192, 0.2)',
+										'rgba(153, 102, 255, 0.2)',
+										'rgba(129, 215, 66, 0.2)',
+										'rgba(255, 99, 132, 0.2)',
+										'rgba(54, 162, 235, 0.2)',
+										'rgba(255, 206, 86, 0.2)',
+										'rgba(75, 192, 192, 0.2)',
+										'rgba(153, 102, 255, 0.2)',
+										'rgba(129, 215, 66, 0.2)',
+										'rgba(255, 99, 132, 0.2)',
+										'rgba(54, 162, 235, 0.2)',
+										'rgba(255, 206, 86, 0.2)',
+										'rgba(75, 192, 192, 0.2)',
+										'rgba(153, 102, 255, 0.2)',
+										'rgba(129, 215, 66, 0.2)',
+										'rgba(255, 99, 132, 0.2)',
+										'rgba(54, 162, 235, 0.2)',
+										'rgba(255, 206, 86, 0.2)',
+										'rgba(75, 192, 192, 0.2)',
+										'rgba(153, 102, 255, 0.2)',
+										'rgba(129, 215, 66, 0.2)',
+										'rgba(255, 99, 132, 0.2)',
+										'rgba(54, 162, 235, 0.2)',
+										'rgba(255, 206, 86, 0.2)',
+										'rgba(75, 192, 192, 0.2)',
+										'rgba(153, 102, 255, 0.2)',
+										'rgba(129, 215, 66, 0.2)',
+										'rgba(255, 99, 132, 0.2)',
+										'rgba(54, 162, 235, 0.2)',
+										'rgba(255, 206, 86, 0.2)',
+										'rgba(75, 192, 192, 0.2)',
+										'rgba(153, 102, 255, 0.2)',
+										'rgba(129, 215, 66, 0.2)'													
+                                ],
+								borderColor : [
+								//경계선 색상
+								'rgba(255, 99, 132, 1)',
+										'rgba(54, 162, 235, 1)',
+										'rgba(255, 206, 86, 1)',
+										'rgba(75, 192, 192, 1)',
+										'rgba(153, 102, 255, 1)',
+										'rgba(255, 159, 64, 1)' ],
+								borderWidth : 1
+							//경계선 굵기
+							} ]
+						},
+						options : {
+							responsive : true,
+
+							scales : {
+								yAxes : [ {
+									ticks : {
+										beginAtZero : true
+									}
+								} ]
+							}
+						}
+					});
+					
 				});
-			});
-		</script>
-
-		<script src="/population/resources/assets/js/lib/jquery.min.js"></script>
-		<script
-			src="/population/resources/assets/js/lib/jquery.nanoscroller.min.js"></script>
-		<!-- nano scroller -->
-		<script src="/population/resources/assets/js/lib/menubar/sidebar.js"></script>
-		<script
-			src="/population/resources/assets/js/lib/preloader/pace.min.js"></script>
-		<!-- sidebar -->
-
-		<script src="/population/resources/assets/js/lib/bootstrap.min.js"></script>
-		<script src="/population/resources/assets/js/scripts.js"></script>
-		<!-- bootstrap -->
-
-		<script
-			src="/population/resources/assets/js/lib/calendar-2/moment.latest.min.js"></script>
-		<script
-			src="/population/resources/assets/js/lib/calendar-2/pignose.calendar.min.js"></script>
-		<script
-			src="/population/resources/assets/js/lib/calendar-2/pignose.init.js"></script>
-
-
-		<script
-			src="/population/resources/assets/js/lib/weather/jquery.simpleWeather.min.js"></script>
-		<script
-			src="/population/resources/assets/js/lib/weather/weather-init.js"></script>
-		<script
-			src="/population/resources/assets/js/lib/circle-progress/circle-progress.min.js"></script>
-		<script
-			src="/population/resources/assets/js/lib/circle-progress/circle-progress-init.js"></script>
-		<script
-			src="/population/resources/assets/js/lib/chartist/chartist.min.js"></script>
-		<script
-			src="/population/resources/assets/js/lib/sparklinechart/jquery.sparkline.min.js"></script>
-		<script
-			src="/population/resources/assets/js/lib/sparklinechart/sparkline.init.js"></script>
-		<script
-			src="/population/resources/assets/js/lib/owl-carousel/owl.carousel.min.js"></script>
-		<script
-			src="/population/resources/assets/js/lib/owl-carousel/owl.carousel-init.js"></script>
-		<!-- scripit init-->
-		<script src="/population/resources/assets/js/dashboard2.js"></script>
+				</script>
 </body>
 
 </html>

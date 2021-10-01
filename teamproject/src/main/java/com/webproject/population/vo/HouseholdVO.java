@@ -11,6 +11,9 @@ public class HouseholdVO {
 	public int year;
 	public int month;
 	public int household;
+	private int population_male;
+	private int population_female;
+	
 	
 	public String getRegion() {
 		return region;
@@ -48,8 +51,17 @@ public class HouseholdVO {
 	public void setHousehold(int household) {
 		this.household = household;
 	}
-	
-	
-	
-	
+	public int getPopulation_male() {
+		return population_male;
+	}
+	public void setPopulation_male(int population_male) {
+		this.population_male = population_male;
+	}
+	public int getPopulation_female() {
+		return population_female;
+	}
+	public void setPopulation_female(int population_female) {
+		this.population_female = population_female;
+	}
+		
 }
