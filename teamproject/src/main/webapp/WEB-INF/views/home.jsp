@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page language="java" pageEncoding="utf-8"
 	contentType="text/html; charset=utf-8"%>
 
@@ -31,7 +31,8 @@
 <link
 	href="/web/resources/population/resources/assets/css/lib/calendar2/pignose.calendar.min.css"
 	rel="stylesheet">
-<link href="/population/resources/assets/css/lib/chartist/chartist.min.css"
+<link
+	href="/population/resources/assets/css/lib/chartist/chartist.min.css"
 	rel="stylesheet">
 <link href="/population/resources/assets/css/lib/font-awesome.min.css"
 	rel="stylesheet">
@@ -39,7 +40,8 @@
 	rel="stylesheet">
 <link href="/population/resources/assets/css/lib/owl.carousel.min.css"
 	rel="stylesheet" />
-<link href="/population/resources/assets/css/lib/owl.theme.default.min.css"
+<link
+	href="/population/resources/assets/css/lib/owl.theme.default.min.css"
 	rel="stylesheet" />
 <link href="/population/resources/assets/css/lib/weather-icons.css"
 	rel="stylesheet" />
@@ -47,7 +49,8 @@
 	rel="stylesheet">
 <link href="/population/resources/assets/css/lib/bootstrap.min.css"
 	rel="stylesheet">
-<link href="/population/resources/assets/css/lib/helper.css" rel="stylesheet">
+<link href="/population/resources/assets/css/lib/helper.css"
+	rel="stylesheet">
 <link href="/population/resources/assets/css/style.css" rel="stylesheet">
 </head>
 
@@ -70,181 +73,138 @@
 						<div class="stat-content">
 							<div class="text-left dib">
 								<div class="stat-heading">대한민국 인구데이터</div>
-								<div style="text-align: center;" class="stat-text">made by team3 0_0</div>
+								<div style="text-align: center;" class="stat-text">made by
+									team3 0_0</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				
-				
-				<div class="row">
-            <div class="col-lg-3">
-              <div class="card p-0">
-                <div class="stat-widget-three">
-                  <div style="cursor: pointer;" onclick=location.href="/population/area.action" class="stat-icon bg-primary">
-                    <i class="ti-user"></i>
-                  </div>
-                  <div class="stat-content">
-                    <div class="stat-digit">5,182만</div>
-                    <div class="stat-text">총인구</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3">
-              <div class="card p-0">
-                <div class="stat-widget-three">
-                  <div style="cursor: pointer;" onclick=location.href="household/chart" class="stat-icon bg-success">
-                    <i class="ti-user"></i>
-                  </div>
-                  <div  class="stat-content">
-                    <div class="stat-digit">2034만</div>
-                    <div class="stat-text">세대별 인구</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3">
-              <div class="card p-0">
-                <div class="stat-widget-three">
-                  <div style="cursor: pointer;" onclick=location.href="gender.action" class="stat-icon bg-warning">
-                    <i class="ti-user"></i>
-                  </div>
-                 <div class="stat-content">
-                    <div class="stat-digit">78,217</div>
-                    <div class="stat-text">남녀별인구</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3">
-              <div class="card p-0">
-                <div class="stat-widget-three">
-                  <div style="cursor: pointer;" onclick=location.href="board/list" class="stat-icon bg-danger">
-                    <i class="ti-map"></i>
-                  </div>
-                  <div class="stat-content">
-                   <div class="stat-digit">^-^</div>
-                    <div class="stat-text">게시판</div>
-                    
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="card">
-                  <div class="card-title">
-                    <h4>대한민국 인구변화 추이</h4>            
-                  </div>
-                  
-                  <div>
 
-						<canvas id="myChart" width="800" height="400"></canvas>
-						<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-						<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-						<script type="text/javascript">
-            var context = document
-                .getElementById('myChart')
-                .getContext('2d');
-            
-            var year = ['2012','2013','2014','2015','2016','2017','2018','2019','2020'];
-            
-            var myChart = new Chart(context, {
-                type: 'line', // 차트의 형태
-                data: { // 차트에 들어갈 데이터
-                    labels: year,
-                    datasets: [
-                        { //데이터
-                            label: '총 인구변화', //차트 제목
-                            fill: false, // line 형태일 때, 선 안쪽을 채우는지 안채우는지
-                            data: [
-                            	50094393,50556257,50826606,50302326,50512410,
-                            	50659415,51394159,51668864,51699779
-                            	
-                            	//x축 label에 대응되는 데이터 값
-                            ],
-                            backgroundColor: [
-                                //색상
-                                'rgba(255, 99, 132, 0.2)',
-                                'rgba(54, 162, 235, 0.2)',
-                                'rgba(255, 206, 86, 0.2)',
-                                'rgba(75, 192, 192, 0.2)',
-                                'rgba(153, 102, 255, 0.2)',
-                                'rgba(255, 159, 64, 0.2)'
-                            ],
-                            borderColor: [
-                                //경계선 색상
-                                'rgba(255, 99, 132, 1)',
-                                'rgba(54, 162, 235, 1)',
-                                'rgba(255, 206, 86, 1)',
-                                'rgba(75, 192, 192, 1)',
-                                'rgba(153, 102, 255, 1)',
-                                'rgba(255, 159, 64, 1)'
-                            ],
-                            borderWidth: 1 //경계선 굵기
-                        }
-                    ]
-                },
-                options: {
-                    scales: {
-                        yAxes: [
-                            {
-                                ticks: {
-                                    beginAtZero: true
-                                }
-                            }
-                        ]
-                    }
-                }
-            });
-        </script>
+
+				<div class="row">
+					<div class="col-lg-3">
+						<div class="card p-0">
+							<div class="stat-widget-three">
+								<div style="cursor: pointer;" onclick=location.href=
+									"/population/area.action" class="stat-icon bg-primary">
+									<i class="ti-user"></i>
+								</div>
+								<div class="stat-content">
+									<div class="stat-digit">5,182만</div>
+									<div class="stat-text">총인구</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="card p-0">
+							<div class="stat-widget-three">
+								<div style="cursor: pointer;" onclick=location.href=
+									"household/chart" class="stat-icon bg-success">
+									<i class="ti-user"></i>
+								</div>
+								<div class="stat-content">
+									<div class="stat-digit">2034만</div>
+									<div class="stat-text">세대별 인구</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="card p-0">
+							<div class="stat-widget-three">
+								<div style="cursor: pointer;" onclick=location.href=
+									"gender.action" class="stat-icon bg-warning">
+									<i class="ti-user"></i>
+								</div>
+								<div class="stat-content">
+									<div class="stat-digit">78,217</div>
+									<div class="stat-text">남녀별인구</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="card p-0">
+							<div class="stat-widget-three">
+								<div style="cursor: pointer;" onclick=location.href=
+									"board/list" class="stat-icon bg-danger">
+									<i class="ti-map"></i>
+								</div>
+								<div class="stat-content">
+									<div class="stat-digit">^-^</div>
+									<div class="stat-text">게시판</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
-                </div>
-                
-                
-                <div class="card">
-				
-					<table id="bootstrap-data-table-export" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="bootstrap-data-table-export_info">
-                            <thead>
-								<tr role="row">
-									<th>행정구역</th>
-									<th>세대수</th>
-									<th>남자 인구수</th>
-									<th>여자 인구수</th>
-									<th>총 인구수</th>
-								</tr>
-							</thead>
-                                            <tbody>
-                                            <c:forEach items="${homeList}" var="home">
-					<tr>
-					
-						<td>${ home.region }</td>
-						<td><fmt:formatNumber value="${home.household}"/>세대</td>
-						<td><fmt:formatNumber value="${home.population_male}"/>명</td>
-						<td><fmt:formatNumber value="${home.population_female}"/>명</td>
-						<td><fmt:formatNumber value="${home.population_male + home.population_female}"/>명</td>
-					
-					
-					</tr>
-					</c:forEach>
-                                            </tbody>
-                                        </table>
-					
+
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="card">
+							<div class="card-title">
+								<h4>대한민국 인구변화 추이</h4>
+							</div>
+
+							<canvas id="myChart" width="400" height="400"></canvas>
+							
+
+						</div>
+					</div>
+
+					<div class="col-lg-6">
+						<div class="card">
+
+							<table id="bootstrap-data-table-export"
+								class="table table-striped table-bordered dataTable no-footer"
+								role="grid" aria-describedby="bootstrap-data-table-export_info">
+								<thead>
+									<tr role="row">
+										<th>행정구역</th>
+										<th>세대수</th>
+										<th>남자 인구</th>
+										<th>여자 인구</th>
+										<th>총 인구</th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:forEach items="${homeList}" var="home">
+										<tr>
+
+											<td>${ home.region }</td>
+											<td><fmt:formatNumber value="${home.household}" /></td>
+											<td><fmt:formatNumber value="${home.population_male}" /></td>
+											<td><fmt:formatNumber value="${home.population_female}" /></td>
+											<td><fmt:formatNumber
+													value="${home.population_male + home.population_female}" /></td>
+
+
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
+
+						</div>
+
+
+					</div>
 				</div>
-                
-    
+
+
 			</div>
 		</div>
 	</div>
-	
 
-	
-	
+
+
+
 
 	<!-- jquery vendor -->
 	<script src="/population/resources/assets/js/lib/jquery.min.js"></script>
-	<script src="/population/resources/assets/js/lib/jquery.nanoscroller.min.js"></script>
+	<script
+		src="/population/resources/assets/js/lib/jquery.nanoscroller.min.js"></script>
 	<!-- nano scroller -->
 	<script src="/population/resources/assets/js/lib/menubar/sidebar.js"></script>
 	<script src="/population/resources/assets/js/lib/preloader/pace.min.js"></script>
@@ -258,17 +218,20 @@
 		src="/population/resources/assets/js/lib/calendar-2/moment.latest.min.js"></script>
 	<script
 		src="/population/resources/assets/js/lib/calendar-2/pignose.calendar.min.js"></script>
-	<script src="/population/resources/assets/js/lib/calendar-2/pignose.init.js"></script>
+	<script
+		src="/population/resources/assets/js/lib/calendar-2/pignose.init.js"></script>
 
 
 	<script
 		src="/population/resources/assets/js/lib/weather/jquery.simpleWeather.min.js"></script>
-	<script src="/population/resources/assets/js/lib/weather/weather-init.js"></script>
+	<script
+		src="/population/resources/assets/js/lib/weather/weather-init.js"></script>
 	<script
 		src="/population/resources/assets/js/lib/circle-progress/circle-progress.min.js"></script>
 	<script
 		src="/population/resources/assets/js/lib/circle-progress/circle-progress-init.js"></script>
-	<script src="/population/resources/assets/js/lib/chartist/chartist.min.js"></script>
+	<script
+		src="/population/resources/assets/js/lib/chartist/chartist.min.js"></script>
 	<script
 		src="/population/resources/assets/js/lib/sparklinechart/jquery.sparkline.min.js"></script>
 	<script
@@ -277,19 +240,88 @@
 		src="/population/resources/assets/js/lib/owl-carousel/owl.carousel.min.js"></script>
 	<script
 		src="/population/resources/assets/js/lib/owl-carousel/owl.carousel-init.js"></script>
-	<!— scripit init—>
+		
+    <!-- scripit init-->
 	<script src="/population/resources/assets/js/dashboard2.js"></script>
-	<script src="/population/resources/assets/js/lib/vector-map/jquery.vmap.js"></script>
-    <!-- scripit init-->
-    <script src="/population/resources/assets/js/lib/vector-map/jquery.vmap.min.js"></script>
-    <!-- scripit init-->
-    <script src="/population/resources/assets/js/lib/vector-map/jquery.vmap.sampledata.js"></script>
-    <!-- scripit init-->
-   
-   
-    <script src="/population/resources/assets/js/lib/vector-map/vector.init.js"></script>
-    <!-- scripit init-->
+	<script
+		src="/population/resources/assets/js/lib/vector-map/jquery.vmap.js"></script>
+	<!-- scripit init-->
+	<script
+		src="/population/resources/assets/js/lib/vector-map/jquery.vmap.min.js"></script>
+	<!-- scripit init-->
+	<script
+		src="/population/resources/assets/js/lib/vector-map/jquery.vmap.sampledata.js"></script>
+	<!-- scripit init-->
+
+
+	<script
+		src="/population/resources/assets/js/lib/vector-map/vector.init.js"></script>
+	<!-- scripit init-->
 	
+	<script src="/population/resources/assets/js/lib/chart-js/Chart.bundle.js"></script>
+    <script src="/population/resources/assets/js/lib/chart-js/chartjs-init.js"></script>
+	
+	<script type="text/javascript">
+		$(function() {
+			var context = $("#myChart");
+        
+		
+		var population_data = [];
+       	var total_population = [];
+       	var year = [];
+       	<c:set var = "prevRegion" value = "" />
+       	<c:forEach var="home" items="${homeList}" varStatus="status">
+       		<c:if test="${ home.region != prevRegion }">
+       		<c:set var = "prevRegion" value = "${ home.region }" />
+	       		<c:if test="${ status.index > 0 }">
+	       		population_data.push({
+		            label: '${ prevRegion }', 
+		            fill: false, 
+		            data: total_population
+		            
+		        });
+	       		total_population = [];
+	       		</c:if>
+	        </c:if>
+       		total_population.push(${ home.population_male + home.population_female });
+       		
+       		if (!year.includes(${ home.year })) {
+       			year.push(${ home.year });
+       		}
+       	</c:forEach>
+       	
+       	population_data.push({
+            label: '${ prevRegion }', //차트 제목
+            fill: false, 
+            data: total_population,
+                
+            
+        });
+        
+        var myChart = new Chart(context, {
+            type: 'line', 
+            data: { 
+                labels: year,
+                datasets: population_data,
+                
+            },
+            options: {
+                scales: {
+                    yAxes: [
+                        {
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }
+                    ]
+                }
+            }
+        });
+		});
+            
+        </script>
+	 
+
 </body>
 
 </html>

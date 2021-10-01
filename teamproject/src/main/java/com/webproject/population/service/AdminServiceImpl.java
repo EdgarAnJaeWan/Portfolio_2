@@ -19,6 +19,30 @@ public class AdminServiceImpl implements AdminService {
 		
 	}
 
+	@Override
+	public void updateMember(MemberVO member) {
+		
+	}
+
+	@Override
+	public MemberVO findMemberByMemberId(String memberId) {
+		
+		return adminMapper.selectMemberByMemberId(memberId);
+		
+	}
+
+	@Override
+	public void updatemember(MemberVO member) {
+		
+		
+	}
+
 	
+	@Override
+	public void deletemember(String memberId) {
+		
+		
+	}
+
 	
 }

@@ -11,14 +11,17 @@
     <select id="selectHome" parameterType="hashmap" resultType="HomeVO">
       
      select 
-     	region, 
-     	sum(household)/12 household, 
-     	sum(population_male)/12 population_male,
-     	sum(population_female)/12 population_female
+     	if(position(' ' in region) = 0, region, substr(region, 1, position(' ' in region)-1 ) ) region,     	
+     	year, 
+     	avg(household) household, 
+     	avg(population_male) population_male,
+     	avg(population_female) population_female
      from team3_population
-     group by region
+     group by if(position(' ' in region) = 0, region, substr(region, 1, position(' ' in region)-1 ) ), year
         
     </select>
+    
+    
     
 
 </mapper>

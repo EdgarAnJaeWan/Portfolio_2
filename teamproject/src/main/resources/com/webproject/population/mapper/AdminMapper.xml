@@ -11,6 +11,28 @@
 	SELECT MEMBERID, EMAIL, usertype, regdate, active
 	FROM MEMBER
 	</select>
+	
+	<select id="selectMemberByMemberId" parameterType="string" resultType="MemberVO">
+	SELECT MEMBERID, PASSWD, EMAIL, USERTYPE, REGDATE, ACTIVE
+	FROM MEMBER
+	WHERE MEMBERID = #{ memberId }
+	</select>
 
+	<insert id="insertMember" parameterType="MemberVO">
+	INSERT INTO MEMBER (memberId, passWd, email, userType, regDate, active)
+	VALUES (#{ memberId }, #{passWd}, #{email}, #{userType}, #{regDate}, #{active})
+	</insert>
+
+	<update id="updateMembers" parameterType="MemberVO">
+	UPDATE MEMBER
+	SET EMAIL = #{ email }, PASSWD = #{ passWd }
+	WHERE MEMBERID = #{ memberId }
+	</update>
+	
+	<update id="updateMemberDeleted" parameterType="int">
+	UPDATE MEMBER
+	SET DELETED = true
+	WHERE MEMBERID = #{ memberId }
+	</update>
 
 </mapper>

@@ -71,7 +71,7 @@
 					<h3>행정구역별 그래프</h3>
 				</div>
 				
-				<div class="tbl_form_box">
+				<%-- <div class="tbl_form_box">
 						<div class="dl_group">
 							<dl>
 								<dt>
@@ -109,9 +109,9 @@
 							</dl>
 						</div>
 
-					</div>
+					</div> --%>
 					
-					<div class="dl_group">
+					<%-- <div class="dl_group">
 								<input type="hidden">
 								<dl>
 									<dt>
@@ -149,7 +149,7 @@
 								</div>
 								
 								</div>
-							</div>
+							</div> --%>
 							
 				
 					<canvas id="areagraph" width="800" height="400"></canvas>

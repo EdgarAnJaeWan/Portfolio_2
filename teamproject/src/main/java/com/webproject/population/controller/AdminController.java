@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.webproject.population.service.AdminService;
+import com.webproject.population.vo.BoardVO;
 import com.webproject.population.vo.MemberVO;
 
 @Controller
@@ -34,4 +35,49 @@ public class AdminController {
 		
 		return "admin/adminpage";
 	}
+	
+	@GetMapping(path = { "/adminedit" })
+	public String showEditForm(String memberId, Model model) {
+		
+		MemberVO member = adminService.findMemberByMemberId(memberId);
+		
+		if (member == null) {
+			return "redirect:adminpage";
+		}
+		
+		model.addAttribute("member", member);
+		
+		return "admin/adminedit";
+	}
+	
+	@PostMapping(path = { "/update" })
+	public String update(MemberVO member) {
+		
+		adminService.updatemember(member);
+		
+		return "redirect:adminpage?memberId=" + member.getMemberId();
+	}
+	
+	@GetMapping(path = {"/admindetail" })
+	public String adminedit(String memberId, Model model) {
+		
+		MemberVO member = adminService.findMemberByMemberId(memberId);
+		
+		if(member == null) {
+			return "redirect:adminpage";
+		}
+		
+		model.addAttribute("member", member);
+		
+		return "admin/adminedit";
+	}
+	
+	@GetMapping(path = { "/delete" })
+	public String delete(String memberId) {
+		
+		adminService.deletemember(memberId);
+		
+		return "redirect:adminpage";
+	}
+	
 }

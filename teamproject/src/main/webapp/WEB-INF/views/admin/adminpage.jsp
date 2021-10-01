@@ -60,8 +60,8 @@
                         <div class="page-header">
                             <div class="page-title">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">회원 관리</a></li>
-                                    <li class="breadcrumb-item active">회원 조회</li>
+                                    <li class="breadcrumb-item"><a href="/population/admin/adminedit">회원 관리</a></li>
+                                    <li class="breadcrumb-item active">회원정보를 수정합니다</li>
                                 </ol>
                             </div>
                         </div>
@@ -82,7 +82,9 @@
                         	</tr>
                         <c:forEach var="member" items="${members}" >
                         	<tr align="center">
-                        		<td>${member.memberId}</td>
+                        		<td>
+                        			<a href="/population/admin/adminedit?memberId=${member.memberId}">${member.memberId}</a>
+                        		</td>
                         		<td>${member.email}</td>
                         		<td>${member.userType}</td>
                         		<td>${member.regDate}</td>
@@ -107,23 +109,7 @@
     
     <jsp:include page="/WEB-INF/views/modules/common-js1.jsp" />
 
-    <!-- Page level plugins -->
-    <script src="/population/resources/vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="/population/resources/js/demo/chart-area-demo.js"></script>
-    <script src="/population/resources/js/demo/chart-pie-demo.js"></script>
-    
-    <!-- jquery vendor -->
-    <script src="/population/resources/assets/js/lib/jquery.min.js"></script>
-    <script src="/population/resources/assets/js/lib/jquery.nanoscroller.min.js"></script>
-    <!-- nano scroller -->
-    <script src="/population/resources/assets/js/lib/menubar/sidebar.js"></script>
-    <script src="/population/resources/assets/js/lib/preloader/pace.min.js"></script>
-    <!-- sidebar -->
-    
-    <!-- bootstrap -->
-    <script src="/population/resources/assets/js/lib/bootstrap.min.js"></script><script src="/population/resources/assets/js/scripts.js"></script>
+   
     <!-- scripit init-->
 
 </body>
