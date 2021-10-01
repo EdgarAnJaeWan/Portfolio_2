@@ -277,7 +277,8 @@
 		src="/population/resources/assets/js/lib/owl-carousel/owl.carousel.min.js"></script>
 	<script
 		src="/population/resources/assets/js/lib/owl-carousel/owl.carousel-init.js"></script>
-	<!— scripit init—>
+		
+    <!-- scripit init-->
 	<script src="/population/resources/assets/js/dashboard2.js"></script>
 	<script src="/population/resources/assets/js/lib/vector-map/jquery.vmap.js"></script>
     <!-- scripit init-->
