@@ -10,4 +10,11 @@ import com.webproject.population.vo.MemberVO;
 public interface AdminMapper {
 
 	List<MemberVO> selectAllMembers();
+
+	void updateMember(MemberVO member);
+	
+	MemberVO selectMemberByMemberId (String memberId);
+	
+	void updateMemberDeleted(String memberId);
+	
 }

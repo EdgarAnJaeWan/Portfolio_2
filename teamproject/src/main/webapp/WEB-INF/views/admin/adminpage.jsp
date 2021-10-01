@@ -60,8 +60,8 @@
                         <div class="page-header">
                             <div class="page-title">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">회원 관리</a></li>
-                                    <li class="breadcrumb-item active">회원 조회</li>
+                                    <li class="breadcrumb-item"><a href="/population/admin/adminedit">회원 관리</a></li>
+                                    <li class="breadcrumb-item active">회원정보를 수정합니다</li>
                                 </ol>
                             </div>
                         </div>
@@ -82,7 +82,9 @@
                         	</tr>
                         <c:forEach var="member" items="${members}" >
                         	<tr align="center">
-                        		<td>${member.memberId}</td>
+                        		<td>
+                        			<a href="/population/admin/adminedit?memberId=${member.memberId}">${member.memberId}</a>
+                        		</td>
                         		<td>${member.email}</td>
                         		<td>${member.userType}</td>
                         		<td>${member.regDate}</td>
