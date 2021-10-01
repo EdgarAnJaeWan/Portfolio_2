@@ -35,8 +35,8 @@
                     <li><a class="sidebar-sub-toggle"><i class="ti-home"></i> 남여별 인구  <span
                                 class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
-                            <li><a href="/population/gender.action"><i class="ti-layout-grid4-alt"></i> 통계표</a></li>
-                    <li><a href="app-profile.html"><i class="ti-panel"></i> 그래프</a></li>
+                            <li><a href="/population/sexuality/chart"><i class="ti-layout-grid4-alt"></i> 통계표</a></li>
+                    		<li><a href="/population/sexuality/graph"><i class="ti-panel"></i> 그래프</a></li>
                         </ul>
                     </li>
                     

@@ -12,6 +12,7 @@
 		<typeAlias type="com.webproject.population.vo.areaVO" alias="areaVO"/>
 		<typeAlias type="com.webproject.population.vo.GenderVO" alias="GenderVO"/>
 		<typeAlias type="com.webproject.population.vo.HomeVO" alias="HomeVO"/>
+		<typeAlias type="com.webproject.population.vo.SexualityVO" alias="SexualityVO"/>
 	</typeAliases>
 	
 	<mappers>
