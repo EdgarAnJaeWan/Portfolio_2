@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" pageEncoding="utf-8"
 	contentType="text/html; chartset=utf-8;"%>
 
@@ -261,7 +262,10 @@
 										<td>${sexuality.month}월</td>
 										<td style="text-align: right;">${sexuality.population_male}</td>
 										<td style="text-align: right;">${sexuality.population_female}</td>									
-										<td style="text-align: right;">${((sexuality.population_male)%(sexuality.population_female))}</td>
+										<td style="text-align: right;">
+											<fmt:formatNumber value="${((sexuality.population_female)/(sexuality.population_male))}" 
+															  maxFractionDigits="2" />
+										</td>
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -284,6 +288,7 @@
 				$('#search-sexuality-form').submit();
 			});
 		});
+		
 	</script>
 	<script
 		src="/population/resources/assets/js/lib/jquery.nanoscroller.min.js"></script>
