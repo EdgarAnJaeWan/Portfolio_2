@@ -24,7 +24,7 @@ public class HomeController {
 	
 	private HomeService homeService;
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = { "/", "/home" }, method = RequestMethod.GET)
 	public String home(
 				@RequestParam (required=false)  String region,
 				@RequestParam (defaultValue = "-1") int household,

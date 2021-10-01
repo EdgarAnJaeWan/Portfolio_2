@@ -254,7 +254,7 @@
 							</thead>
 							<tbody>
 
-								<c:forEach items="${sexualityList}" var="sexualitys">
+								<c:forEach items="${sexualitysList}" var="sexuality">
 									<tr>
 										<td>${sexuality.region}</td>
 										<td>${sexuality.year}년</td>
