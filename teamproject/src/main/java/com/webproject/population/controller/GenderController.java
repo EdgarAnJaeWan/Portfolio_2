@@ -28,17 +28,20 @@ public class GenderController {
 	private GenderService genderService;
 	
 	@RequestMapping(value = "/gender.action", method = RequestMethod.GET)
-	public String gender(@RequestParam(required=false)String sido, Model model) throws Exception {
+	public String gender(@RequestParam(required=false)String region, Model model) throws Exception {
 		
 		HashMap<String, Object> params = new HashMap<>();
-		if (sido != null) {
-			params.put("sido", sido);
+		if (region != null) {
+			params.put("region", region);
+			
 		}
 		
 		List<GenderVO> genderList = genderService.selectGender(params);
 				
 		model.addAttribute("genderList", genderList);
-		model.addAttribute("sido", sido);
+		
+		
+		System.out.println("genderList");
 
 		return "gender";
 	}

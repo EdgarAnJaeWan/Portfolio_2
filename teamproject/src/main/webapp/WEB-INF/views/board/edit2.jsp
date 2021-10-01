@@ -117,22 +117,13 @@
     <script type="text/javascript">
     $(function() {
     	$('#update-button').on('click', function(event) {
-    		var yes = confirm('수정하시겠습니까?');
-    		if (yes) {
+    		
+    		// 필요한 경우 입력 데이터 유효성 검사 수행
+    		
     		// <form id="update-form" ...> ... </form> 요소를 서버로 전송
     		$('#update-form').submit();
-    		}
     		
     	});
-    	$("#reset-button").click(function (event) {
-    		/* event.preventDefault();
-    		event.stopPropagation();
-    		
-    		$("#title").val("");
-    		$("#content").val(""); */
-    		$('#update-formvent').reset();
-    	});
-    	
 		$('#cancel-button').on('click', function(event) {
 		    location.href = "detail?boardNo=${ board.boardNo }";
 		});

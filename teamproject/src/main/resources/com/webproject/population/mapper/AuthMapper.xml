@@ -24,5 +24,17 @@
 		FROM member 
 		WHERE active = true AND memberid = #{ memberId }
 	</select>
+	
+	<update id="updateMember" parameterType="MemberVO">
+		UPDATE MEMBER
+		SET EMAIL = #{ email }
+		WHERE MEMBERID = #{ memberId }
+	</update>
+	
+	<update id="updateMemberDeleted" parameterType="String">
+		UPDATE MEMBER
+		SET ACTIVE = false
+		WHERE MEMBERID = #{ memberId }
+	</update>
  
 </mapper>

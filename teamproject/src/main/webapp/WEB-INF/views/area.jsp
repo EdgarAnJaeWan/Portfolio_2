@@ -133,6 +133,7 @@
 
 <div class="card">
 
+
 				<div class="card-title pr"></div>
 				
 
@@ -210,16 +211,18 @@
 									</select>
 								</dd>
 								
+								
 																
 								</div>
 								
 							</div>
+							
 						</dl>
 					</div>
 				</fieldset>
 			</div>
 			
-							<div>
+							
 								<tr>
 									<th>시도</th>
 									<th>년도</th>
@@ -227,7 +230,7 @@
 									<th style="text-align: right;">총인구수<th>
 									
 								</tr>
-							</div>
+							
 
 								<c:forEach items="${areaList}" var="area">
 									<tr>
@@ -292,7 +295,7 @@
 
 	<script type="text/javascript">
 	$(function(){
-		$('#search').on('click', function(event) {
+		$('').on('click', function(event) {
 			
 			
 		});

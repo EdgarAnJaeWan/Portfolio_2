@@ -6,8 +6,19 @@
 
 <mapper namespace="com.webproject.population.mapper.HouseholdMapper">
 
-	<select id="selectAll" resultType="HouseholdVO">
-	SELECT SIDO, GUGUN, YEAR, MONTH, HOUSEHOLD FROM TEAM3_POPULATION;	
-	</select>
+	    <select id="selectHousehold" parameterType="hashmap" resultType="HouseholdVO">
+        select * from team3_population
+        <where>
+        	<if test="sido !=null">
+        	sido = #{sido}
+        	</if>
+        	<if test="year !=null">
+        	and year = #{year}
+        	</if>
+        	<if test="month !=null">
+        	and month = #{month}
+        	</if>
+        </where>
+    </select>
 
 </mapper>

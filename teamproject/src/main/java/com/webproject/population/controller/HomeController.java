@@ -40,7 +40,6 @@ public class HomeController {
 		
 		List<HomeVO> homeList = homeService.selectHome(param);
 		model.addAttribute("homeList", homeList);
-		System.out.println(homeList);
 		return "home";
 	}
 	

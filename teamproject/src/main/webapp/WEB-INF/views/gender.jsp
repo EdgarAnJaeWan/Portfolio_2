@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page pageEncoding="utf-8"%>
 
 <!DOCTYPE html>
@@ -437,325 +438,52 @@
 				<div class="card-title pr">
 					<h4>통계표 출력</h4>
 				</div>
+										
+										<div class="col-sm-12"><table style="width: 100vw%" id="row-select" class="display table table-borderd table-hover dataTable" role="grid" aria-describedby="row-select_info">
+						<thead>
+							<tr role="row">
+								<th class="sorting_asc" tabindex="0" aria-controls="row-select"
+									rowspan="1" colspan="1" 
+									aria-sort="ascending"
+									aria-label="Name: activate to sort column descending">행정구역</th>
+								<th class="sorting" tabindex="0" aria-controls="row-select"
+									rowspan="1" colspan="1"
+									aria-label="Position: activate to sort column ascending">총인구수</th>
+								<th class="sorting" tabindex="0" aria-controls="row-select"
+									rowspan="1" colspan="1"
+									aria-label="Office: activate to sort column ascending">남자 인구수</th>
+								<th class="sorting" tabindex="0" aria-controls="row-select"
+									rowspan="1" colspan="1" 
+									aria-label="Age: activate to sort column ascending">여자 인구수</th>
+								<th class="sorting" tabindex="0" aria-controls="row-select"
+									rowspan="1" colspan="1" 
+									aria-label="Age: activate to sort column ascending">성비</th>
+								
+							</tr>
+						</thead>
 
-
-				<div class="section3" style="">
-					<div class="current_title">
-						<strong><span>주민등록 인구 및 세대현황 </span></strong>
-
-					</div>
-					<!-- table -->
-					<div class="tab_section current_table">
-						<div id="contextTable_wrapper"
-							class="dataTables_wrapper no-footer dts DTS">
-							<div class="DTFC_ScrollWrapper"
-								style="position: relative; clear: both; height: 601px;">
-								<div class="DTFC_RightWrapper"
-									style="position: absolute; top: 0; right: 0;"
-									aria-hidden="true">
-									<div class="DTFC_RightHeadWrapper"
-										style="position: relative; top: 0; left: 0;">
-										<div class="DTFC_RightHeadBlocker DTFC_Blocker"
-											style="position: absolute; top: 0; bottom: 0;"></div>
-									</div>
-									<div class="DTFC_RightBodyWrapper"
-										style="position: relative; top: 0; left: 0; overflow: hidden;">
-										<div class="DTFC_RightBodyLiner"
-											style="position: relative; top: 0; left: 0; overflow-y: scroll;"></div>
-									</div>
-									<div class="DTFC_RightFootWrapper"
-										style="position: relative; top: 0; left: 0;">
-										<div class="DTFC_RightFootBlocker DTFC_Blocker"
-											style="position: absolute; top: 0; bottom: 0;"></div>
-									</div>
-								</div>
-								<div class="dataTables_scroll">
-									<div class="dataTables_scrollHead"
-										style="overflow: hidden; position: relative; border: 0px; width: 100%;">
-										<div class="dataTables_scrollHeadInner"
-											style="box-sizing: content-box; width: 866px; padding-right: 17px;">
-											<table class="tbl_type1 dataTable no-footer" cellspacing="0"
-												role="grid" style="margin-left: 0px; width: 866px;">
-												<thead>
-													<tr role="row" style="height: 50px;">
-
-														<th colspan="6" rowspan="1">2021년 08월</th>
-													</tr>
-
-													<tr role="row" style="height: 50px;">
-														<th scope="col" class="th1 sorting" tabindex="0"
-															aria-controls="contextTable" rowspan="1" colspan="1"
-															style="width: 86.375px;"
-															aria-label="행정구역: activate to sort column ascending">
-															행정구역</th>
-														<th scope="col" class="th1 sorting" tabindex="0"
-															aria-controls="contextTable" rowspan="1" colspan="1"
-															style="width: 86.375px;"
-															aria-label="총 인구수: activate to sort column ascending">총
-															인구수</th>
-
-														<th scope="col" class="th1 sorting" tabindex="0"
-															aria-controls="contextTable" rowspan="1" colspan="1"
-															style="width: 92.7812px;"
-															aria-label="남자 인구수: activate to sort column ascending">남자
-															인구수</th>
-														<th scope="col" class="th1 sorting" tabindex="0"
-															aria-controls="contextTable" rowspan="1" colspan="1"
-															style="width: 92.7812px;"
-															aria-label="여자 인구수: activate to sort column ascending">여자
-															인구수</th>
-														<th scope="col" class="th1 sorting" tabindex="0"
-															aria-controls="contextTable" rowspan="1" colspan="1"
-															style="width: 86.4375px;"
-															aria-label="남여 비율: activate to sort column ascending">남여
-															비율</th>
-													</tr>
-												</thead>
-
-											</table>
-										</div>
-									</div>
-									<div class="dataTables_scrollBody"
-										style="position: relative; overflow: auto; width: 100%; max-height: 500px; height: 500px;">
-										<table class="tbl_type1 dataTable no-footer" cellspacing="0"
-											id="contextTable" role="grid"
-											style="width: 866px; position: absolute; top: 0px; left: 0px; background-color: white;">
-											<colgroup>
-												<col width="12%">
-												<col width="12%" span="6">
-											</colgroup>
-											<thead>
-												<tr role="row" style="height: 0px;">
-													<th colspan="6" rowspan="1"
-														style="padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px; width: 692.531px;">
-														<div class="dataTables_sizing"
-															style="height: 0px; overflow: hidden;">2021년 08월</div>
-													</th>
+						<tbody>
+                                                <c:forEach items="${genderList}" var="gender" >
+											
+												<tr>
+												<td>${gender.region}</td>
+												<td><fmt:formatNumber value="${(gender.population_male + gender.population_female)}" type="number"/> </td>
+												<td><fmt:formatNumber value="${gender.population_male}"/></td>
+												<td><fmt:formatNumber value="${gender.population_female}"/></td>
+												<td><fmt:formatNumber value="${(gender.population_female/gender.population_male)}"/></td>
 												</tr>
-
-												<tr role="row" style="height: 0px;">
-
-													<th scope="col" class="th1 sorting"
-														aria-controls="contextTable" rowspan="1" colspan="1"
-														style="width: 86.375px;"
-														aria-label="총 인구수: activate to sort column ascending">
-														<div class="dataTables_sizing"
-															style="height: 0px; overflow: hidden;">총 인구수</div>
-													</th>
-													<th scope="col" class="th1 sorting"
-														aria-controls="contextTable" rowspan="1" colspan="1"
-														style="width: 92.7812px;"
-														aria-label="남자 인구수: activate to sort column ascending"><div
-															class="dataTables_sizing"
-															style="height: 0px; overflow: hidden;">남자 인구수</div></th>
-													<th scope="col" class="th1 sorting"
-														aria-controls="contextTable" rowspan="1" colspan="1"
-														style="width: 92.7812px;"
-														aria-label="여자 인구수: activate to sort column ascending">
-														<div class="dataTables_sizing"
-															style="height: 0px; overflow: hidden;">여자 인구수</div>
-													</th>
-													<th scope="col" class="th1 sorting"
-														aria-controls="contextTable" rowspan="1" colspan="1"
-														style="width: 86.4375px;"
-														aria-label="남여 비율: activate to sort column ascending">
-														<div class="dataTables_sizing"
-															style="height: 0px; overflow: hidden;">남여 비율</div>
-													</th>
-												</tr>
-											</thead>
-
-
-
-											<tbody>
-												<!-- forEach Level_00 End -->
-												<tr role="row" class="odd selected" style="height: 49px;">
-													<td style="display: none;" class="sorting_1">1000000000</td>
-													<td class="td_admin th1">전국</td>
-
-													<td style="padding-left: 80px;">51,669,716</td>
-													<td style="padding-left: 116px;">25,766,031</td>
-													<td style="padding-left: 108px;">25,903,685</td>
-													<td style="padding-left: 100px;">0.99</td>
-												</tr>
-
-												<tr role="row" class="even" style="height: 49px;">
-													<td style="display: none;" class="sorting_1">1100000000</td>
-													<td class="td_admin th1">서울특별시</td>
-
-													<td style="padding-left: 85px;">9,550,227</td>
-													<td style="padding-left: 125px;">4,640,740</td>
-													<td style="padding-left: 115px;">4,909,487</td>
-													<td style="padding-left: 100px;">0.95</td>
-												</tr>
-
-												<tr role="row" class="odd" style="height: 49px;">
-													<td style="display: none;" class="sorting_1">2600000000</td>
-													<td class="td_admin th1">부산광역시</td>
-
-													<td style="padding-left: 85px;">3,359,527</td>
-													<td style="padding-left: 125px;">1,644,378</td>
-													<td style="padding-left: 115px;">1,715,149</td>
-													<td style="padding-left: 100px;">0.96</td>
-												</tr>
-
-												<tr role="row" class="even" style="height: 49px;">
-													<td style="display: none;" class="sorting_1">2700000000</td>
-													<td class="td_admin th1">대구광역시</td>
-
-													<td style="padding-left: 85px;">2,393,626</td>
-													<td style="padding-left: 125px;">1,180,223</td>
-													<td style="padding-left: 115px;">1,213,403</td>
-													<td style="padding-left: 100px;">0.97</td>
-												</tr>
-
-												<tr role="row" class="odd" style="height: 49px;">
-													<td style="display: none;" class="sorting_1">2800000000</td>
-													<td class="td_admin th1">인천광역시</td>
-
-													<td style="padding-left: 85px;">2,938,429</td>
-													<td style="padding-left: 125px;">1,471,347</td>
-													<td style="padding-left: 115px;">1,467,082</td>
-													<td style="padding-left: 100px;">1.00</td>
-												</tr>
-
-												<tr role="row" class="even" style="height: 49px;">
-													<td style="display: none;" class="sorting_1">2900000000</td>
-													<td class="td_admin th1">광주광역시</td>
-
-													<td style="padding-left: 85px;">1,441,970</td>
-													<td style="padding-left: 125px;">713,286</td>
-													<td style="padding-left: 115px;">728,684</td>
-													<td style="padding-left: 100px;">0.98</td>
-												</tr>
-
-												<tr role="row" class="odd" style="height: 49px;">
-													<td style="display: none;" class="sorting_1">3000000000</td>
-													<td class="td_admin th1">대전광역시</td>
-
-													<td style="padding-left: 85px;">1,454,679</td>
-													<td style="padding-left: 125px;">725,956</td>
-													<td style="padding-left: 115px;">728,723</td>
-													<td style="padding-left: 100px;">1.00</td>
-												</tr>
-
-												<tr role="row" class="even" style="height: 49px;">
-													<td style="display: none;" class="sorting_1">3100000000</td>
-													<td class="td_admin th1">울산광역시</td>
-
-													<td style="padding-left: 85px;">1,124,459</td>
-													<td style="padding-left: 125px;">577,806</td>
-													<td style="padding-left: 115px;">546,653</td>
-													<td style="padding-left: 100px;">1.06</td>
-												</tr>
-
-												<tr role="row" class="odd" style="height: 49px;">
-													<td style="display: none;" class="sorting_1">3600000000</td>
-													<td class="td_admin th1">세종특별자치시</td>
-
-													<td style="padding-left: 90px;">365,309</td>
-													<td style="padding-left: 125px;">182,430</td>
-													<td style="padding-left: 115px;">182,879</td>
-													<td style="padding-left: 100px;">1.00</td>
-												</tr>
-
-												<tr role="row" class="even" style="height: 49px;">
-													<td style="display: none;" class="sorting_1">4100000000</td>
-													<td class="td_admin th1">경기도</td>
-
-													<td style="padding-left: 80px;">13,530,519</td>
-													<td style="padding-left: 120px;">6,810,105</td>
-													<td style="padding-left: 110px;">6,720,414</td>
-													<td style="padding-left: 100px;">1.01</td>
-												</tr>
-
-												<tr role="row" class="odd" style="height: 49px;">
-													<td style="display: none;" class="sorting_1">4200000000</td>
-													<td class="td_admin th1">강원도</td>
-
-													<td style="padding-left: 85px;">1,536,270</td>
-													<td style="padding-left: 125px;">773,260</td>
-													<td style="padding-left: 115px;">763,010</td>
-													<td style="padding-left: 100px;">1.01</td>
-												</tr>
-
-												<tr role="row" class="even" style="height: 49px;">
-													<td style="display: none;" class="sorting_1">4300000000</td>
-													<td class="td_admin th1">충청북도</td>
-
-													<td style="padding-left: 85px;">1,597,179</td>
-													<td style="padding-left: 125px;">810,095</td>
-													<td style="padding-left: 115px;">787,084</td>
-													<td style="padding-left: 100px;">1.03</td>
-												</tr>
-
-												<tr role="row" class="odd" style="height: 49px;">
-													<td style="display: none;" class="sorting_1">4400000000</td>
-													<td class="td_admin th1">충청남도</td>
-
-													<td style="padding-left: 85px;">2,118,183</td>
-													<td style="padding-left: 125px;">1,082,664</td>
-													<td style="padding-left: 115px;">1,035,519</td>
-													<td style="padding-left: 100px;">1.05</td>
-												</tr>
-
-												<tr role="row" class="even" style="height: 49px;">
-													<td style="display: none;" class="sorting_1">4500000000</td>
-													<td class="td_admin th1">전라북도</td>
-
-													<td style="padding-left: 85px;">1,792,476</td>
-													<td style="padding-left: 125px;">891,776</td>
-													<td style="padding-left: 115px;">900,700</td>
-													<td style="padding-left: 100px;">0.99</td>
-												</tr>
-
-												<tr role="row" class="odd" style="height: 49px;">
-													<td style="display: none;" class="sorting_1">4600000000</td>
-													<td class="td_admin th1">전라남도</td>
-
-													<td style="padding-left: 85px;">1,838,353</td>
-													<td style="padding-left: 125px;">924,912</td>
-													<td style="padding-left: 115px;">913,441</td>
-													<td style="padding-left: 100px;">1.01</td>
-												</tr>
-
-												<tr role="row" class="even" style="height: 49px;">
-													<td style="display: none;" class="sorting_1">4700000000</td>
-													<td class="td_admin th1">경상북도</td>
-
-													<td style="padding-left: 85px;">2,630,254</td>
-													<td style="padding-left: 125px;">1,325,354</td>
-													<td style="padding-left: 115px;">1,304,900</td>
-													<td style="padding-left: 100px;">1.02</td>
-												</tr>
-
-												<tr role="row" class="odd" style="height: 49px;">
-													<td style="display: none;" class="sorting_1">4800000000</td>
-													<td class="td_admin th1">경상남도</td>
-
-													<td style="padding-left: 85px;">3,322,373</td>
-													<td style="padding-left: 125px;">1,672,737</td>
-													<td style="padding-left: 115px;">1,649,636</td>
-													<td style="padding-left: 100px;">1.01</td>
-												</tr>
-
-												<tr role="row" class="even" style="height: 49px;">
-													<td style="display: none;" class="sorting_1">5000000000</td>
-													<td class="td_admin th1">제주특별자치도</td>
-
-													<td style="padding-left: 85px;">675,883</td>
-													<td style="padding-left: 125px;">338,962</td>
-													<td style="padding-left: 115px;">336,921</td>
-													<td style="padding-left: 100px;">1.01</td>
-												</tr>
-
-											</tbody>
-										</table>
+											</c:forEach>	
+                                                
+                                               </tbody>
+                                            <tfoot>
+                                               
+                                            </tfoot>
+                                        </table></div>
 
 										<div
 											style="position: relative; top: 0px; left: 0px; width: 1px; height: 882px;"></div>
 										<div class="dts_label" style="display: none;">0</div>
-									</div>
+									
 
 									<div class="dataTables_scrollFoot"
 										style="overflow: hidden; border: 0px; width: 100%;">
@@ -766,7 +494,7 @@
 											</table>
 										</div>
 									</div>
-								</div>
+								
 								<div class="DTFC_LeftWrapper"
 									style="position: absolute; top: 0px; left: 0px; width: 142.469px; height: 1px;"
 									aria-hidden="true">
@@ -797,12 +525,12 @@
 							id="contextTable_paginate">
 							<a class="paginate_button previous disabled"
 								aria-controls="contextTable" data-dt-idx="0" tabindex="0"
-								id="contextTable_previous">Previous</a><span><a
+								id="contextTable_previous"></a><span><a
 								class="paginate_button current" aria-controls="contextTable"
-								data-dt-idx="1" tabindex="0">1</a></span><a
+								data-dt-idx="1" tabindex="0"></a></span><a
 								class="paginate_button next disabled"
 								aria-controls="contextTable" data-dt-idx="2" tabindex="0"
-								id="contextTable_next">Next</a>
+								id="contextTable_next"></a>
 						</div>
 					</div>
 				</div>

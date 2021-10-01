@@ -1,3 +1,4 @@
+
 package com.webproject.population.controller;
 
 import java.util.List;
@@ -99,9 +100,27 @@ public class AccountController {
 		model.addAttribute("member", mypageInfo); // 이 코드를 제거한 것 같습니다.
 		System.out.println(mypageInfo);
 		
-		return "account/mypage";	  
+		return "account/mypage";
+	
 	}
+	
+	@PostMapping(path = { "/update" })
+	public String update(MemberVO member) {
 		
+		authService.updateMember(member);
+		
+		return "redirect:mypage";
+	}
+	
+	@GetMapping(path = { "/delete" })
+	public String delete(String memberId, HttpSession session) {
+		
+		authService.deleteMember(memberId);
+		
+		session.removeAttribute("loginuser"); // 로그아웃
+		
+		return "redirect:/home";
+	}
 		
 	 
 }
