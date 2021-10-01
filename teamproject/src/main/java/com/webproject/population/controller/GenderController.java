@@ -40,7 +40,6 @@ public class GenderController {
 				
 		model.addAttribute("genderList", genderList);
 		
-		
 		System.out.println("genderList");
 
 		return "gender";
