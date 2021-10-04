@@ -60,7 +60,6 @@ public class AccountController {
 		if (member != null) {
 			session.setAttribute("loginuser", member);
 			
-			//return "redirect:/";
 			return "redirect:/home";
 		} else {
 			return "redirect:/account/login";
