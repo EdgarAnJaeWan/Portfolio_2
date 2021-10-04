@@ -1,6 +1,7 @@
 
 package com.webproject.population.controller;
 
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -53,15 +54,16 @@ public class AccountController {
 	public String login(String memberId, String passwd, HttpSession session) {
 		
 		MemberVO member = authService.findMemberByIdAndPasswd(memberId, passwd);
-		System.out.println(member.getMemberId() + "/" + member.getEmail());
+		
 		
 		if (member != null) {
+			System.out.println(member.getMemberId() + "/" + member.getEmail());
 			session.setAttribute("loginuser", member);
 			
 			return "redirect:/home";
 		} else {
-			//model.addAttribute("msg", "로그인 정보가 정확하지 않습니다.");
-			return "redirect:/account/login.action";
+			
+			return "account/login";
 		}
 		
 	}

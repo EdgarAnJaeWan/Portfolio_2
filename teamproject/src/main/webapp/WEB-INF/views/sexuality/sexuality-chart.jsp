@@ -195,29 +195,24 @@
 																	${ i eq requestScope.month ? "selected" : "" }>${ i }
 																</option>
 															</c:forEach>
-															
 														</select>
-														
 													</dd>
 												</div>
 										</div>
 									</dl>
-
+									<div class="btn_box">
+										<a id="search-link" href="#" class="btn btn-primary btn-sm"
+											style="float: left">검색</a>
+									</div>
 								</div>
 							</fieldset>
 						</div>
-						<div class="btn_box">
-							<a id="search-link" href="#" class="btn btn-primary btn-sm"
-								style="float: right">검색</a>
-						</div>
+						
 				</form>
 			</div>
 		</div>
 	</div>
-	<br>
-	<br>
-	<br>
-	<br>
+	
 	<!-- /# column -->
 
 	<!-- /# column -->
