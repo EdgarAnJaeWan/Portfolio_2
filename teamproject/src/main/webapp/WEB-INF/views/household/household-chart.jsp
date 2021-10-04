@@ -1087,7 +1087,7 @@
 
 							<div class="section3" style="">
 								<div class="current_title">
-									<strong><span>주민등록 인구 및 세대현황 </span></strong>
+									<strong><span>주민등록 인구 및 세대 현황 </span></strong>
 
 								</div>
 							</div>
