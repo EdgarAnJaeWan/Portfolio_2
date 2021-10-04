@@ -82,7 +82,7 @@
 					</div>
 
 					<!-- /# column -->
-					<div class="col-lg-8">
+					<div class="col-lg-12">
 						<div class="card">
 
 							<div class="card-title pr"></div>
@@ -195,7 +195,9 @@
 																	${ i eq requestScope.month ? "selected" : "" }>${ i }
 																</option>
 															</c:forEach>
+															
 														</select>
+														
 													</dd>
 												</div>
 										</div>
@@ -216,16 +218,11 @@
 	<br>
 	<br>
 	<br>
-
-
-
-
-
 	<!-- /# column -->
 
 	<!-- /# column -->
-	<div class="col-lg-8">
-		<div class="card" style="width: 1000px;">
+	<div class="col-lg-12">
+		<div class="col-lg-12">
 			<div class="card-title pr">
 				<h4>통계표 출력</h4>
 			</div>

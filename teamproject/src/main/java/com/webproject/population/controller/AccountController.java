@@ -55,14 +55,13 @@ public class AccountController {
 		MemberVO member = authService.findMemberByIdAndPasswd(memberId, passwd);
 		System.out.println(member.getMemberId() + "/" + member.getEmail());
 		
-		//Mapper 구현 및 Service에서 호출하는 구문의 구현이 완성되면 아래의 주석을 풀고 임시 코드를 제거해 주세요
-		
 		if (member != null) {
 			session.setAttribute("loginuser", member);
 			
 			return "redirect:/home";
 		} else {
-			return "redirect:/account/login";
+			//model.addAttribute("msg", "로그인 정보가 정확하지 않습니다.");
+			return "redirect:/account/login.action";
 		}
 		
 	}
