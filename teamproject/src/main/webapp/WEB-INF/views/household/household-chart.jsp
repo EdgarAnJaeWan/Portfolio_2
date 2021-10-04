@@ -82,7 +82,7 @@
 
 					<!-- /# column -->
 					<div class="col-lg-8">
-						<div class="card">
+						<div class="card" style="width: 1600px;">
 
 							<div class="card-title pr"></div>
 							<fieldset>
@@ -360,7 +360,7 @@
 													</select>
 												</dd>
 
-<!-- 												<dd class="td3">
+												<!-- 												<dd class="td3">
 													<select class="form-control" id="good" name="gugun">
 														<option>시·군·구</option>
 													</select>
@@ -1013,7 +1013,10 @@
 												</div>
 										</div>
 									</dl>
-
+									<div class="btn_box">
+										<a id="search-link" href="#" class="btn btn-primary btn-sm"
+											style="float: left">검색</a>
+									</div>
 								</div>
 							</fieldset>
 
@@ -1063,68 +1066,60 @@
 								</dl> -->
 							</div>
 						</div>
-						<div class="btn_box">
-							<a id="search-link" href="#" class="btn btn-primary btn-sm"
-								style="float: right">검색</a>
-						</div>
 				</form>
 			</div>
 		</div>
 	</div>
-	<br>
-	<br>
-	<br>
-	<br>
-
-
-
-
 
 	<!-- /# column -->
 
 	<!-- /# column -->
-	<div class="col-lg-8">
-		<div class="card" style="width: 1000px;">
-			<div class="card-title pr">
-				<h4>통계표 출력</h4>
-			</div>
+	<div class="content-wrap">
+		<div class="main">
+			<div class="container-fluid">
+				<form id="search-household-form" method="post" action="search-chart">
+					<div class="col-lg-8">
+						<div class="card" style="width: 1600px;">
+							<div class="card-title pr">
+								<h4>통계표 출력</h4>
+							</div>
 
 
-			<div class="section3" style="">
-				<div class="current_title">
-					<strong><span>주민등록 인구 및 세대현황 </span></strong>
+							<div class="section3" style="">
+								<div class="current_title">
+									<strong><span>주민등록 인구 및 세대현황 </span></strong>
 
-				</div>
-			</div>
+								</div>
+							</div>
 
-			<!-- table -->
-			<div class="row">
-				<div class="col-md-12">
-					<div class="table-wrap">
-						<table class="table">
-							<thead class="thead-dark">
-								<tr>
-									<th>시도</th>
-									<th>년도</th>
-									<th>월</th>
-									<th style="text-align: right;">총세대수</th>
-									<th style="text-align: right;">세대당 인구(총인구/세대수)</th>
-								</tr>
-							</thead>
-							<tbody>
+							<!-- table -->
+							<div class="row">
+								<div class="col-md-12">
+									<div class="table-wrap">
+										<table class="table">
+											<thead class="thead-dark">
+												<tr>
+													<th>시도</th>
+													<th>년도</th>
+													<th>월</th>
+													<th style="text-align: right;">총 세대수</th>
+													<th style="text-align: right;">세대당 인구(총인구/세대수)</th>
+												</tr>
+											</thead>
+											<tbody>
 
-								<c:forEach items="${householdsList}" var="households">
-									<tr>
-										<td>${households.region}</td>
-										<td>${households.year}년</td>
-										<td>${households.month}월</td>
-										<td style="text-align: right;">${households.household}</td>										
-										<td style="text-align: right;">${ ((((households.population_male+households.population_female)/households.household)*1000)
+												<c:forEach items="${householdsList}" var="households">
+													<tr>
+														<td>${households.region}</td>
+														<td>${households.year}년</td>
+														<td>${households.month}월</td>
+														<td style="text-align: right;">${households.household}</td>
+														<td style="text-align: right;">${ ((((households.population_male+households.population_female)/households.household)*1000)
 										          - ((((households.population_male+households.population_female)/households.household)*1000)%1)) * (1/1000)   }</td>
-									</tr>
-								</c:forEach>
+													</tr>
+												</c:forEach>
 
-								<!-- <tr class="alert" role="alert">
+												<!-- <tr class="alert" role="alert">
 									<th scope="row">2021</th>
 									<td>08</td>
 									<td>서울특별시</td>
@@ -1164,14 +1159,19 @@
 									<td>48895</td>
 									<td>2.1</td>
 								</tr> -->
-							</tbody>
-						</table>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
-				</div>
+				</form>
 			</div>
 		</div>
 	</div>
-	</div>
+
+
 	<!--	 		<script type="text/javascript">
 
  			$(function() {
