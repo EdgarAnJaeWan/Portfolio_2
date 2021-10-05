@@ -72,9 +72,8 @@
 							<div class="page-header">
 								<div class="page-title">
 									<h1>
-										3팀
-										<h3>세대별 인구수 조회</h3>
-									</h1>
+										3팀</h1>
+										<h3>세대별 인구수 조회</h3>									
 								</div>
 							</div>
 						</div>
@@ -95,18 +94,7 @@
 												<!-- 행정구역 tooltip mobile -->
 												<div class="row">
 													<div class="popover-layer">
-														<p class="pHeader">행정구역</p>
-														<!-- 	                                                        <p class="pContent">
- 	                                                            <span>
-																		조회결과는 선택한 행정구역의 산하 행정구역들이 조회됩니다. <br>
-																		(예를들어, 서울특별시 선택시 종로구, 중구, 용산구등 해당 구 자료가 조회됩니다)
-																	</span>
-																	<span>
-																		아래 7개의 면은 인구가 없는 지역이므로 통계현황에서 제외됩니다.<br>
-																		(경기도 파주시 장단면, 진서면, 강원도 철원군 근동면, 원동면, 원남면, 임남면, 고성군 수동면)
-																	</span>			
-																	<span>경기도 파주시 장단출장소 인구는 경기도 파주시 군내면 인구를 의미합니다.</span> 
-	                                                        </p> -->
+														<p class="pHeader">행정구역</p>														
 													</div>
 												</div>
 											</dt>
@@ -1011,61 +999,17 @@
 														</select>
 													</dd>
 												</div>
+											</dl>
 										</div>
-									</dl>
-									<div class="btn_box">
-										<a id="search-link" href="#" class="btn btn-primary btn-sm"
-											style="float: left">검색</a>
-									</div>
+
+										<div class="btn_box">
+											<a id="search-link" href="#" class="btn btn-primary btn-sm"
+												style="float: left">검색</a>
+										</div>
 								</div>
-							</fieldset>
-
-
-							<div class="dl_group">
-								<!-- <dl class="label_txt">
-									<dt>구분</dt>
-									<div class="row">
-										<dd>
-											<input class="i_check" id="sex1" type="checkbox"
-												name="gender" value="gender" checked=""> <label
-												for="sex1">세대수</label>
-										</dd>
-										<dd>
-											<input class="i_check" id="sex2" type="checkbox"
-												name="genderPer" value="genderPer" checked=""> <label
-												for="sex2">세대당 인구</label>
-										</dd>
-										<dd>
-											<input class="i_check" id="generation" type="checkbox"
-												name="generation" value="generation" checked=""> <label
-												for="generation">작년 (동월) 대비 세대수 증감</label>
-										</dd>
-									</div>
-								</dl> -->
-								<!-- <dl>
-									<dt>
-										<label for="range">정렬순서</label>
-									</dt>
-									<div class="row">
-										<dd class="td2">
-											<select class="form-control" name="sltOrderType"
-												id="sltOrderType" title="행정기관코드">
-												id="range"
-												<option value="1">행정기관코드</option>
-											</select>
-										</dd>
-										<dd class="td2">
-											<select class="form-control" name="sltOrderValue"
-												id="sltOrderValue">
-												id="sort"
-												<option value="ASC" selected="">오름차순</option>
-												<option value="DESC">내림차순</option>
-											</select>
-										</dd>
-									</div>
-								</dl> -->
-							</div>
+							</fieldset>							
 						</div>
+					</div>	
 				</form>
 			</div>
 		</div>
