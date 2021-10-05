@@ -51,7 +51,7 @@ public class AccountController {
 	}
 	
 	@PostMapping(path = { "login" })
-	public String login(String memberId, String passwd, HttpSession session) {
+	public String login(String memberId, String passwd, HttpSession session, Model model) {
 		
 		MemberVO member = authService.findMemberByIdAndPasswd(memberId, passwd);
 		
@@ -62,7 +62,7 @@ public class AccountController {
 			
 			return "redirect:/home";
 		} else {
-			
+			model.addAttribute("loginfail", memberId);
 			return "account/login";
 		}
 		

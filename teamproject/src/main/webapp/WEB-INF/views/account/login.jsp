@@ -62,6 +62,15 @@
             </div>
         </div>
     </div>
+    
+    <jsp:include page="/WEB-INF/views/modules/common-js.jsp" />
+    <script type="text/javascript">
+    $(function() {
+    	if (${ not empty loginfail }) {
+    		alert('로그인 실패');
+    	}
+    });
+    </script>
 
 </body>
 

@@ -79,7 +79,7 @@
 							</div>
 							
 							<c:choose>
-								<c:when test="${ loginuser == board.writer }">
+								<c:when test="${ loginuser.memberId == board.writer }">
 									<a id="edit-button" type="button" class="btn btn-success" style="color:white">수정</a>
 									<a id="delete-button" type="button" class="btn btn-success" style="color:white">삭제</a>
 									<button id="tolist-button" type="button" class="btn btn-success">목록</button>
