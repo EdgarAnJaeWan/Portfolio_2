@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page language="java" pageEncoding="utf-8"
 	contentType="text/html; chartset=utf-8;"%>
 
@@ -106,23 +106,23 @@
 													<select class="form-control"
 														onchange="categoryChange(this)" name="sido">
 														<option>시도</option>
-														<option value="11">서울특별시</option>
-														<option value="26">부산광역시</option>
-														<option value="27">대구광역시</option>
-														<option value="28">인천광역시</option>
-														<option value="29">광주광역시</option>
-														<option value="30">대전광역시</option>
-														<option value="31">울산광역시</option>
-														<option value="36">세종특별자치시</option>
-														<option value="41">경기도</option>
-														<option value="42">강원도</option>
-														<option value="43">충청북도</option>
-														<option value="44">충청남도</option>
-														<option value="45">전라북도</option>
-														<option value="46">전라남도</option>
-														<option value="47">경상북도</option>
-														<option value="48">경상남도</option>
-														<option value="50">제주특별자치도</option>
+														<option value="11" ${ sido == "11" ? "selected" : "" }>서울특별시</option>
+														<option value="26" ${ sido == "26" ? "selected" : "" }>부산광역시</option>
+														<option value="27" ${ sido == "27" ? "selected" : "" }>대구광역시</option>
+														<option value="28" ${ sido == "28" ? "selected" : "" }>인천광역시</option>
+														<option value="29" ${ sido == "29" ? "selected" : "" }>광주광역시</option>
+														<option value="30" ${ sido == "30" ? "selected" : "" }>대전광역시</option>
+														<option value="31" ${ sido == "31" ? "selected" : "" }>울산광역시</option>
+														<option value="36" ${ sido == "36" ? "selected" : "" }>세종특별자치시</option>
+														<option value="41" ${ sido == "41" ? "selected" : "" }>경기도</option>
+														<option value="42" ${ sido == "42" ? "selected" : "" }>강원도</option>
+														<option value="43" ${ sido == "43" ? "selected" : "" }>충청북도</option>
+														<option value="44" ${ sido == "44" ? "selected" : "" }>충청남도</option>
+														<option value="45" ${ sido == "45" ? "selected" : "" }>전라북도</option>
+														<option value="46" ${ sido == "46" ? "selected" : "" }>전라남도</option>
+														<option value="47" ${ sido == "47" ? "selected" : "" }>경상북도</option>
+														<option value="48" ${ sido == "48" ? "selected" : "" }>경상남도</option>
+														<option value="50" ${ sido == "50" ? "selected" : "" }>제주특별자치도</option>
 													</select>
 												</dd>
 
@@ -207,66 +207,66 @@
 								</div>
 							</fieldset>
 						</div>
-						
 				</form>
 			</div>
 		</div>
 	</div>
-	
+
 	<!-- /# column -->
 
 	<!-- /# column -->
 	<div class="col-lg-12">
 		<div class="col-lg-12">
-			<div class="card-title pr">
-				<h4>통계표 출력</h4>
-			</div>
-
-
-			<div class="section3" style="">
-				<div class="current_title">
-					<strong><span>주민등록 인구 및 세대현황 </span></strong>
-
+			<div class="card" style="width: 1600px;">
+				<div class="card-title pr">
+					<h4>통계표 출력</h4>
 				</div>
-			</div>
 
-			<!-- table -->
-			<div class="row">
-				<div class="col-md-12">
-					<div class="table-wrap">
-						<table class="table">
-							<thead class="thead-dark">
-								<tr>
-									<th>시도</th>
-									<th>년도</th>
-									<th>월</th>
-									<th style="text-align: right;">남자 인구수</th>
-									<th style="text-align: right;">여자 인구수</th>
-									<th style="text-align: right;">남녀 성비(여자/남자)</th>
-								</tr>
-							</thead>
-							<tbody>
 
-								<c:forEach items="${sexualitysList}" var="sexuality">
+				<div class="section3" style="">
+					<div class="current_title">
+						<strong><span>주민등록 인구 및 세대현황 </span></strong>
+
+					</div>
+				</div>
+
+				<!-- table -->
+				<div class="row">
+					<div class="col-md-12">
+						<div class="table-wrap">
+							<table class="table">
+								<thead class="thead-dark">
 									<tr>
-										<td>${sexuality.region}</td>
-										<td>${sexuality.year}년</td>
-										<td>${sexuality.month}월</td>
-										<td style="text-align: right;">${sexuality.population_male}</td>
-										<td style="text-align: right;">${sexuality.population_female}</td>									
-										<td style="text-align: right;">
-											<fmt:formatNumber value="${((sexuality.population_female)/(sexuality.population_male))}" 
-															  maxFractionDigits="2" />
-										</td>
+										<th>시도</th>
+										<th>년도</th>
+										<th>월</th>
+										<th style="text-align: right;">남자 인구수</th>
+										<th style="text-align: right;">여자 인구수</th>
+										<th style="text-align: right;">남녀 성비(여자/남자)</th>
 									</tr>
-								</c:forEach>
-							</tbody>
-						</table>
+								</thead>
+								<tbody>
+
+									<c:forEach items="${sexualitysList}" var="sexuality">
+										<tr>
+											<td>${sexuality.region}</td>
+											<td>${sexuality.year}년</td>
+											<td>${sexuality.month}월</td>
+											<td style="text-align: right;">${sexuality.population_male}</td>
+											<td style="text-align: right;">${sexuality.population_female}</td>
+											<td style="text-align: right;"><fmt:formatNumber
+													value="${((sexuality.population_female)/(sexuality.population_male))}"
+													maxFractionDigits="2" /></td>
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
+						</div>
 					</div>
 				</div>
 			</div>
+
 		</div>
-	</div>
 	</div>
 
 	<!-- /# column -->
@@ -280,7 +280,6 @@
 				$('#search-sexuality-form').submit();
 			});
 		});
-		
 	</script>
 	<script
 		src="/population/resources/assets/js/lib/jquery.nanoscroller.min.js"></script>
