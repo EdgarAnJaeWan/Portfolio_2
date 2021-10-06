@@ -71,9 +71,8 @@
 						<div class="col-lg-8 p-r-0 title-margin-right">
 							<div class="page-header">
 								<div class="page-title">
-									
-										<h3>행정구역별 인구수 조회</h3>
-									
+									<h1>3팀</h1>
+									<h3>행정구역별 인구수 조회</h3>
 								</div>
 							</div>
 						</div>
@@ -81,7 +80,7 @@
 
 					<!-- /# column -->
 					<div class="col-lg-12">
-						<div class="card">
+						<div class="card" style="width: 1600px;">
 
 							<div class="card-title pr"></div>
 							<fieldset>
@@ -104,23 +103,23 @@
 													<select class="form-control"
 														onchange="categoryChange(this)" name="sido">
 														<option>시도</option>
-														<option value="11">서울특별시</option>
-														<option value="26">부산광역시</option>
-														<option value="27">대구광역시</option>
-														<option value="28">인천광역시</option>
-														<option value="29">광주광역시</option>
-														<option value="30">대전광역시</option>
-														<option value="31">울산광역시</option>
-														<option value="36">세종특별자치시</option>
-														<option value="41">경기도</option>
-														<option value="42">강원도</option>
-														<option value="43">충청북도</option>
-														<option value="44">충청남도</option>
-														<option value="45">전라북도</option>
-														<option value="46">전라남도</option>
-														<option value="47">경상북도</option>
-														<option value="48">경상남도</option>
-														<option value="50">제주특별자치도</option>
+														<option value="11" ${ sido == "11" ? "selected" : "" }>서울특별시</option>
+														<option value="26" ${ sido == "26" ? "selected" : "" }>부산광역시</option>
+														<option value="27" ${ sido == "27" ? "selected" : "" }>대구광역시</option>
+														<option value="28" ${ sido == "28" ? "selected" : "" }>인천광역시</option>
+														<option value="29" ${ sido == "29" ? "selected" : "" }>광주광역시</option>
+														<option value="30" ${ sido == "30" ? "selected" : "" }>대전광역시</option>
+														<option value="31" ${ sido == "31" ? "selected" : "" }>울산광역시</option>
+														<option value="36" ${ sido == "36" ? "selected" : "" }>세종특별자치시</option>
+														<option value="41" ${ sido == "41" ? "selected" : "" }>경기도</option>
+														<option value="42" ${ sido == "42" ? "selected" : "" }>강원도</option>
+														<option value="43" ${ sido == "43" ? "selected" : "" }>충청북도</option>
+														<option value="44" ${ sido == "44" ? "selected" : "" }>충청남도</option>
+														<option value="45" ${ sido == "45" ? "selected" : "" }>전라북도</option>
+														<option value="46" ${ sido == "46" ? "selected" : "" }>전라남도</option>
+														<option value="47" ${ sido == "47" ? "selected" : "" }>경상북도</option>
+														<option value="48" ${ sido == "48" ? "selected" : "" }>경상남도</option>
+														<option value="50" ${ sido == "50" ? "selected" : "" }>제주특별자치도</option>
 													</select>
 												</dd>
 
@@ -200,63 +199,63 @@
 									</dl>
 
 								</div>
+								<div class="btn_box">
+									<a id="search-link" href="#" class="btn btn-primary btn-sm"
+										style="float: left">검색</a>
+								</div>
 							</fieldset>
-						</div>
-						<div class="btn_box">
-							<a id="search-link" href="#" class="btn btn-primary btn-sm"
-								style="float: right">검색</a>
 						</div>
 				</form>
 			</div>
 		</div>
 	</div>
-<br>
 	<div class="col-lg-12">
-		<div class="card" style="width: 1000px;">
-			<div class="card-title pr">
-				<h4>통계표 출력</h4>
-			</div>
-
-
-			<div class="section3" style="">
-				<div class="current_title">
-					<strong><span>주민등록 인구 및 세대현황 </span></strong>
-
+		<div class="col-lg-12">
+			<div class="card" style="width: 1600px;">
+				<div class="card-title pr">
+					<h4>통계표 출력</h4>
 				</div>
-			</div>
 
-			<!-- table -->
-			<div class="row">
-				<div class="col-md-12">
-					<div class="table-wrap">
-						<table class="table">
-							<thead class="thead-dark">
-								<tr>
-									<th>시도</th>
-									<th>년도</th>
-									<th>월</th>
-									<th style="text-align: right;">총 인구수</th>
-									
-								</tr>
-							</thead>
-							<tbody>
 
-								<c:forEach items="${areaList}" var="area">
+				<div class="section3" style="">
+					<div class="current_title">
+						<strong><span>주민등록 인구 및 세대현황 </span></strong>
+
+					</div>
+				</div>
+
+				<!-- table -->
+				<div class="row">
+					<div class="col-md-12">
+						<div class="table-wrap">
+							<table class="table">
+								<thead class="thead-dark">
 									<tr>
-										<td>${area.region}</td>
-										<td>${area.year}년</td>
-										<td>${area.month}월</td>
-										<td style="text-align: right;">${area.population_male + area.population_female}</td>
-										
+										<th>시도</th>
+										<th>년도</th>
+										<th>월</th>
+										<th style="text-align: right;">총 인구수</th>
+
 									</tr>
-								</c:forEach>
-							</tbody>
-						</table>
+								</thead>
+								<tbody>
+
+									<c:forEach items="${areaList}" var="area">
+										<tr>
+											<td>${area.region}</td>
+											<td>${area.year}년</td>
+											<td>${area.month}월</td>
+											<td style="text-align: right;">${area.population_male + area.population_female}</td>
+
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 	</div>
 
 
