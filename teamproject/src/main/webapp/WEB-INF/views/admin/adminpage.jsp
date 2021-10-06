@@ -69,39 +69,44 @@
                     <!-- /# column -->
                 </div>
                 <!-- /# row -->
-                <section id="main-content">
-                    
-                   <div class="card">
-                        <table border="1" align="center" width="70%">
-                        	<tr align="center" bgcolor="lightgreen">
-                        		<td><b>아이디</b></td>
-                        		<td><b>이메일</b></td>
-                        		<td><b>사용자구분</b></td>
-                        		<td><b>등록일자</b></td>
-                        		
-                        	</tr>
-                        <c:forEach var="member" items="${members}" >
-                        	<tr align="center">
-                        		<td>
-                        			<a href="/population/admin/adminedit?memberId=${member.memberId}">${member.memberId}</a>
-                        		</td>
-                        		<td>${member.email}</td>
-                        		<td>${member.userType}</td>
-                        		<td>${member.regDate}</td>
-                        	</tr>
-                        	</c:forEach>
-                        </table>
-                        
-                                
-                       </div>
-                    </div>
+                <section id="main-content" align="center">
+                   	<div class="col-lg-12">
+                   		<div class="card">
+                        	<div class = "card-body">
+                        		<div class="table-responsive">
+                        			<table class="table table-striped">
+                        				<thead>
+                        					<tr align="center">
+			                        			<th><b>아이디</b></th>
+			                        			<th><b>이메일</b></th>
+			                        			<th><b>사용자구분</b></th>
+			                        			<th><b>등록일자</b></th>
+                        					</tr>
+                        				</thead>
+                        				<tbody>
+			                        		<c:forEach var="member" items="${members}" >
+			                        			<tr align="center">
+				                        		<td>
+				                        			<a href="/population/admin/adminedit?memberId=${member.memberId}">${member.memberId}</a>
+				                        		</td>
+				                        		<td>${member.email}</td>
+				                        		<td>${member.userType}</td>
+				                        		<td>${member.regDate}</td>
+			                        			</tr>
+			                        		</c:forEach>
+                        				</tbody>
+                        			</table>
+                        		</div>
+                       	 	</div> 
+                       	</div>
+                   </div>
                     <!-- /# row -->
 
                    <%@ include file="/WEB-INF/views/modules/footer.jsp" %>
                 </section>
             </div>
         </div>
-
+</div>
       <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
@@ -110,22 +115,19 @@
     <jsp:include page="/WEB-INF/views/modules/common-js1.jsp" />
 
     <!-- Page level plugins -->
-    <script src="/population/resources/vendor/chart.js/Chart.min.js"></script>
+
 
     <!-- Page level custom scripts -->
-    <script src="/population/resources/js/demo/chart-area-demo.js"></script>
-    <script src="/population/resources/js/demo/chart-pie-demo.js"></script>
+
     
     <!-- jquery vendor -->
-    <script src="/population/resources/assets/js/lib/jquery.min.js"></script>
-    <script src="/population/resources/assets/js/lib/jquery.nanoscroller.min.js"></script>
+
     <!-- nano scroller -->
-    <script src="/population/resources/assets/js/lib/menubar/sidebar.js"></script>
-    <script src="/population/resources/assets/js/lib/preloader/pace.min.js"></script>
+
     <!-- sidebar -->
     
     <!-- bootstrap -->
-    <script src="/population/resources/assets/js/lib/bootstrap.min.js"></script><script src="/population/resources/assets/js/scripts.js"></script>
+
     <!-- scripit init-->
 
 </body>

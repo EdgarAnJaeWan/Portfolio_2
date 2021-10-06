@@ -25,66 +25,74 @@
 
        <jsp:include page="/WEB-INF/views/modules/sidebar.jsp" />
 
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
+        	<!-- Content Wrapper -->
+        	<div id="content-wrapper" class="d-flex flex-column">
 
-            <!-- Main Content -->
-            <div id="content">
+            	<!-- Main Content -->
+            	<div id="content">
 
-                <jsp:include page="/WEB-INF/views/modules/topbar.jsp" />
+                	<jsp:include page="/WEB-INF/views/modules/topbar.jsp" />
 
-                <!-- Begin Page Content -->
-                <div class="container-fluid" style="width:86%; float:right">
+                		<!-- Begin Page Content -->
+                		<div class="container-fluid" style="width:86%; float:right">
 
-               <!-- Page Heading -->
-               <h1 class="h3 mb-2 text-gray-800">관리자 페이지</h1>
-               <br>
+			               <!-- Page Heading -->
+			               <br>
+			               <h1 class="h3 mb-2 text-gray-800">&nbsp;&nbsp;&nbsp;&nbsp;관리자 페이지</h1>
+			               <br>
 
-               <div class="card shadow mb-4">
-                  <div class="card-header py-3">
-                     <span class="m-0 font-weight-bold text-primary">회원정보 수정</span>
-                  </div>
-                  <div class="card-body">
-                      <form id="update-form" action="update" method="post">	
-                        
-                        <div class="form-group">
-                           <label>아이디</label> 
-                           <input class="form-control" id='memberId' name='memberId' value='${ member.memberId }' readonly="readonly">
-                        </div>
-                        
-                        <div class="form-group">
-                           <label>비밀번호</label> 
-                           <input class="form-control" id='passwd' name='passwd' value='${ member.passwd }'>
-                        </div>
-                        
-                        <div class="form-group">
-                           <label>이메일</label> 
-                           <input class="form-control" id='email' name='email' value='${ member.email }'>
-                        </div>
-                        
-                        <div class="form-group">
-                           <label>사용자 구분</label> 
-                           <input class="form-control" id='userType' name='userType' value='${ member.userType }'>
-                        </div>
-                        
-                        <div class="form-group">
-                           <label>등록 일자</label> 
-                           <input class="form-control" id='regDate' name='regDate' value='${ member.regDate }' readonly="readonly">
-                        </div>
-                        
-                        <div class="form-group">
-                           <label>탈퇴 여부</label> 
-                           <br>
-                           <input type="checkbox" id='active' name='active' ${ member.active ? "checked" : "" }>활성 사용자 여부
-                           </div>
-
-                        <button id="update-button" type="button" class="btn btn-success">수정</button>
-                        <button id="tolist-button" type="button" class="btn btn-success">목록</button>
-                        <button id="delete-button" type="button" class="btn btn-success" style="color:white">삭제</button>
-                     </form>
-                  </div>
-               </div>
-
+				           	<div class="card shadow mb-4">
+				            	<div class="card-header py-3">
+				                	<span class="m-0 font-weight-bold text-primary">회원정보 수정</span>
+                  				</div>
+                  				
+				                  <div class="card-body">
+				                  
+				                  <div class="table-responsive">
+				                  <div class="table table-striped">
+				                  
+				                      <form id="update-form" action="update" method="post">	
+	                        
+				                        <div class="form-group">
+				                        <br>
+				                           <label>&nbsp;&nbsp;&nbsp;아이디</label> 
+				                           &nbsp;&nbsp;<input class="form-control" id='memberId' name='memberId' value='${ member.memberId }' readonly="readonly">
+				                        </div>
+				                        
+				                        <div class="form-group">
+				                           <label>&nbsp;&nbsp;&nbsp;비밀번호</label> 
+				                           &nbsp;&nbsp;<input class="form-control" id='passwd' name='passwd' value='${ member.passwd }'>
+				                        </div>
+				                        
+				                        <div class="form-group">
+				                           <label>&nbsp;&nbsp;&nbsp;이메일</label> 
+				                           &nbsp;&nbsp;<input class="form-control" id='email' name='email' value='${ member.email }'>
+				                        </div>
+				                        
+				                        <div class="form-group">
+				                           <label>&nbsp;&nbsp;&nbsp;사용자 구분</label> 
+				                           &nbsp;&nbsp;<input class="form-control" id='userType' name='userType' value='${ member.userType }'>
+				                        </div>
+				                        
+				                        <div class="form-group">
+				                           <label>&nbsp;&nbsp;&nbsp;등록 일자</label> 
+				                           &nbsp;&nbsp;<input class="form-control" id='regDate' name='regDate' value='${ member.regDate }' readonly="readonly">
+				                        </div>
+				                        
+				                        <div class="form-group">
+				                           <label>&nbsp;&nbsp;&nbsp;탈퇴 여부</label> 
+				                           <br>
+				                           &nbsp;&nbsp;<input type="checkbox" id='active' name='active' ${ member.active ? "checked" : "" }>활성 사용자 여부
+				                           </div>
+				
+				                        &nbsp;&nbsp;&nbsp;<button id="update-button" type="button" class="btn btn-success">수정</button>
+				                        &nbsp;<button id="tolist-button" type="button" class="btn btn-success">목록</button>
+				                        &nbsp;<button id="delete-button" type="button" class="btn btn-success" style="color:white">삭제</button>
+				                     </form>
+				               </div>
+				            </div>
+						</div>
+                	</div>
                 </div>
                 <!-- /.container-fluid -->
 

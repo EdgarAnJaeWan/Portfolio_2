@@ -1,6 +1,7 @@
 
 package com.webproject.population.controller;
 
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -50,20 +51,19 @@ public class AccountController {
 	}
 	
 	@PostMapping(path = { "login" })
-	public String login(String memberId, String passwd, HttpSession session) {
+	public String login(String memberId, String passwd, HttpSession session, Model model) {
 		
 		MemberVO member = authService.findMemberByIdAndPasswd(memberId, passwd);
-		System.out.println(member.getMemberId() + "/" + member.getEmail());
 		
-		//Mapper 구현 및 Service에서 호출하는 구문의 구현이 완성되면 아래의 주석을 풀고 임시 코드를 제거해 주세요
 		
 		if (member != null) {
+			System.out.println(member.getMemberId() + "/" + member.getEmail());
 			session.setAttribute("loginuser", member);
 			
-			//return "redirect:/";
 			return "redirect:/home";
 		} else {
-			return "redirect:/account/login";
+			model.addAttribute("loginfail", memberId);
+			return "account/login";
 		}
 		
 	}
