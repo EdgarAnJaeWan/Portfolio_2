@@ -85,8 +85,7 @@
 					<div class="col-lg-3">
 						<div class="card p-0">
 							<div class="stat-widget-three">
-								<div style="cursor: pointer;" onclick=location.href=
-									"/population/area.action" class="stat-icon bg-primary">
+								<div style="cursor: pointer;" onclick=location.href="/population/area.action" class="stat-icon bg-primary">
 									<i class="ti-user"></i>
 								</div>
 								<div class="stat-content">
@@ -99,8 +98,7 @@
 					<div class="col-lg-3">
 						<div class="card p-0">
 							<div class="stat-widget-three">
-								<div style="cursor: pointer;" onclick=location.href=
-									"household/chart" class="stat-icon bg-success">
+								<div style="cursor: pointer;" onclick=location.href="household/chart" class="stat-icon bg-success">
 									<i class="ti-user"></i>
 								</div>
 								<div class="stat-content">
@@ -113,8 +111,7 @@
 					<div class="col-lg-3">
 						<div class="card p-0">
 							<div class="stat-widget-three">
-								<div style="cursor: pointer;" onclick=location.href=
-									"gender.action" class="stat-icon bg-warning">
+								<div style="cursor: pointer;" onclick=location.href="gender.action" class="stat-icon bg-warning">
 									<i class="ti-user"></i>
 								</div>
 								<div class="stat-content">
@@ -127,8 +124,7 @@
 					<div class="col-lg-3">
 						<div class="card p-0">
 							<div class="stat-widget-three">
-								<div style="cursor: pointer;" onclick=location.href=
-									"board/list" class="stat-icon bg-danger">
+								<div style="cursor: pointer;" onclick=location.href="board/list" class="stat-icon bg-danger">
 									<i class="ti-map"></i>
 								</div>
 								<div class="stat-content">
@@ -260,30 +256,63 @@
 	
 	<script src="/population/resources/assets/js/lib/chart-js/Chart.bundle.js"></script>
     <script src="/population/resources/assets/js/lib/chart-js/chartjs-init.js"></script>
-	
+
 	<script type="text/javascript">
 		$(function() {
 			var context = $("#myChart");
         
 		
+			
 		var population_data = [];
        	var total_population = [];
        	var year = [];
-       	<c:set var = "prevRegion" value = "" />
+       	 var colors = [
+       		'rgba(255, 99, 132, 1)',
+			'rgba(54, 162, 235, 1)',
+			'rgba(255, 206, 86, 1)',
+			'rgba(75, 192, 192, 1)',
+			'rgba(153, 102, 255, 1)',
+			'rgba(129, 215, 66, 1 )',
+			'rgba(255, 99, 132, 1)',
+			'rgba(54, 162, 235, 1)',
+			'rgba(255, 206, 86, 1)',
+			'rgba(75, 192, 192, 1)',
+			'rgba(153, 102, 255, 1)',
+			'rgba(129, 215, 66, 1)',
+			'rgba(255, 99, 132, 1)',
+			'rgba(54, 162, 235, 1)',
+			'rgba(255, 206, 86, 1)',
+			'rgba(75, 192, 192, 1)',
+			'rgba(153, 102, 255, 1)',
+			'rgba(129, 215, 66, 1)',
+       	];  /* 이중배열을 생각했습니다. */
+       	var color_idx = 0;//수정
+       	<c:set var = "prevRegion" value = "noregion" />
        	<c:forEach var="home" items="${homeList}" varStatus="status">
        		<c:if test="${ home.region != prevRegion }">
-       		<c:set var = "prevRegion" value = "${ home.region }" />
+       			
 	       		<c:if test="${ status.index > 0 }">
-	       		population_data.push({
-		            label: '${ prevRegion }', 
-		            fill: false, 
-		            data: total_population
-		            
-		        });
-	       		total_population = [];
+	       		
+		       		population_data.push({
+			            label: '${ prevRegion }', 
+			            fill: false, 
+			            data: total_population,
+			           
+			            borderColor: colors[color_idx],//수
+			            /* for문?
+			            		for i = 0, i < length(Color), ++1
+			            		*/
+			           	borderWidth: 0.5
+			        });
+		       		color_idx++;//수
+		       		
+	       			total_population = [];
+	       		
+	       		
 	       		</c:if>
+	       		<c:set var = "prevRegion" value = "${ home.region }" />
 	        </c:if>
-       		total_population.push(${ home.population_male + home.population_female });
+	        total_population.push(${ home.population_male + home.population_female });
        		
        		if (!year.includes(${ home.year })) {
        			year.push(${ home.year });
@@ -294,17 +323,21 @@
             label: '${ prevRegion }', //차트 제목
             fill: false, 
             data: total_population,
+            borderColor: 'purple', 
+            borderWidth: 0.5
+            
                 
             
         });
         
         var myChart = new Chart(context, {
             type: 'line', 
+            
             data: { 
                 labels: year,
-                datasets: population_data,
-                
+                datasets:  population_data,
             },
+         
             options: {
                 scales: {
                     yAxes: [
@@ -320,7 +353,7 @@
 		});
             
         </script>
-	 
+
 
 </body>
 

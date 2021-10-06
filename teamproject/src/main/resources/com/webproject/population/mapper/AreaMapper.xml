@@ -7,15 +7,16 @@
   
 <mapper namespace="com.webproject.population.mapper.AreaMapper">
 
- <!--     <select id="selectArea" resultType="areaVO">
-   	select * from team3_population limit 12
-   		 </select> -->
+ 
     
     <select id="selectArea" parameterType="hashmap" resultType="areaVO">
         select * from team3_population
         <where>
         	<if test="sido !=null">
         	sido = #{sido}
+        	</if>
+        	<if test="region !=null">
+        	and region = #{region}
         	</if>
         	<if test="year !=null">
         	and year = #{year}

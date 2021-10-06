@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.webproject.population.service.AreaService;
+import com.webproject.population.vo.SexualityVO;
 import com.webproject.population.vo.areaVO;
 
 @Controller
@@ -23,7 +24,13 @@ public class AreaController {
 	private AreaService service;
 	
 	@RequestMapping(value = "/area.action", method = RequestMethod.GET)
-	public String area(@RequestParam(required=false)String sido,
+	public String area() {
+
+		return "area";
+	}
+	
+	@RequestMapping(value = "/search-area", method = RequestMethod.POST)
+	public String searchArea(@RequestParam(required=false)String sido,
 					   @RequestParam(defaultValue = "-1")int year,
 					   @RequestParam(defaultValue = "-1")int month,
 					   Model model) throws Exception {
@@ -44,12 +51,12 @@ public class AreaController {
 			model.addAttribute("month", month);
 		}
 		
+		 
 		List<areaVO> areaList = service.selectArea(params);	
 		model.addAttribute("areaList", areaList);
 
 		return "area";
-	}
 
 	
-
+	}
 }
